@@ -41,6 +41,7 @@ alias ggl = git pull
 alias gp = git push
 alias grv = git remote -v
 alias gst = git status
+alias gwipe = git reset --hard; git clean --force -df
 alias l = ls -a
 alias ld = lazydocker
 alias lg = lazygit
