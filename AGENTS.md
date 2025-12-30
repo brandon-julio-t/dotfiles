@@ -9,6 +9,7 @@
 | Shell setup                   | `~/Library/Application Support/nushell/config.nu`     |
 | AI editor config              | `~/.config/opencode/opencode.json`                    |
 | Agent configuration           | `~/.config/opencode/oh-my-opencode.json`              |
+| Terminal config               | `~/Library/Application Support/com.mitchellh.ghostty/config` |
 | Shell completions             | `~/.local/share/fish/vendor_completions.d/`           |
 | Completion bridge             | `~/Library/Application Support/carapace/bridges.yaml` |
 
@@ -24,7 +25,8 @@ dotfiles/
 │   └── limactl.fish               # Fish completion for Lima
 └── Library/Application Support/
     ├── nushell/config.nu          # Nushell shell configuration
-    └── carapace/bridges.yaml      # Carapace completion bridge config
+    ├── carapace/bridges.yaml      # Carapace completion bridge config
+    └── com.mitchellh.ghostty/config # Ghostty terminal configuration
 ```
 
 ## Build/Validation Commands
@@ -44,6 +46,10 @@ dotfiles/
 ### YAML Files (bridges.yaml)
 - **Validate YAML syntax:** `yamllint ~/.Library/Application Support/carapace/bridges.yaml` (requires yamllint)
 - **Check YAML syntax:** `python3 -c "import yaml; yaml.safe_load(open('~/.Library/Application Support/carapace/bridges.yaml'))"`
+
+### Ghostty Config (config)
+- **Validate syntax:** Ghostty will report errors on startup if the config is invalid
+- **Check config location:** Verify symlink with `ls -la ~/Library/Application\ Support/com.mitchellh.ghostty/config`
 
 ## Code Style Guidelines
 
@@ -110,6 +116,10 @@ ln -sf "$(pwd)/.config/opencode/oh-my-opencode.json" ~/.config/opencode/oh-my-op
 mkdir -p ~/Library/Application\ Support/nushell
 ln -sf "$(pwd)/Library/Application Support/nushell/config.nu" ~/Library/Application\ Support/nushell/config.nu
 
+# Ghostty configuration
+mkdir -p ~/Library/Application\ Support/com.mitchellh.ghostty
+ln -sf "$(pwd)/Library/Application Support/com.mitchellh.ghostty/config" ~/Library/Application\ Support/com.mitchellh.ghostty/config
+
 # Carapace configuration
 mkdir -p ~/Library/Application\ Support/carapace
 ln -sf "$(pwd)/Library/Application Support/carapace/bridges.yaml" ~/Library/Application\ Support/carapace/bridges.yaml
@@ -131,6 +141,7 @@ After making changes:
 
 - **macOS paths**: Uses `~/Library/Application Support/` for app configs
 - **XDG compliant**: Fish completions at `~/.local/share/fish/vendor_completions.d/`
+- **Terminal configs**: Ghostty at `~/Library/Application Support/com.mitchellh.ghostty/`
 - **Nushell modules**: Each tool (starship, mise, zoxide, carapace, yazi) gets its own autoload file
 - **Version reference**: Nushell config documents version 0.109.1
 

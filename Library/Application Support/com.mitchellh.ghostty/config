@@ -1,0 +1,21 @@
+theme = Vercel
+font-family = "SF Mono"
+font-size = 12
+
+command = /opt/homebrew/bin/nu -l
+shell-integration-features = ssh-terminfo,ssh-env
+cursor-style = bar
+cursor-style-blink = false
+cursor-color = #2b7fff
+adjust-cursor-thickness = 3
+
+maximize = true
+unfocused-split-opacity = 0.9
+background-opacity = 0.9
+background-blur = true
+
+macos-window-buttons = hidden
+macos-titlebar-proxy-icon = hidden
+
+auto-update = download
+auto-update-channel = tip
