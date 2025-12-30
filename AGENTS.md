@@ -1,37 +1,131 @@
-# DOTFILES KNOWLEDGE BASE
+# AGENTS.md - Dotfiles Development Guidelines
 
-**Generated:** 2025-12-30 14:54
-**Commit:** a9828ce
-**Branch:** main
+**Purpose:** Personal macOS development environment configs (Nushell, OpenCode AI editor, container tooling).
 
-## OVERVIEW
+## WHERE TO LOOK
 
-Personal development environment configs for AI-assisted coding workflow. Minimal setup focused on Nushell shell, OpenCode AI editor, and container tooling (Colima/Lima).
+| Task                          | Location                                              |
+|-------------------------------|-------------------------------------------------------|
+| Shell setup                   | `~/Library/Application Support/nushell/config.nu`     |
+| AI editor config              | `~/.config/opencode/opencode.json`                    |
+| Agent configuration           | `~/.config/opencode/oh-my-opencode.json`              |
+| Shell completions             | `~/.local/share/fish/vendor_completions.d/`           |
+| Completion bridge             | `~/Library/Application Support/carapace/bridges.yaml` |
 
-## STRUCTURE
+## Repository Structure
 
 ```
 dotfiles/
 ├── .config/opencode/
-│   ├── opencode.json              # OpenCode AI editor main config
-│   └── oh-my-opencode.json        # Oh-My-OpenCode agent configuration
-├── .local/share/fish/vendor_completions.d/  # Fish shell completions
-│   ├── colima.fish                     # Colima container runtime
-│   └── limactl.fish                    # Lima VM manager
-└── Library/Application Support/        # macOS app support paths
-    ├── nushell/config.nu               # Nushell shell config
-    └── carapace/bridges.yaml           # Carapace completion bridge
+│   ├── opencode.json              # OpenCode AI editor configuration
+│   └── oh-my-opencode.json        # Oh-My-OpenCode agent settings
+├── .local/share/fish/vendor_completions.d/
+│   ├── colima.fish                # Fish completion for Colima
+│   └── limactl.fish               # Fish completion for Lima
+└── Library/Application Support/
+    ├── nushell/config.nu          # Nushell shell configuration
+    └── carapace/bridges.yaml      # Carapace completion bridge config
 ```
 
-## WHERE TO LOOK
+## Build/Validation Commands
 
-| Task              | Location                                              |
-| ----------------- | ----------------------------------------------------- |
-| Shell setup       | `~/Library/Application Support/nushell/config.nu`     |
-| AI editor config  | `~/.config/opencode/opencode.json`                    |
-| Agent config      | `~/.config/opencode/oh-my-opencode.json`              |
-| Shell completions | `~/.local/share/fish/vendor_completions.d/`           |
-| Completion bridge | `~/Library/Application Support/carapace/bridges.yaml` |
+### JSON Files (opencode.json)
+- **Validate JSON syntax:** `cat ~/.config/opencode/opencode.json | jq empty && echo "Valid JSON"`
+- **Format JSON:** `jq . ~/.config/opencode/opencode.json > tmp.json && mv tmp.json ~/.config/opencode/opencode.json`
+
+### Nushell Config (config.nu)
+- **Check for syntax errors:** `nu -c "source ~/.config/nushell/config.nu"`
+- **Validate module loading:** `nu -c "ls ($nu.data-dir | path join 'vendor/autoload/*.nu') | each { |f| nu -c \$'source ($f.path)' }"`
+
+### Fish Completions (colima.fish, limactl.fish)
+- **Lint Fish syntax:** `fish -n ~/.local/share/fish/vendor_completions.d/colima.fish`
+- **Check completion loading:** `fish -c "complete -C 'colima '"`
+
+### YAML Files (bridges.yaml)
+- **Validate YAML syntax:** `yamllint ~/.Library/Application Support/carapace/bridges.yaml` (requires yamllint)
+- **Check YAML syntax:** `python3 -c "import yaml; yaml.safe_load(open('~/.Library/Application Support/carapace/bridges.yaml'))"`
+
+## Code Style Guidelines
+
+### General Principles
+- Keep configurations minimal and focused
+- Use comments to document non-obvious settings
+- Prefer explicit over implicit configurations
+- Mirror actual home directory paths (use ~ where appropriate)
+
+### Nushell (config.nu)
+- **Naming:** Lowercase with underscores for variables, hyphens for command names
+- **Comments:** Use `#` for comments; include headers for major sections
+- **Spacing:** Single space after `#` in comments
+- **Line length:** Wrap at 100 characters where reasonable
+- **Aliases:** Single-letter aliases for frequently used commands (e.g., `g` for git, `n` for npm)
+- **Path handling:** Use `path join` for constructing paths, avoid hardcoded separators
+
+Example:
+```nushell
+# Environment setup
+$env.path ++= [
+    "/opt/homebrew/bin",
+    "~/.amp/bin",
+    "~/.local/bin"
+]
+
+# Create the vendor directory if it doesn't exist
+mkdir ($nu.data-dir | path join "vendor/autoload")
+```
+
+### JSON (opencode.json)
+- **Formatting:** 2-space indentation, sorted keys
+- **Naming:** camelCase for keys
+- **Comments:** Not supported in JSON; use descriptive key names instead
+- **Schema:** Include `$schema` for configuration files when available
+
+### Fish Completions (*.fish)
+- **Naming:** Prefix private functions with `__<program>_` (e.g., `__colima_debug`)
+- **Comments:** Use `#` with a space after; describe function purpose
+- **Functions:** Define helper functions before they're used
+- **Error handling:** Use `2> /dev/null` to suppress expected errors in completions
+- **Debugging:** Include debug functions (`__<program>_debug`) that write to `$BASH_COMP_DEBUG_FILE`
+
+### YAML (bridges.yaml)
+- **Formatting:** 2-space indentation, no trailing spaces
+- **Comments:** Use `#` for comments
+- **Structure:** Simple key-value pairs, avoid complex nesting
+
+## Deployment
+
+This repo mirrors actual home directory locations. Symlink files to enable automatic updates across devices.
+
+### Symlink Installation
+
+Run from the dotfiles repository root:
+
+```bash
+# OpenCode configuration
+mkdir -p ~/.config/opencode
+ln -sf "$(pwd)/.config/opencode/opencode.json" ~/.config/opencode/opencode.json
+ln -sf "$(pwd)/.config/opencode/oh-my-opencode.json" ~/.config/opencode/oh-my-opencode.json
+
+# Nushell configuration
+mkdir -p ~/Library/Application\ Support/nushell
+ln -sf "$(pwd)/Library/Application Support/nushell/config.nu" ~/Library/Application\ Support/nushell/config.nu
+
+# Carapace configuration
+mkdir -p ~/Library/Application\ Support/carapace
+ln -sf "$(pwd)/Library/Application Support/carapace/bridges.yaml" ~/Library/Application\ Support/carapace/bridges.yaml
+
+# Fish shell completions
+mkdir -p ~/.local/share/fish/vendor_completions.d
+ln -sf "$(pwd)/.local/share/fish/vendor_completions.d/colima.fish" ~/.local/share/fish/vendor_completions.d/colima.fish
+ln -sf "$(pwd)/.local/share/fish/vendor_completions.d/limactl.fish" ~/.local/share/fish/vendor_completions.d/limactl.fish
+```
+
+### Update Workflow
+
+After making changes:
+1. Commit and push from the dotfiles repo
+2. On other machines: `cd /path/to/dotfiles && git pull`
+3. Changes apply immediately (symlinks point to repo files)
 
 ## CONVENTIONS
 
@@ -43,36 +137,12 @@ dotfiles/
 ## ANTI-PATTERNS (THIS PROJECT)
 
 - **No traditional dotfiles**: No .bashrc, .zshrc, .gitconfig, .vimrc
-- **No automation**: No symlink scripts, Makefile, or bootstrap mechanism
-- **No documentation**: No README, no setup instructions
 - **Hardcoded paths**: `/opt/homebrew/bin`, `~/.amp/bin`, `~/.local/bin`
+- **No symlink automation**: Manual `ln -sf` commands only
 
-## DEPENDENCIES
+## Important Notes
 
-Required tools for full functionality:
-
-- Nushell 0.109.1+
-- Starship prompt
-- Mise version manager
-- Zoxide smart cd
-- Carapace completion bridge
-- Yazi file manager
-- OpenCode AI editor
-- Colima + Lima (container/VM)
-- Fish shell (for completions)
-
-## SYMLINK STRUCTURE
-
-This repo mirrors actual home locations:
-
-- `~/Library/Application Support/nushell/config.nu` → `dotfiles/Library/Application Support/nushell/config.nu`
-- `~/Library/Application Support/carapace/bridges.yaml` → `dotfiles/Library/Application Support/carapace/bridges.yaml`
-- `~/.config/opencode/opencode.json` → `dotfiles/.config/opencode/opencode.json`
-- `~/.config/opencode/oh-my-opencode.json` → `dotfiles/.config/opencode/oh-my-opencode.json`
-- `~/.local/share/fish/vendor_completions.d/*` → `dotfiles/.local/share/fish/vendor_completions.d/`
-
-## NOTES
-
-- Manual symlink or copy required for deployment
-- 1 commit only - fresh repository
-- No version compatibility checks for Nushell upgrades
+- No traditional build system (Makefile, npm scripts, etc.)
+- No automated tests or CI/CD
+- All configurations are manually maintained
+- Nushell version reference: 0.109.1
