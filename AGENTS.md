@@ -12,7 +12,9 @@ Personal development environment configs for AI-assisted coding workflow. Minima
 
 ```
 dotfiles/
-├── .config/opencode/opencode.json      # OpenCode AI editor
+├── .config/opencode/
+│   ├── opencode.json              # OpenCode AI editor main config
+│   └── oh-my-opencode.json        # Oh-My-OpenCode agent configuration
 ├── .local/share/fish/vendor_completions.d/  # Fish shell completions
 │   ├── colima.fish                     # Colima container runtime
 │   └── limactl.fish                    # Lima VM manager
@@ -27,6 +29,7 @@ dotfiles/
 | ----------------- | ----------------------------------------------------- |
 | Shell setup       | `~/Library/Application Support/nushell/config.nu`     |
 | AI editor config  | `~/.config/opencode/opencode.json`                    |
+| Agent config      | `~/.config/opencode/oh-my-opencode.json`              |
 | Shell completions | `~/.local/share/fish/vendor_completions.d/`           |
 | Completion bridge | `~/Library/Application Support/carapace/bridges.yaml` |
 
@@ -65,6 +68,7 @@ This repo mirrors actual home locations:
 - `~/Library/Application Support/nushell/config.nu` → `dotfiles/Library/Application Support/nushell/config.nu`
 - `~/Library/Application Support/carapace/bridges.yaml` → `dotfiles/Library/Application Support/carapace/bridges.yaml`
 - `~/.config/opencode/opencode.json` → `dotfiles/.config/opencode/opencode.json`
+- `~/.config/opencode/oh-my-opencode.json` → `dotfiles/.config/opencode/oh-my-opencode.json`
 - `~/.local/share/fish/vendor_completions.d/*` → `dotfiles/.local/share/fish/vendor_completions.d/`
 
 ## NOTES
