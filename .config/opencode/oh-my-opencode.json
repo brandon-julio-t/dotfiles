@@ -5,6 +5,9 @@
     "Sisyphus": {
       "model": "opencode/minimax-m2.1-free"
     },
+    "Planner-Sisyphus": {
+      "model": "opencode/minimax-m2.1-free"
+    },
     "librarian": {
       "model": "opencode/minimax-m2.1-free"
     },
