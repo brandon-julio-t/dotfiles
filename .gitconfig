@@ -1,0 +1,10 @@
+[user]
+	name = Brandon Julio Thenaro
+	email = brandon.julio.t@icloud.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[rebase]
+	updateRefs = true

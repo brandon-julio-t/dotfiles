@@ -6,6 +6,8 @@
 
 | Task                          | Location                                              |
 |-------------------------------|-------------------------------------------------------|
+| Zsh setup                     | `~/.zshrc`                                            |
+| Git configuration             | `~/.gitconfig`                                         |
 | Shell setup                   | `~/Library/Application Support/nushell/config.nu`     |
 | AI editor config              | `~/.config/opencode/opencode.json`                    |
 | Agent configuration           | `~/.config/opencode/oh-my-opencode.json`              |
@@ -23,10 +25,12 @@ dotfiles/
 ├── .local/share/fish/vendor_completions.d/
 │   ├── colima.fish                # Fish completion for Colima
 │   └── limactl.fish               # Fish completion for Lima
-└── Library/Application Support/
-    ├── nushell/config.nu          # Nushell shell configuration
-    ├── carapace/bridges.yaml      # Carapace completion bridge config
-    └── com.mitchellh.ghostty/config # Ghostty terminal configuration
+├── Library/Application Support/
+│   ├── nushell/config.nu          # Nushell shell configuration
+│   ├── carapace/bridges.yaml      # Carapace completion bridge config
+│   └── com.mitchellh.ghostty/config # Ghostty terminal configuration
+├── .zshrc                         # Zsh configuration
+└── .gitconfig                     # Git configuration
 ```
 
 ## Build/Validation Commands
@@ -128,6 +132,12 @@ ln -sf "$(pwd)/Library/Application Support/carapace/bridges.yaml" ~/Library/Appl
 mkdir -p ~/.local/share/fish/vendor_completions.d
 ln -sf "$(pwd)/.local/share/fish/vendor_completions.d/colima.fish" ~/.local/share/fish/vendor_completions.d/colima.fish
 ln -sf "$(pwd)/.local/share/fish/vendor_completions.d/limactl.fish" ~/.local/share/fish/vendor_completions.d/limactl.fish
+
+# Zsh configuration
+ln -sf "$(pwd)/.zshrc" ~/.zshrc
+
+# Git configuration
+ln -sf "$(pwd)/.gitconfig" ~/.gitconfig
 ```
 
 ### Update Workflow
@@ -147,7 +157,7 @@ After making changes:
 
 ## ANTI-PATTERNS (THIS PROJECT)
 
-- **No traditional dotfiles**: No .bashrc, .zshrc, .gitconfig, .vimrc
+- **No traditional dotfiles**: No .bashrc, .vimrc
 - **Hardcoded paths**: `/opt/homebrew/bin`, `~/.amp/bin`, `~/.local/bin`
 - **No symlink automation**: Manual `ln -sf` commands only
 
