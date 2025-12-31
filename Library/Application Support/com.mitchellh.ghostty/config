@@ -12,7 +12,7 @@ cursor-style = bar
 cursor-style-blink = false
 cursor-color = #2b7fff
 adjust-cursor-thickness = 3
-custom-shader = ~/.config/ghostty/shaders/cursor_tail.glsl
+custom-shader = ~/.config/ghostty/shaders/cursor_warp.glsl
 
 maximize = true
 unfocused-split-opacity = 0.9
