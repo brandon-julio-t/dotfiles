@@ -12,7 +12,6 @@
 | AI editor config    | `~/.config/opencode/opencode.json`                           |
 | Agent configuration | `~/.config/opencode/oh-my-opencode.json`                     |
 | Terminal config     | `~/Library/Application Support/com.mitchellh.ghostty/config` |
-| Terminal shaders    | `~/.config/ghostty/shaders/`                                 |
 | Shell completions   | `~/.local/share/fish/vendor_completions.d/`                  |
 | Completion bridge   | `~/Library/Application Support/carapace/bridges.yaml`        |
 
@@ -24,9 +23,6 @@ dotfiles/
 │   ├── opencode/
 │   │   ├── opencode.json              # OpenCode AI editor configuration
 │   │   └── oh-my-opencode.json        # Oh-My-OpenCode agent settings
-│   └── ghostty/
-│       └── shaders/
-│           └── cursor_tail.glsl        # Ghostty cursor tail shader
 ├── .local/share/fish/vendor_completions.d/
 │   ├── colima.fish                # Fish completion for Colima
 │   └── limactl.fish               # Fish completion for Lima
@@ -131,10 +127,6 @@ Run from the dotfiles repository root:
 mkdir -p ~/.config/opencode
 ln -sf "$(pwd)/.config/opencode/opencode.json" ~/.config/opencode/opencode.json
 ln -sf "$(pwd)/.config/opencode/oh-my-opencode.json" ~/.config/opencode/oh-my-opencode.json
-
-# Ghostty shaders
-mkdir -p ~/.config/ghostty
-ln -sf "$(pwd)/.config/ghostty/shaders" ~/.config/ghostty/shaders
 
 # Nushell configuration
 mkdir -p ~/Library/Application\ Support/nushell
