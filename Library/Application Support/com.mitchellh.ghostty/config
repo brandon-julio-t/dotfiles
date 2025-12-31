@@ -1,6 +1,7 @@
 theme = Vercel
 font-family = "SF Mono"
 font-size = 12
+adjust-cell-height=1
 
 command = /opt/homebrew/bin/nu -l
 shell-integration-features = ssh-terminfo,ssh-env
@@ -11,7 +12,7 @@ adjust-cursor-thickness = 3
 
 maximize = true
 unfocused-split-opacity = 0.9
-background-opacity = 0.9
+background-opacity = 0.85
 background-blur = true
 
 macos-window-buttons = hidden
