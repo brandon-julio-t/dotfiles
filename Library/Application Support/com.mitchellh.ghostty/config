@@ -7,12 +7,12 @@ adjust-cell-height=1
 env = TERM=xterm-256color
 
 command = /opt/homebrew/bin/nu
-shell-integration-features = ssh-terminfo,ssh-env
+shell-integration-features = ssh-terminfo,ssh-env,title,sudo,cursor
 cursor-style = bar
 cursor-style-blink = false
 cursor-color = #2b7fff
 adjust-cursor-thickness = 3
-custom-shader = ~/.config/ghostty/shaders/cursor_warp.glsl
+custom-shader = ~/repos/ghostty-cursor-shaders/cursor_warp.glsl
 
 maximize = true
 unfocused-split-opacity = 0.9

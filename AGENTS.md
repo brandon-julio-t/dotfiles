@@ -4,17 +4,17 @@
 
 ## WHERE TO LOOK
 
-| Task                          | Location                                              |
-|-------------------------------|-------------------------------------------------------|
-| Zsh setup                     | `~/.zshrc`                                            |
-| Git configuration             | `~/.gitconfig`                                         |
-| Shell setup                   | `~/Library/Application Support/nushell/config.nu`     |
-| AI editor config              | `~/.config/opencode/opencode.json`                    |
-| Agent configuration           | `~/.config/opencode/oh-my-opencode.json`              |
-| Terminal config               | `~/Library/Application Support/com.mitchellh.ghostty/config` |
-| Terminal shaders              | `~/.config/ghostty/shaders/`                          |
-| Shell completions             | `~/.local/share/fish/vendor_completions.d/`           |
-| Completion bridge             | `~/Library/Application Support/carapace/bridges.yaml` |
+| Task                | Location                                                     |
+| ------------------- | ------------------------------------------------------------ |
+| Zsh setup           | `~/.zshrc`                                                   |
+| Git configuration   | `~/.gitconfig`                                               |
+| Shell setup         | `~/Library/Application Support/nushell/config.nu`            |
+| AI editor config    | `~/.config/opencode/opencode.json`                           |
+| Agent configuration | `~/.config/opencode/oh-my-opencode.json`                     |
+| Terminal config     | `~/Library/Application Support/com.mitchellh.ghostty/config` |
+| Terminal shaders    | `~/.config/ghostty/shaders/`                                 |
+| Shell completions   | `~/.local/share/fish/vendor_completions.d/`                  |
+| Completion bridge   | `~/Library/Application Support/carapace/bridges.yaml`        |
 
 ## Repository Structure
 
@@ -41,34 +41,41 @@ dotfiles/
 ## Build/Validation Commands
 
 ### JSON Files (opencode.json)
+
 - **Validate JSON syntax:** `cat ~/.config/opencode/opencode.json | jq empty && echo "Valid JSON"`
 - **Format JSON:** `jq . ~/.config/opencode/opencode.json > tmp.json && mv tmp.json ~/.config/opencode/opencode.json`
 
 ### Nushell Config (config.nu)
+
 - **Check for syntax errors:** `nu -c "source ~/.config/nushell/config.nu"`
 - **Validate module loading:** `nu -c "ls ($nu.data-dir | path join 'vendor/autoload/*.nu') | each { |f| nu -c \$'source ($f.path)' }"`
 
 ### Fish Completions (colima.fish, limactl.fish)
+
 - **Lint Fish syntax:** `fish -n ~/.local/share/fish/vendor_completions.d/colima.fish`
 - **Check completion loading:** `fish -c "complete -C 'colima '"`
 
 ### YAML Files (bridges.yaml)
+
 - **Validate YAML syntax:** `yamllint ~/.Library/Application Support/carapace/bridges.yaml` (requires yamllint)
 - **Check YAML syntax:** `python3 -c "import yaml; yaml.safe_load(open('~/.Library/Application Support/carapace/bridges.yaml'))"`
 
 ### Ghostty Config (config)
+
 - **Validate syntax:** Ghostty will report errors on startup if the config is invalid
 - **Check config location:** Verify symlink with `ls -la ~/Library/Application\ Support/com.mitchellh.ghostty/config`
 
 ## Code Style Guidelines
 
 ### General Principles
+
 - Keep configurations minimal and focused
 - Use comments to document non-obvious settings
 - Prefer explicit over implicit configurations
 - Mirror actual home directory paths (use ~ where appropriate)
 
 ### Nushell (config.nu)
+
 - **Naming:** Lowercase with underscores for variables, hyphens for command names
 - **Comments:** Use `#` for comments; include headers for major sections
 - **Spacing:** Single space after `#` in comments
@@ -77,6 +84,7 @@ dotfiles/
 - **Path handling:** Use `path join` for constructing paths, avoid hardcoded separators
 
 Example:
+
 ```nushell
 # Environment setup
 $env.path ++= [
@@ -90,12 +98,14 @@ mkdir ($nu.data-dir | path join "vendor/autoload")
 ```
 
 ### JSON (opencode.json)
+
 - **Formatting:** 2-space indentation, sorted keys
 - **Naming:** camelCase for keys
 - **Comments:** Not supported in JSON; use descriptive key names instead
 - **Schema:** Include `$schema` for configuration files when available
 
-### Fish Completions (*.fish)
+### Fish Completions (\*.fish)
+
 - **Naming:** Prefix private functions with `__<program>_` (e.g., `__colima_debug`)
 - **Comments:** Use `#` with a space after; describe function purpose
 - **Functions:** Define helper functions before they're used
@@ -103,6 +113,7 @@ mkdir ($nu.data-dir | path join "vendor/autoload")
 - **Debugging:** Include debug functions (`__<program>_debug`) that write to `$BASH_COMP_DEBUG_FILE`
 
 ### YAML (bridges.yaml)
+
 - **Formatting:** 2-space indentation, no trailing spaces
 - **Comments:** Use `#` for comments
 - **Structure:** Simple key-value pairs, avoid complex nesting
@@ -152,6 +163,7 @@ ln -sf "$(pwd)/.gitconfig" ~/.gitconfig
 ### Update Workflow
 
 After making changes:
+
 1. Commit and push from the dotfiles repo
 2. On other machines: `cd /path/to/dotfiles && git pull`
 3. Changes apply immediately (symlinks point to repo files)
