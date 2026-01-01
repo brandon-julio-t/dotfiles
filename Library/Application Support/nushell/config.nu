@@ -42,7 +42,6 @@ alias ggl = git pull
 alias gp = git push
 alias grv = git remote -v
 alias gst = git status
-alias gwipe = git reset --hard; git clean --force -df
 alias l = ls -a
 alias ld = lazydocker
 alias lg = lazygit
@@ -51,6 +50,11 @@ alias m = mise
 alias n = npm
 alias oc = opencode
 alias p = pnpm
+
+def gwipe [] {
+  ^git reset --hard
+  ^git clean --force -df
+}
 
 # Create the vendor directory if it doesn't exist
 mkdir ($nu.data-dir | path join "vendor/autoload")
@@ -68,14 +72,3 @@ zoxide init nushell | save -f ($nu.data-dir | path join "vendor/autoload/zoxide.
 # Carapace
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
 carapace _carapace nushell | save -f ($nu.data-dir | path join "vendor/autoload/carapace.nu")
-
-# Yazi
-def --env y [...args] {
-	let tmp = (mktemp -t "yazi-cwd.XXXXXX")
-	^yazi ...$args --cwd-file $tmp
-	let cwd = (open $tmp)
-	if $cwd != "" and $cwd != $env.PWD {
-		cd $cwd
-	}
-	rm -fp $tmp
-}
