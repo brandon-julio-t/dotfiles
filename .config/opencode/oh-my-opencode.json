@@ -26,5 +26,6 @@
     "multimodal-looker": {
       "model": "opencode/minimax-m2.1-free"
     }
-  }
+  },
+  "disabled_hooks": ["anthropic-context-window-limit-recovery"]
 }
