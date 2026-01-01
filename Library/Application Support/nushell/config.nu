@@ -20,17 +20,18 @@
 $env.path ++= [
     "/opt/homebrew/bin",
     "~/.amp/bin",
-    "~/.local/bin"
+    "~/.local/bin",
+    "/usr/local/bin"
 ]
 
-$env.config.buffer_editor = "open"
+$env.config.buffer_editor = "nvim"
 
-$env.EDITOR = 'nano'
+$env.EDITOR = 'nvim'
 
 alias b = bun
 alias bx = bunx
 alias c = cursor
-alias cat = bat
+alias cat = bat --theme "Catppuccin Mocha"
 alias cl = clear
 alias code = cursor
 alias d = docker
