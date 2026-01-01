@@ -50,7 +50,7 @@ alias m = mise
 alias n = npm
 alias oc = opencode
 alias p = pnpm
-alias ssh = TERM=xterm-256color ssh
+alias ssh = TERM=xterm-256color ssh # workaround for ghostty nushell ssh problem for now https://github.com/ghostty-org/ghostty/issues/7877
 
 def gwipe [] {
   ^git reset --hard
