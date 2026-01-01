@@ -50,6 +50,7 @@ alias m = mise
 alias n = npm
 alias oc = opencode
 alias p = pnpm
+alias ssh = TERM=xterm-256color ssh
 
 def gwipe [] {
   ^git reset --hard
