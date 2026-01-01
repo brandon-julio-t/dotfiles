@@ -53,8 +53,8 @@ alias p = pnpm
 alias ssh = TERM=xterm-256color ssh # workaround for ghostty nushell ssh problem for now https://github.com/ghostty-org/ghostty/issues/7877
 
 def gwipe [] {
-  ^git reset --hard
-  ^git clean --force -df
+  ^git reset --hard HEAD
+  ^git clean -fd
 }
 
 # Create the vendor directory if it doesn't exist
