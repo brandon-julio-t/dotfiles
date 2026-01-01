@@ -13,8 +13,6 @@ custom-shader = ~/repos/ghostty-cursor-shaders/cursor_warp.glsl
 
 maximize = true
 unfocused-split-opacity = 0.9
-background-opacity = 0.85
-background-blur = true
 
 macos-window-buttons = hidden
 macos-titlebar-proxy-icon = hidden
