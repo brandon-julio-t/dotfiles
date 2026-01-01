@@ -73,3 +73,7 @@ zoxide init nushell | save -f ($nu.data-dir | path join "vendor/autoload/zoxide.
 # Carapace
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
 carapace _carapace nushell | save -f ($nu.data-dir | path join "vendor/autoload/carapace.nu")
+
+# Atuin
+atuin init nu | save -f ($nu.data-dir | path join "vendor/autoload/atuin.nu")
+atuin gen-completions --shell nushell | save -f ($nu.data-dir | path join "vendor/autoload/atuin-completions.nu")
