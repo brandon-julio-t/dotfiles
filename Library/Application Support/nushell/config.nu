@@ -24,9 +24,9 @@ $env.path ++= [
     "/usr/local/bin"
 ]
 
-$env.config.buffer_editor = "nvim"
+$env.config.buffer_editor = "zed"
 
-$env.EDITOR = 'nvim'
+$env.EDITOR = 'zed'
 
 alias b = bun
 alias bx = bunx
