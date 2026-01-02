@@ -58,8 +58,8 @@ def ssh [...args] {
 }
 
 def gwipe [] {
-  ^git reset --hard HEAD
-  ^git clean -fd
+  git reset --hard HEAD
+  git clean -fd
 }
 
 # Create the vendor directory if it doesn't exist
@@ -70,7 +70,7 @@ starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.n
 starship preset no-nerd-font -o ~/.config/starship.toml
 
 # Mise
-^mise activate nu | save -f ($nu.data-dir | path join "vendor/autoload/mise.nu")
+mise activate nu | save -f ($nu.data-dir | path join "vendor/autoload/mise.nu")
 
 # Zoxide
 zoxide init nushell | save -f ($nu.data-dir | path join "vendor/autoload/zoxide.nu")
