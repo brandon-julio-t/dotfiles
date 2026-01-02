@@ -67,7 +67,6 @@ mkdir ($nu.data-dir | path join "vendor/autoload")
 
 # Starship
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
-starship preset no-nerd-font -o ~/.config/starship.toml
 
 # Mise
 mise activate nu | save -f ($nu.data-dir | path join "vendor/autoload/mise.nu")
