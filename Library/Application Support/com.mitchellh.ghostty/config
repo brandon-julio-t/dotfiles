@@ -1,7 +1,7 @@
 theme = Cursor Dark
 font-family = SF Mono
 font-size = 12
-adjust-cell-height=1
+adjust-cell-height = 1
 
 command = /opt/homebrew/bin/nu
 shell-integration-features = ssh-terminfo,ssh-env,title,sudo,cursor
