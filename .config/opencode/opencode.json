@@ -11,6 +11,10 @@
     "chrome-devtools": {
       "type": "local",
       "command": ["npx", "-y", "chrome-devtools-mcp@latest"]
+    },
+    "Notion": {
+      "type": "remote",
+      "url": "https://mcp.notion.com/mcp"
     }
   },
   "plugin": [
