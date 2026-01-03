@@ -2,6 +2,15 @@
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
   "google_auth": false,
   "agents": {
+    "build": {
+      "model": "opencode/minimax-m2.1-free"
+    },
+    "OpenCode-Builder": {
+      "model": "opencode/minimax-m2.1-free"
+    },
+    "plan": {
+      "model": "opencode/minimax-m2.1-free"
+    },
     "Sisyphus": {
       "model": "opencode/minimax-m2.1-free"
     },
@@ -14,10 +23,10 @@
     "explore": {
       "model": "opencode/minimax-m2.1-free"
     },
-    "oracle": {
+    "frontend-ui-ux-engineer": {
       "model": "opencode/minimax-m2.1-free"
     },
-    "frontend-ui-ux-engineer": {
+    "oracle": {
       "model": "opencode/minimax-m2.1-free"
     },
     "document-writer": {
