@@ -1,4 +1,4 @@
-theme = Cursor Dark
+theme = Catppuccin Mocha
 font-family = SF Mono
 font-size = 12
 
@@ -6,7 +6,6 @@ command = /opt/homebrew/bin/nu
 shell-integration-features = ssh-terminfo,ssh-env,title,sudo,cursor
 cursor-style = bar
 cursor-style-blink = false
-cursor-color = #2b7fff
 adjust-cursor-thickness = 3
 custom-shader = ~/.config/ghostty/shaders/cursor_blaze.glsl
 
