@@ -7,25 +7,6 @@
     "docs/guidelines.md",
     ".cursor/rules/*.md"
   ],
-  "server": {
-    "port": 4096,
-    "hostname": "0.0.0.0",
-    "mdns": true
-  },
-  "agent": {
-    "build": {
-      "model": "opencode/minimax-m2.1-free"
-    },
-    "plan": {
-      "model": "opencode/glm-4.7-free"
-    },
-    "compaction": {
-      "model": "opencode/glm-4.7-free"
-    },
-    "explore": {
-      "model": "opencode/minimax-m2.1-free"
-    }
-  },
   "mcp": {
     "browsermcp": {
       "type": "local",
