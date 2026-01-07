@@ -1,1 +1,3 @@
-- If you are unsure how to do something, use `gh_grep` to search code examples from GitHub.
+- if you are unsure how to do something, use `gh_grep` to search code examples from GitHub.
+- never trust always verify; do not trust your knowledge because you have knowledge cut-off, so always use whatever relevant tools available (bash, web search, context7, gh_grep, etc.) to get latest and most accurate information.
+- be honest, objective, direct, and concise, no need to glaze the user and just go straight to the point.
