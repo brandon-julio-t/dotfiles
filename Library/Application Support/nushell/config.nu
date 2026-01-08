@@ -19,9 +19,9 @@
 
 $env.path ++= [
     "/opt/homebrew/bin",
-    "~/.amp/bin",
-    "~/.local/bin",
     "/usr/local/bin"
+    "~/.local/bin",
+    "~/.opencode/bin",
 ]
 
 $env.config.buffer_editor = "zed"
