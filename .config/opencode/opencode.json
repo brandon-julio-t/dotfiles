@@ -10,11 +10,13 @@
   "mcp": {
     "browsermcp": {
       "type": "local",
-      "command": ["npx", "@browsermcp/mcp@latest"]
+      "command": ["npx", "@browsermcp/mcp@latest"],
+      "enabled": false
     },
     "Notion": {
       "type": "remote",
-      "url": "https://mcp.notion.com/mcp"
+      "url": "https://mcp.notion.com/mcp",
+      "enabled": false
     },
     "context7": {
       "type": "remote",
