@@ -1,12 +1,15 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "theme": "catppuccin",
+  "theme": "opencode",
   "instructions": [
     "CONTRIBUTING.md",
     "CLAUDE.md",
     "docs/guidelines.md",
     ".cursor/rules/*.md"
   ],
+  "server": {
+    "mdns": true
+  },
   "mcp": {
     "browsermcp": {
       "type": "local",
