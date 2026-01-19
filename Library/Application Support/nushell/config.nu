@@ -27,12 +27,13 @@ $env.path ++= [
 $env.config.buffer_editor = "zed"
 
 $env.EDITOR = 'zed'
+$env.OPENCODE_EXPERIMENTAL = 1
 
 alias b = bun
 alias br = bun run
 alias bx = bunx
 alias c = cursor
-alias cat = bat
+alias cat = bat --theme "Catppuccin Mocha"
 alias cl = clear
 alias code = cursor
 alias d = docker
@@ -67,22 +68,29 @@ def gwipe [] {
   git clean -fd
 }
 
+def rmf [dir: path] {
+  let empty = (mktemp -d)
+  ^rsync -a --delete $"($empty)/" $"($dir)/"
+  ^rmdir $dir
+  rm -rf $empty
+}
+
 # Create the vendor directory if it doesn't exist
-mkdir ($nu.data-dir | path join "vendor/autoload")
+# mkdir ($nu.data-dir | path join "vendor/autoload")
 
 # Starship
-starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+# starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 
 # Mise
-mise activate nu | save -f ($nu.data-dir | path join "vendor/autoload/mise.nu")
+# mise activate nu | save -f ($nu.data-dir | path join "vendor/autoload/mise.nu")
 
 # Zoxide
-zoxide init nushell | save -f ($nu.data-dir | path join "vendor/autoload/zoxide.nu")
+# zoxide init nushell | save -f ($nu.data-dir | path join "vendor/autoload/zoxide.nu")
 
 # Carapace
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
-carapace _carapace nushell | save -f ($nu.data-dir | path join "vendor/autoload/carapace.nu")
+# carapace _carapace nushell | save -f ($nu.data-dir | path join "vendor/autoload/carapace.nu")
 
 # Atuin
-atuin init nu | save -f ($nu.data-dir | path join "vendor/autoload/atuin.nu")
-atuin gen-completions --shell nushell | save -f ($nu.data-dir | path join "vendor/autoload/atuin-completions.nu")
+# atuin init nu | save -f ($nu.data-dir | path join "vendor/autoload/atuin.nu")
+# atuin gen-completions --shell nushell | save -f ($nu.data-dir | path join "vendor/autoload/atuin-completions.nu")
