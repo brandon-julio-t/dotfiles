@@ -34,8 +34,6 @@ alias br = bun run
 alias bx = bunx
 alias c = cursor
 alias cat = bat --theme "Catppuccin Mocha"
-alias cl = clear
-alias code = cursor
 alias d = docker
 alias dc = docker-cli-plugin-docker-compose
 alias g = git
@@ -53,8 +51,6 @@ alias l = ls -a
 alias ld = lazydocker
 alias lg = lazygit
 alias lss = lazyssh
-alias m = mise
-alias n = npm
 alias oc = opencode
 alias p = pnpm
 
