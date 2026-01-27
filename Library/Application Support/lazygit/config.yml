@@ -1,6 +1,6 @@
 git:
   pagers:
-    - pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}" --side-by-side --syntax-theme="Catppuccin Mocha"
+    - pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}" --syntax-theme="Catppuccin Mocha"
 
 gui:
   # Use the mocha catppuccin theme
