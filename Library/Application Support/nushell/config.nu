@@ -54,11 +54,6 @@ alias lss = lazyssh
 alias oc = opencode
 alias p = pnpm
 
-def ssh [...args] {
-    # workaround for ghostty nushell ssh problem for now https://github.com/ghostty-org/ghostty/issues/7877
-    TERM=xterm-256color ^ssh ...$args
-}
-
 def gwipe [] {
   git reset --hard HEAD
   git clean -fd

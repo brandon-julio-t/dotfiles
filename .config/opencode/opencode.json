@@ -11,11 +11,6 @@
     "mdns": true
   },
   "mcp": {
-    "browsermcp": {
-      "type": "local",
-      "command": ["npx", "@browsermcp/mcp@latest"],
-      "enabled": false
-    },
     "Notion": {
       "type": "remote",
       "url": "https://mcp.notion.com/mcp",
