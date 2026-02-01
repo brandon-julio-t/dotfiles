@@ -7,6 +7,11 @@
     "docs/guidelines.md",
     ".cursor/rules/*.md"
   ],
+  "tui": {
+    "scroll_acceleration": {
+      "enabled": true
+    }
+  },
   "server": {
     "mdns": true
   },
