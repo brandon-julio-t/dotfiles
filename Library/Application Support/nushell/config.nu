@@ -26,7 +26,7 @@ $env.path ++= [
 
 $env.config.buffer_editor = "zed"
 
-$env.EDITOR = 'zed'
+$env.EDITOR = 'zed --wait'
 $env.OPENCODE_EXPERIMENTAL = 1
 
 alias b = bun
@@ -65,6 +65,8 @@ def rmf [dir: path] {
   ^rmdir $dir
   rm -rf $empty
 }
+
+$env.GPG_TTY = (tty | str trim)
 
 # Create the vendor directory if it doesn't exist
 # mkdir ($nu.data-dir | path join "vendor/autoload")

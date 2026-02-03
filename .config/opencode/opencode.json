@@ -12,9 +12,6 @@
       "enabled": true
     }
   },
-  "server": {
-    "mdns": true
-  },
   "mcp": {
     "Notion": {
       "type": "remote",
