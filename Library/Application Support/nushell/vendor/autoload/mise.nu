@@ -17,10 +17,7 @@ def --env "update-env" [] {
 }
 export-env {
   
-  'set,PATH,/Users/brandonthenaro/Library/Application Support/carapace/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Applications/Ghostty.app/Contents/MacOS:/opt/homebrew/bin:/opt/homebrew/opt/libpq/bin:/usr/local/bin:/Users/brandonthenaro/.local/bin:/Users/brandonthenaro/.opencode/bin:/opt/homebrew/bin:/opt/homebrew/opt/libpq/bin:/usr/local/bin:/Users/brandonthenaro/.local/bin:/Users/brandonthenaro/.opencode/bin
-hide,MISE_SHELL,
-hide,__MISE_DIFF,
-hide,__MISE_DIFF,' | parse vars | update-env
+  '' | parse vars | update-env
   $env.MISE_SHELL = "nu"
   let mise_hook = {
     condition: { "MISE_SHELL" in $env }
