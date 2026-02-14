@@ -19,6 +19,7 @@
 
 $env.path ++= [
     "/opt/homebrew/bin",
+    "/opt/homebrew/opt/libpq/bin",
     "/usr/local/bin"
     "~/.local/bin",
     "~/.opencode/bin",
@@ -66,24 +67,17 @@ def rmf [dir: path] {
   rm -rf $empty
 }
 
-$env.GPG_TTY = (tty | str trim)
-
 # Create the vendor directory if it doesn't exist
-# mkdir ($nu.data-dir | path join "vendor/autoload")
+mkdir ($nu.data-dir | path join "vendor/autoload")
 
 # Starship
-# starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 
 # Mise
-# mise activate nu | save -f ($nu.data-dir | path join "vendor/autoload/mise.nu")
+mise activate nu | save -f ($nu.data-dir | path join "vendor/autoload/mise.nu")
 
 # Zoxide
-# zoxide init nushell | save -f ($nu.data-dir | path join "vendor/autoload/zoxide.nu")
-
-# Carapace
-$env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
-# carapace _carapace nushell | save -f ($nu.data-dir | path join "vendor/autoload/carapace.nu")
+zoxide init nushell | save -f ($nu.data-dir | path join "vendor/autoload/zoxide.nu")
 
 # Atuin
-# atuin init nu | save -f ($nu.data-dir | path join "vendor/autoload/atuin.nu")
-# atuin gen-completions --shell nushell | save -f ($nu.data-dir | path join "vendor/autoload/atuin-completions.nu")
+atuin init nu | save -f ($nu.data-dir | path join "vendor/autoload/atuin.nu")
