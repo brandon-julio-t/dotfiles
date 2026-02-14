@@ -1,112 +1,87 @@
 # AGENTS.md
 
-This file contains guidelines for agentic coding agents working in this dotfiles repository.
+Guidelines for agentic coding agents working in this dotfiles repository.
 
-## Repository Overview
+## Overview
 
-This is a personal dotfiles repository that serves as a backup and version control for machine configuration files. All files in this repository are intended to be symlinked to their corresponding locations in the home directory (`~`).
+Personal dotfiles repository for machine configuration files. All files are symlinked from this repo to `~`.
 
-**Important:** The folder structure is relative to `~`, so:
-- `.zshrc` in this repo → `~/.zshrc`
+**Structure mapping:**
+- `.zshrc` → `~/.zshrc`
 - `.config/opencode/` → `~/.config/opencode/`
 - `Library/Application Support/` → `~/Library/Application Support/`
-
-## Installation/Setup
-
-Files are installed by creating symlinks from the repository to the home directory. This repository does not contain any build scripts, tests, or development tooling - it's purely a configuration backup.
-
-### Creating Symlinks
-
-To symlink a file or directory from this repo to the home directory:
-
-```bash
-# Remove existing file/dir if present
-rm -rf "~/path/to/target"
-
-# Create symlink
-ln -s "$(pwd)/path/in/repo" "~/path/to/target"
-```
 
 ## File Structure
 
 ```
 .
 ├── .config/
-│   ├── opencode/                   # opencode configuration and plugins
-│   │   ├── opencode.json           # Main opencode config
-│   │   └── plugin/                 # Custom opencode plugins
-│   │       ├── notification.js     # Desktop notifications on session complete
-│   │       └── env-protection.js   # Prevents reading .env files
+│   ├── opencode/
+│   │   ├── opencode.json          # Main opencode config
+│   │   └── plugin/
+│   │       ├── notification.js    # Desktop notifications
+│   │       └── env-protection.js  # Prevents reading .env files
 │   └── ghostty/
-│       ├── config                  # Ghostty terminal config
-│       └── shaders/               # Ghostty terminal shaders
-│           └── cursor_blaze.glsl
-├── .local/
-│   └── share/
-│       └── fish/
-│           └── vendor_completions.d/  # Fish shell completions
-├── Library/
-│   └── Application Support/       # macOS application configurations
-│       ├── lazygit/config.yml     # Lazygit UI configuration
-│       ├── nushell/               # Nushell shell configuration
-│       │   ├── config.nu          # Main nushell config
-│       │   └── vendor/autoload/   # Auto-loaded scripts (symlinked)
-│       │       ├── atuin.nu
-│       │       ├── atuin-completions.nu
-│       │       ├── fish.nu
-│       │       ├── mise.nu
-│       │       ├── starship.nu
-│       │       └── zoxide.nu
-│       └── com.mitchellh.ghostty/config  # Ghostty macOS config
-├── .gitconfig                     # Git global configuration
-├── .zshrc                         # Zsh shell configuration
-├── .gitattributes                 # Git LFS configuration
-└── README.md -> AGENTS.md         # Repository documentation
+│       ├── config
+│       └── shaders/cursor_blaze.glsl
+├── .local/share/fish/vendor_completions.d/
+├── Library/Application Support/
+│   ├── lazygit/config.yml
+│   ├── nushell/
+│   │   ├── config.nu
+│   │   └── vendor/autoload/       # Symlinked: atuin.nu, fish.nu, mise.nu, starship.nu, zoxide.nu
+│   └── com.mitchellh.ghostty/config
+├── .gitconfig
+├── .zshrc
+└── README.md -> AGENTS.md
 ```
-
-## Key Configurations
-
-- **Shell**: Zsh with mise activation, Nushell as alternative
-- **Git**: Global git configuration with LFS support
-- **Development Tools**: opencode (AI coding assistant), ghostty (terminal), lazygit (git UI), mise (version manager)
-- **Custom Scripts**: opencode plugins for notifications and environment protection
 
 ## Build/Lint/Test Commands
 
-**This repository contains no build system, tests, or linting.**
+**No build system, tests, or linting exists.** This is a configuration-only repository.
 
-As a dotfiles repository, changes are configuration-only. To "test" changes:
+### Testing Changes
 
-1. **Shell configs** (`.zshrc`, `*.nu`): Source or restart the shell
-   ```bash
-   source ~/.zshrc        # For zsh
-   exec nu                # For nushell (restart)
-   ```
+**Shell configs:**
+```bash
+source ~/.zshrc        # Zsh: reload config
+exec nu                # Nushell: restart shell
+```
 
-2. **Application configs**: Reload or restart the application
+**Syntax validation:**
+```bash
+# Nushell
+nu -c 'source config.nu'
 
-3. **Validate syntax** before committing:
-   - Nushell: `nu -c 'source config.nu'` (or just try to load it)
-   - JavaScript: Use your editor's linting
-   - YAML: Use `yamllint` if available
+# YAML
+yamllint file.yml
+
+# JavaScript - use editor linting
+```
+
+### Running Tests
+
+**Not applicable** - This repository contains no test suite. Changes are validated manually by:
+1. Applying the change
+2. Reloading/restarting the affected application
+3. Verifying expected behavior
 
 ## Code Style Guidelines
 
 ### General Principles
 
-1. **Keep it minimal**: Only include essential configurations
-2. **Comment purpose**: Add comments explaining non-obvious settings
-3. **Version control friendly**: No machine-specific paths or secrets
-4. **Cross-platform aware**: Consider macOS vs Linux differences
+1. **Minimal configs**: Only essential settings
+2. **Comment purpose**: Explain non-obvious choices
+3. **No machine-specific paths**: Use `~` or `$HOME`
+4. **No secrets**: Never commit API keys, tokens, or passwords
 
 ### JavaScript (Opencode Plugins)
 
-- Use ES modules (`export const`)
-- Async/await for asynchronous operations
+- ES modules with `export const`
+- Async/await for async operations
 - Destructure parameters for clarity
-- Keep plugins focused and small
+- Keep plugins focused (single responsibility)
 
-Example:
 ```javascript
 export const PluginName = async ({ project, client, $ }) => {
   return {
@@ -119,97 +94,116 @@ export const PluginName = async ({ project, client, $ }) => {
 
 ### Nushell (.nu files)
 
-- Use 4-space indentation
+- 4-space indentation
 - Prefer `$env.config` over `config` command
-- Group related settings together
-- Use kebab-case for custom commands
-- Quote strings consistently with single quotes
+- Kebab-case for custom commands
+- Single quotes for strings
 
-Example:
 ```nushell
 $env.config.buffer_editor = "zed"
-$env.path ++= [
-    "/opt/homebrew/bin",
-    "~/.local/bin",
-]
+$env.path ++= ["/opt/homebrew/bin", "~/.local/bin"]
 
 alias gst = git status
+
+def rmf [dir: path] {
+  let empty = (mktemp -d)
+  ^rsync -a --delete $"($empty)/" $"($dir)/"
+  ^rmdir $dir
+  rm -rf $empty
+}
 ```
 
-### YAML Configurations
+### YAML
 
-- 2-space indentation
-- No tabs
-- Quote strings when they contain special characters
-- Group related settings under common keys
+- 2-space indentation, no tabs
+- Quote strings with special characters
+- Group related settings
 
-### Naming Conventions
+```yaml
+gui:
+  theme:
+    activeBorderColor:
+      - "#89b4fa"
+      - bold
+```
 
-- **Files**: Use lowercase with hyphens (`env-protection.js`)
-- **Aliases**: Short, memorable abbreviations (`gst` for `git status`)
-- **Environment variables**: UPPER_CASE with underscores (`$env.EDITOR`)
-- **Custom commands**: Descriptive, lowercase with hyphens (`rmf` for "remove force")
+### Shell Scripts (.zshrc)
 
-### Error Handling
+- Use `[[ ]]` for conditionals
+- Quote variables: `"$VAR"`
+- Export environment variables explicitly
 
-- Nushell: Use `try/catch` for operations that might fail
-- JavaScript: Always handle async errors appropriately
-- Shell scripts: Use `set -e` or explicit error checking
+```bash
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='nano'
+fi
 
-### Security Guidelines
+eval "$(~/.local/bin/mise activate zsh)"
+```
 
-- **Never commit secrets**: No API keys, passwords, or tokens
-- **No .env files**: The EnvProtection plugin prevents this
-- **No sensitive paths**: Avoid hardcoding personal directories
-- **Check before committing**: Review all changes for accidental secrets
+## Naming Conventions
+
+| Type | Convention | Example |
+|------|------------|---------|
+| Files | lowercase-hyphens | `env-protection.js` |
+| Aliases | Short, memorable | `gst` = `git status` |
+| Env vars | UPPER_SNAKE_CASE | `$env.EDITOR` |
+| Commands | kebab-case | `rmf`, `gwipe` |
+
+## Error Handling
+
+- **Nushell**: Use `try/catch` for fallible operations
+- **JavaScript**: Handle async errors with try/catch
+- **Shell**: Use `set -e` or explicit checks
+
+## Security
+
+- **No .env files**: EnvProtection plugin blocks reads
+- **No secrets in git**: Review changes before committing
+- **Use placeholders**: Replace personal paths with variables
 
 ## Git Workflow
 
 1. Make configuration changes
-2. Test locally by reloading/sourcing
-3. Commit with descriptive messages:
-   - `nushell: add new alias for git worktree`
+2. Test locally (reload shell/restart app)
+3. Commit with descriptive prefix:
+   - `nushell: add git worktree aliases`
    - `opencode: enable scroll acceleration`
-4. Push to remote for backup
+   - `ghostty: add cursor shader`
+4. Push to backup
 
-## macOS-Specific Notes
+## macOS Notes
 
-- `Library/Application Support/` paths have spaces - always quote them
-- Use `~/Library` shorthand when possible
-- Some configs may need full path: `/Users/$USER/Library/...`
+- Quote paths with spaces: `"Library/Application Support/"`
+- Use `~/Library` shorthand
+- Some apps need full paths: `/Users/$USER/Library/...`
 
-## Testing Configurations
-
-Since there's no automated test suite:
-
-1. **Manual testing**: Apply changes and verify behavior
-2. **Backup first**: Git provides version history
-3. **Incremental changes**: Don't batch too many changes at once
-4. **Document breaking changes**: Update comments if removing/changing significant settings
-
-## Common Tasks
-
-### Adding a new shell alias
-
-Edit `Library/Application Support/nushell/config.nu` or `.zshrc`:
-```nushell
-alias myalias = 'full command here'
-```
-
-### Adding a new opencode plugin
-
-Create file in `.config/opencode/plugin/`:
-```javascript
-export const MyPlugin = async ({ project, client, $ }) => {
-  return {
-    // Plugin hooks
-  };
-};
-```
-
-### Symlinking a new config file
+## Creating Symlinks
 
 ```bash
-# From repo root
-ln -sf "$(pwd)/path/to/file" "$HOME/path/to/file"
+# Remove existing file/dir first
+rm -rf "~/path/to/target"
+
+# Create symlink
+ln -s "$(pwd)/path/in/repo" "~/path/to/target"
 ```
+
+## Adding New Configurations
+
+**Shell alias:**
+```nushell
+# In Library/Application Support/nushell/config.nu
+alias myalias = 'command here'
+```
+
+**Opencode plugin:**
+```javascript
+// In .config/opencode/plugin/my-plugin.js
+export const MyPlugin = async ({ $ }) => ({
+  event: async ({ event }) => { /* logic */ },
+});
+```
+
+## Cursor/Copilot Rules
+
+**None found.** No `.cursorrules`, `.cursor/rules/`, or `.github/copilot-instructions.md` files exist in this repository.
