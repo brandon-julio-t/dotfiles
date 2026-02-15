@@ -29,6 +29,7 @@ $env.config.buffer_editor = "zed"
 
 $env.EDITOR = 'zed --wait'
 $env.OPENCODE_EXPERIMENTAL = 1
+$env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
 
 alias b = bun
 alias br = bun run
@@ -67,17 +68,52 @@ def rmf [dir: path] {
   rm -rf $empty
 }
 
-# Create the vendor directory if it doesn't exist
-mkdir ($nu.data-dir | path join "vendor/autoload")
+def init [] {
+    timeit {
+        # Create the vendor directory if it doesn't exist
+        mkdir ($nu.data-dir | path join "vendor/autoload")
 
-# Starship
-starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+        # Mise
+        mise activate nu | save -f ($nu.data-dir | path join "vendor/autoload/mise.nu")
 
-# Mise
-mise activate nu | save -f ($nu.data-dir | path join "vendor/autoload/mise.nu")
+        # Starship
+        mise x -- starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 
-# Zoxide
-zoxide init nushell | save -f ($nu.data-dir | path join "vendor/autoload/zoxide.nu")
+        # Zoxide
+        mise x -- zoxide init nushell | save -f ($nu.data-dir | path join "vendor/autoload/zoxide.nu")
 
-# Atuin
-atuin init nu | save -f ($nu.data-dir | path join "vendor/autoload/atuin.nu")
+        # Atuin
+        mise x -- atuin init nu | save -f ($nu.data-dir | path join "vendor/autoload/atuin.nu")
+
+        # Carapace
+        mise x -- carapace _carapace nushell | save -f ($nu.data-dir | path join "vendor/autoload/carapace.nu")
+
+        # Fish completions
+
+        mkdir ($nu.home-dir | path join ".local/share/fish/vendor_completions.d")
+
+        # Mise
+        mise completion fish | save -f ($nu.home-dir | path join ".local/share/fish/vendor_completions.d/mise.fish")
+
+        # Caddy
+        mise x -- caddy completion fish | save -f ($nu.home-dir | path join ".local/share/fish/vendor_completions.d/caddy.fish")
+
+        # Colima
+        mise x -- colima completion fish | save -f ($nu.home-dir | path join ".local/share/fish/vendor_completions.d/colima.fish")
+
+        # Limactl
+        mise x -- limactl completion fish | save -f ($nu.home-dir | path join ".local/share/fish/vendor_completions.d/limactl.fish")
+
+        opencode completion | save -f (brew --prefix | path join "share/zsh/site-functions/_opencode")
+    }
+}
+
+def up [] {
+    timeit {
+        brew up
+        brew upgrade
+        brew cleanup
+        mise up -y
+        init
+    }
+}
