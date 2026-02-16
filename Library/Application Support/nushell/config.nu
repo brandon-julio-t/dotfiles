@@ -88,22 +88,7 @@ def init [] {
         # Carapace
         mise x -- carapace _carapace nushell | save -f ($nu.data-dir | path join "vendor/autoload/carapace.nu")
 
-        # Fish completions
-
-        mkdir ($nu.home-dir | path join ".local/share/fish/vendor_completions.d")
-
-        # Mise
-        mise completion fish | save -f ($nu.home-dir | path join ".local/share/fish/vendor_completions.d/mise.fish")
-
-        # Caddy
-        mise x -- caddy completion fish | save -f ($nu.home-dir | path join ".local/share/fish/vendor_completions.d/caddy.fish")
-
-        # Colima
-        mise x -- colima completion fish | save -f ($nu.home-dir | path join ".local/share/fish/vendor_completions.d/colima.fish")
-
-        # Limactl
-        mise x -- limactl completion fish | save -f ($nu.home-dir | path join ".local/share/fish/vendor_completions.d/limactl.fish")
-
+        # OpenCode
         opencode completion | save -f (brew --prefix | path join "share/zsh/site-functions/_opencode")
     }
 }
@@ -114,6 +99,7 @@ def up [] {
         brew upgrade
         brew cleanup
         mise up -y
+        mise prune -y
         init
     }
 }
