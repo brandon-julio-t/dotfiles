@@ -90,6 +90,18 @@ def init [] {
 
         # OpenCode
         opencode completion | save -f (brew --prefix | path join "share/zsh/site-functions/_opencode")
+
+        # Mise
+        mise completion zsh | save -f (brew --prefix | path join "share/zsh/site-functions/_mise")
+
+        # Caddy
+        mise x -- caddy completion zsh | save -f (brew --prefix | path join "share/zsh/site-functions/_caddy")
+
+        # Colima
+        mise x -- colima completion zsh | save -f (brew --prefix | path join "share/zsh/site-functions/_colima")
+
+        # Limactl
+        mise x -- limactl completion zsh | save -f (brew --prefix | path join "share/zsh/site-functions/_limactl")
     }
 }
 

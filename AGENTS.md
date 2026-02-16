@@ -26,6 +26,9 @@ Personal dotfiles repository for machine configuration files. All files are syml
 │       └── shaders/cursor_blaze.glsl
 ├── .local/share/fish/vendor_completions.d/
 ├── Library/Application Support/
+│   ├── carapace/
+│   │   ├── bridge/zsh/            # Zsh integration
+│   │   └── specs/                 # Completion specs (mise, opencode, colima, limactl)
 │   ├── lazygit/config.yml
 │   ├── nushell/
 │   │   ├── config.nu
