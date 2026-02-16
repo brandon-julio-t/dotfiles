@@ -98,6 +98,7 @@ def up [] {
         brew up
         brew upgrade
         brew cleanup
+        mise self-update -y
         mise up -y
         mise prune -y
         init
