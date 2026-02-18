@@ -3,26 +3,27 @@ git:
     - pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}" --syntax-theme="Catppuccin Mocha"
 
 gui:
-  # Use the mocha catppuccin theme
+  authorColors:
+    "*": "#f3be7c"
   theme:
     activeBorderColor:
-      - "#89b4fa"
-      - bold
+      - "#aeaed1"
+      - "bold"
     inactiveBorderColor:
-      - "#a6adc8"
+      - "#606079"
     optionsTextColor:
-      - "#89b4fa"
+      - "#606079"
     selectedLineBgColor:
-      - "#313244"
-    cherryPickedCommitBgColor:
-      - "#45475a"
+      - "#252530"
     cherryPickedCommitFgColor:
-      - "#89b4fa"
+      - "#d8647e"
+    cherryPickedCommitBgColor:
+      - "bg"
+    markedBaseCommitFgColor:
+      - "#f3be7c"
+    markedBaseCommitBgColor:
+      - "bg"
     unstagedChangesColor:
-      - "#f38ba8"
+      - "#d8647e"
     defaultFgColor:
-      - "#cdd6f4"
-    searchingActiveBorderColor:
-      - "#f9e2af"
-  authorColors:
-    "*": "#b4befe"
+      - "#cdcdcd"
