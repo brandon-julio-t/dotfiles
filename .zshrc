@@ -1,3 +1,5 @@
+export PATH=/opt/homebrew/bin:$PATH
+
 # mise
 eval "$(~/.local/bin/mise activate zsh)"
 
