@@ -10,7 +10,6 @@ adjust-cursor-thickness = 3
 custom-shader = ~/.config/ghostty/shaders/cursor_blaze.glsl
 
 maximize = true
-unfocused-split-opacity = 0.9
 
 macos-window-buttons = hidden
 macos-titlebar-proxy-icon = hidden
