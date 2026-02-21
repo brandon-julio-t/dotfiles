@@ -15,4 +15,3 @@ macos-window-buttons = hidden
 macos-titlebar-proxy-icon = hidden
 
 auto-update = download
-auto-update-channel = tip
