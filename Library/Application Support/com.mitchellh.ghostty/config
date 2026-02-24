@@ -7,7 +7,6 @@ shell-integration-features = ssh-terminfo,ssh-env,sudo
 cursor-style = bar
 cursor-style-blink = false
 adjust-cursor-thickness = 3
-custom-shader = ~/.config/ghostty/shaders/cursor_blaze.glsl
 
 maximize = true
 
