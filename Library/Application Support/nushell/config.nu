@@ -113,6 +113,7 @@ def up [] {
         mise self-update -y
         mise up -y
         mise prune -y
+        opencode upgrade
         init
     }
 }
