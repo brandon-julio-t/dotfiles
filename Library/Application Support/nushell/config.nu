@@ -28,7 +28,6 @@ $env.path ++= [
 $env.config.buffer_editor = "zed"
 
 $env.EDITOR = 'zed --wait'
-$env.OPENCODE_EXPERIMENTAL = 1
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
 
 alias b = bun
