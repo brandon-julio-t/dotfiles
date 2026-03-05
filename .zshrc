@@ -13,3 +13,6 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='nano'
 fi
+
+# opencode
+export PATH=/Users/brandonthenaro/.opencode/bin:$PATH

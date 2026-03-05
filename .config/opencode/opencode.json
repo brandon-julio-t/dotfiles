@@ -1,15 +1,14 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "theme": "vague",
   "instructions": [
     "CONTRIBUTING.md",
     "CLAUDE.md",
     "docs/guidelines.md",
     ".cursor/rules/*.md"
   ],
-  "tui": {
-    "scroll_acceleration": {
-      "enabled": true
+  "agent": {
+    "build": {
+      "prompt": "{file:./prompts/build.txt}"
     }
   },
   "mcp": {
