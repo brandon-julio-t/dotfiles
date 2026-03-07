@@ -6,11 +6,6 @@
     "docs/guidelines.md",
     ".cursor/rules/*.md"
   ],
-  "agent": {
-    "build": {
-      "prompt": "{file:./prompts/build.txt}"
-    }
-  },
   "mcp": {
     "Notion": {
       "type": "remote",
