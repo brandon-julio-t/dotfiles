@@ -8,3 +8,5 @@
 	required = true
 [rebase]
 	updateRefs = true
+[credential]
+	helper = osxkeychain
