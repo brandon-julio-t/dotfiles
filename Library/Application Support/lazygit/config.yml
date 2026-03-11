@@ -1,29 +1,39 @@
 git:
   pagers:
-    - pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}" --syntax-theme="vague"
+    - pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}" --syntax-theme="oc-2"
 
 gui:
   authorColors:
-    "*": "#f3be7c"
+    # vague backup: "#f3be7c"
+    "*": "#fab283"
   theme:
+    # vague backup:
+    # activeBorderColor: ["#aeaed1", "bold"]
+    # inactiveBorderColor: ["#606079"]
+    # optionsTextColor: ["#606079"]
+    # selectedLineBgColor: ["#252530"]
+    # cherryPickedCommitFgColor: ["#d8647e"]
+    # markedBaseCommitFgColor: ["#f3be7c"]
+    # unstagedChangesColor: ["#d8647e"]
+    # defaultFgColor: ["#cdcdcd"]
     activeBorderColor:
-      - "#aeaed1"
+      - "#9ebefb"
       - "bold"
     inactiveBorderColor:
-      - "#606079"
+      - "#707070"
     optionsTextColor:
-      - "#606079"
+      - "#707070"
     selectedLineBgColor:
-      - "#252530"
+      - "#101010"
     cherryPickedCommitFgColor:
-      - "#d8647e"
+      - "#fc533a"
     cherryPickedCommitBgColor:
       - "bg"
     markedBaseCommitFgColor:
-      - "#f3be7c"
+      - "#fcd53a"
     markedBaseCommitBgColor:
       - "bg"
     unstagedChangesColor:
-      - "#d8647e"
+      - "#fc533a"
     defaultFgColor:
-      - "#cdcdcd"
+      - "#ededed"
