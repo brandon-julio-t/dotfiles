@@ -3,6 +3,8 @@ git:
     - pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}" --syntax-theme="vague"
 
 gui:
+  sidePanelWidth: 0.2 # gives you more space to show things side-by-side
+
   authorColors:
     "*": "#f3be7c"
     # "*": "#fab283"

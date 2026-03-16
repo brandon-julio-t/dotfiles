@@ -10,3 +10,5 @@
 	updateRefs = true
 [credential]
 	helper = osxkeychain
+[delta]
+	side-by-side = true
