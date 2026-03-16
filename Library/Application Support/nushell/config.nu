@@ -117,3 +117,9 @@ def up [] {
         init
     }
 }
+
+def ocs [] {
+    job spawn {
+        opencode serve --mdns
+    }
+}
