@@ -108,13 +108,28 @@ def init [] {
 
 def up [] {
     timeit {
-        brew up
-        brew upgrade
-        brew cleanup
-        mise self-update -y
-        mise up -y
-        mise prune -y
-        opencode upgrade
+        [
+            {||
+                with-env {CI: '1', NO_COLOR: '1', TERM: 'dumb'} {
+                    brew up
+                    brew upgrade
+                    brew cleanup
+                }
+            }
+            {||
+                with-env {CI: '1', NO_COLOR: '1', TERM: 'dumb'} {
+                    mise self-update -y
+                    mise up -y
+                    mise prune -y
+                }
+            }
+            {||
+                with-env {CI: '1', NO_COLOR: '1', TERM: 'dumb'} {
+                    opencode upgrade --print-logs
+                }
+            }
+        ] | par-each {|task| do $task } | ignore
+
         init
     }
 }
