@@ -38,6 +38,7 @@ alias c = cursor
 alias cat = bat --theme "vague"
 alias d = docker
 alias dc = docker-cli-plugin-docker-compose
+alias docker-compose = docker-cli-plugin-docker-compose
 alias g = git
 alias gcl = git clone
 alias gco = git checkout
