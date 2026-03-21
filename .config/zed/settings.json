@@ -21,14 +21,6 @@
   "autosave": "on_window_change",
   "icon_theme": "Catppuccin Mocha",
   "theme": "Vague",
-  "theme_overrides": {
-    "Catppuccin Latte": {},
-    "Catppuccin Frappé": {},
-    "Catppuccin Macchiato": {},
-    "Catppuccin Mocha": {
-      "border.variant": "#B4BEFE52",
-    },
-  },
   "ui_font_family": "SF Mono",
   "buffer_font_family": "SF Mono",
   "ui_font_size": 12,
