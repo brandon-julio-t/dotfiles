@@ -9,6 +9,7 @@ cursor-style-blink = false
 adjust-cursor-thickness = 3
 
 maximize = true
+notify-on-command-finish = unfocused
 
 macos-window-buttons = hidden
 macos-titlebar-proxy-icon = hidden
