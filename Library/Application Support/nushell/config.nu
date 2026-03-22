@@ -56,6 +56,16 @@ alias lss = lazyssh
 alias oc = opencode
 alias p = pnpm
 
+def oca [] {
+    opencode attach http://localhost:4096 --dir (pwd)
+}
+
+def ocs [] {
+    job spawn {
+        opencode serve --mdns
+    }
+}
+
 def gwipe [] {
   git reset --hard HEAD
   git clean -fd
@@ -125,11 +135,5 @@ def up [] {
         ] | par-each {|task| do $task } | ignore
 
         init
-    }
-}
-
-def ocs [] {
-    job spawn {
-        opencode serve --mdns
     }
 }
