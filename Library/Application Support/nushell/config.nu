@@ -22,7 +22,6 @@ $env.path ++= [
     "/opt/homebrew/opt/libpq/bin",
     "/usr/local/bin"
     "~/.local/bin",
-    "~/.opencode/bin",
 ]
 
 $env.config.buffer_editor = "zed"
@@ -90,7 +89,7 @@ def init [] {
         mise x -- carapace _carapace nushell | save -f ($nu.data-dir | path join "vendor/autoload/carapace.nu")
 
         # OpenCode
-        opencode completion | save -f (brew --prefix | path join "share/zsh/site-functions/_opencode")
+        mise x -- opencode completion | save -f (brew --prefix | path join "share/zsh/site-functions/_opencode")
 
         # Mise
         mise completion zsh | save -f (brew --prefix | path join "share/zsh/site-functions/_mise")
@@ -121,11 +120,6 @@ def up [] {
                     mise self-update -y
                     mise up -y
                     mise prune -y
-                }
-            }
-            {||
-                with-env {CI: '1', NO_COLOR: '1', TERM: 'dumb'} {
-                    opencode upgrade --print-logs
                 }
             }
         ] | par-each {|task| do $task } | ignore
