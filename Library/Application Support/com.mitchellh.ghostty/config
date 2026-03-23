@@ -10,6 +10,7 @@ adjust-cursor-thickness = 3
 
 maximize = true
 notify-on-command-finish = unfocused
+desktop-notifications = true
 
 macos-window-buttons = hidden
 macos-titlebar-proxy-icon = hidden
