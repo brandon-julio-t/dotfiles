@@ -28,7 +28,7 @@
   "ui_font_size": 12,
   "buffer_font_size": 12,
   "edit_predictions": {
-    "provider": "zed",
+    "provider": "mercury",
     "mode": "eager",
   },
   "git": {
