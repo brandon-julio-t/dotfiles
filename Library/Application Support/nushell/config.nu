@@ -119,6 +119,8 @@ def init [] {
 
 def up [] {
     timeit {
+        let has_colima = ((which colima | length) > 0)
+
         [
             {||
                 with-env {CI: '1', NO_COLOR: '1', TERM: 'dumb'} {
@@ -140,6 +142,10 @@ def up [] {
                 }
             }
         ] | par-each {|task| do $task } | ignore
+
+        if $has_colima {
+            colima restart
+        }
 
         init
     }
