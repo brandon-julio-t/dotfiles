@@ -6,6 +6,17 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "ssh_connections": [
+    {
+      "host": "openclaw-server",
+      "args": [],
+      "projects": [
+        {
+          "paths": ["/home/ec2-user"],
+        },
+      ],
+    },
+  ],
   "tabs": {
     "file_icons": true,
   },
