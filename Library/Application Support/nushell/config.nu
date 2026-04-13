@@ -64,8 +64,9 @@ def oca [] {
 
 def ocs [] {
     job spawn {
-        opencode serve --mdns
+        opencode serve --port 4096
     }
+    tailscale serve --bg --yes 4096
 }
 
 def gwipe [] {
