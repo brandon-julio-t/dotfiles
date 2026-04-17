@@ -141,11 +141,6 @@ def up [] {
                     opencode upgrade --print-logs
                 }
             }
-            {||
-                with-env {CI: '1', NO_COLOR: '1', TERM: 'dumb'} {
-                    ^curl -L 'https://dmtrkovalenko.dev/install-fff-mcp.sh' | ^bash
-                }
-            }
         ] | par-each {|task| do $task } | ignore
 
         if $has_colima {

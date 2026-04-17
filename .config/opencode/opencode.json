@@ -16,11 +16,6 @@
       "type": "local",
       "command": ["bunx", "-y", "chrome-devtools-mcp@latest", "--autoConnect"],
       "enabled": false
-    },
-    "fff": {
-      "type": "local",
-      "command": ["fff-mcp"],
-      "enabled": true
     }
   }
 }
