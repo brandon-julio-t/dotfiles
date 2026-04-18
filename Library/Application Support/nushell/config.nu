@@ -141,6 +141,11 @@ def up [] {
                     opencode upgrade --print-logs
                 }
             }
+            {||
+                with-env {CI: '1', NO_COLOR: '1', TERM: 'dumb'} {
+                    bunx skills experimental_install
+                }
+            }
         ] | par-each {|task| do $task } | ignore
 
         if $has_colima {

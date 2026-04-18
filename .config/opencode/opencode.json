@@ -7,11 +7,6 @@
     ".cursor/rules/*.md"
   ],
   "mcp": {
-    "Notion": {
-      "type": "remote",
-      "url": "https://mcp.notion.com/mcp",
-      "enabled": false
-    },
     "chrome-devtools": {
       "type": "local",
       "command": ["bunx", "-y", "chrome-devtools-mcp@latest", "--autoConnect"],
