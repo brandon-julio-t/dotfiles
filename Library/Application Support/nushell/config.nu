@@ -26,6 +26,7 @@ $env.path ++= [
 ]
 
 $env.config.buffer_editor = "zed"
+$env.config.show_banner = false
 
 $env.SHELL = "nu"
 $env.EDITOR = 'zed --wait'
@@ -119,39 +120,14 @@ def init [] {
 
 def up [] {
     timeit {
-        let has_colima = ((which colima | length) > 0)
-
-        [
-            {||
-                with-env {CI: '1', NO_COLOR: '1', TERM: 'dumb'} {
-                    brew up
-                    brew upgrade
-                    brew cleanup
-                }
-            }
-            {||
-                with-env {CI: '1', NO_COLOR: '1', TERM: 'dumb'} {
-                    mise self-update -y
-                    mise up -y
-                    mise prune -y
-                }
-            }
-            {||
-                with-env {CI: '1', NO_COLOR: '1', TERM: 'dumb'} {
-                    opencode upgrade --print-logs
-                }
-            }
-            {||
-                with-env {CI: '1', NO_COLOR: '1', TERM: 'dumb'} {
-                    bunx skills experimental_install
-                }
-            }
-        ] | par-each {|task| do $task } | ignore
-
-        if $has_colima {
-            colima restart
-        }
-
-        init
+        timeit { try { opencode upgrade --print-logs } }
+        timeit { try { brew up } }
+        timeit { try { brew upgrade } }
+        timeit { try { brew cleanup } }
+        timeit { try { mise self-update -y } }
+        timeit { try { mise up -y } }
+        timeit { try { mise prune -y } }
+        timeit { try { colima restart } }
+        timeit { try { init } }
     }
 }
