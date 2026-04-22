@@ -6,6 +6,9 @@
     "docs/guidelines.md",
     ".cursor/rules/*.md"
   ],
+  "permission": {
+    "*": "allow"
+  },
   "mcp": {
     "chrome-devtools": {
       "type": "local",
