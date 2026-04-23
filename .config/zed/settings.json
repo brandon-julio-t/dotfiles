@@ -6,6 +6,14 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "agent_servers": {
+    "opencode": {
+      "type": "registry",
+    },
+    "codex-acp": {
+      "type": "registry",
+    },
+  },
   "ssh_connections": [
     {
       "host": "openclaw-server",
@@ -17,20 +25,7 @@
       ],
     },
   ],
-  "tabs": {
-    "file_icons": true,
-  },
-  "title_bar": {
-    "show_branch_icon": true,
-  },
-  "scrollbar": {
-    "show": "system",
-  },
   "format_on_save": "on",
-  "git_panel": {
-    "file_icons": true,
-    "tree_view": true,
-  },
   "autosave": "on_window_change",
   "icon_theme": "Material Icon Theme",
   "theme": "Vague",
@@ -38,20 +33,21 @@
   "buffer_font_family": "SF Mono",
   "ui_font_size": 12,
   "buffer_font_size": 12,
-  "edit_predictions": {
-    "provider": "mercury",
-    "mode": "eager",
-  },
   "git": {
     "inline_blame": {
-      "enabled": true,
       "show_commit_summary": true,
     },
+  },
+  "git_panel": {
+    "tree_view": true,
+  },
+  "tabs": {
+    "file_icons": true,
+    "show_diagnostics": "all",
   },
   "terminal": {
     "minimum_contrast": 0,
     "font_family": "GeistMono Nerd Font",
-    "dock": "right",
     "cursor_shape": "bar",
     "shell": {
       "with_arguments": {
