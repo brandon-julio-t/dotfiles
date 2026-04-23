@@ -125,7 +125,7 @@ def up [] {
         timeit { try { brew upgrade } }
         timeit { try { brew cleanup } }
         timeit { try { mise self-update -y } }
-        timeit { try { mise up -y } }
+        timeit { try { mise up -y --bump } }
         timeit { try { mise prune -y } }
         timeit { try { mise x -- colima restart } }
         timeit { try { init } }
