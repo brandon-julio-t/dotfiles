@@ -127,7 +127,7 @@ def up [] {
         timeit { try { mise self-update -y } }
         timeit { try { mise up -y } }
         timeit { try { mise prune -y } }
-        timeit { try { colima restart } }
+        timeit { try { mise x -- colima restart } }
         timeit { try { init } }
     }
 }
