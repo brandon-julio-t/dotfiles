@@ -118,6 +118,32 @@ def init [] {
     }
 }
 
+def up-repos [] {
+    # Pull git repos under ~/repos concurrently without creating merge commits.
+    let pulls = (
+        glob ~/repos/**/.git
+        | sort
+        | par-each --threads 8 --keep-order { |gitdir|
+            let repo = ($gitdir | path dirname)
+            {
+                repo: $repo
+                result: (^git -C $repo pull --ff-only | complete)
+            }
+        }
+    )
+
+    $pulls
+    | each { |pull|
+        print $'==> ($pull.repo)'
+        if (($pull.result.stdout | str length) > 0) { print $pull.result.stdout }
+        if (($pull.result.stderr | str length) > 0) { print $pull.result.stderr }
+        if $pull.result.exit_code != 0 {
+            print $'pull failed with exit code ($pull.result.exit_code)'
+        }
+    }
+    | ignore
+}
+
 def up [] {
     timeit {
         timeit { try { opencode upgrade --print-logs } }
