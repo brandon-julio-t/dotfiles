@@ -30,7 +30,6 @@ $env.config.show_banner = false
 
 $env.SHELL = "nu"
 $env.EDITOR = 'zed --wait'
-$env.OPENCODE_EXPERIMENTAL = true
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
 
 alias b = bun
