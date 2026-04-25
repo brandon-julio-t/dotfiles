@@ -51,6 +51,7 @@
   },
   "git_panel": {
     "dock": "left",
+    "file_icons": true,
     "tree_view": true,
   },
   "tabs": {
