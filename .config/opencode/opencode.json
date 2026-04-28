@@ -27,6 +27,11 @@
       "type": "local",
       "command": ["bunx", "-y", "chrome-devtools-mcp@latest", "--autoConnect"],
       "enabled": false
+    },
+    "metabase": {
+      "type": "remote",
+      "url": "https://bi.farmio.io/api/mcp",
+      "enabled": false
     }
   }
 }
