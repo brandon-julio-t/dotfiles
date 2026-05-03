@@ -31,6 +31,7 @@ $env.config.show_banner = false
 $env.SHELL = "nu"
 $env.EDITOR = 'zed --wait'
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
+$env.OPENCODE_EXPERIMENTAL = true
 
 alias b = bun
 alias br = bun run
@@ -38,8 +39,35 @@ alias bx = bunx
 alias c = cursor
 alias cat = bat --theme "vague"
 alias d = docker
-alias dc = docker-cli-plugin-docker-compose
-alias docker-compose = docker-cli-plugin-docker-compose
+
+# Register mise's Compose binary as a Docker CLI plugin so `docker compose` works.
+def ensure-docker-compose-plugin [] {
+    let source = (try { mise which docker-cli-plugin-docker-compose | str trim } catch { null })
+
+    if ($source == null) {
+        return
+    }
+
+    if (not ($source | path exists)) {
+        return
+    }
+
+    let plugin_dir = ($nu.home-dir | path join ".docker" "cli-plugins")
+    let plugin_path = ($plugin_dir | path join "docker-compose")
+    let plugin_is_symlink = ((^test -L $plugin_path | complete).exit_code == 0)
+
+    mkdir $plugin_dir
+
+    if $plugin_is_symlink {
+        rm $plugin_path
+        ^ln -s $source $plugin_path
+    } else if not ($plugin_path | path exists) {
+        ^ln -s $source $plugin_path
+    }
+}
+
+alias dc = docker compose
+alias docker-compose = docker compose
 alias g = git
 alias gcl = git clone --depth 1 --single-branch
 alias gco = git checkout
@@ -151,6 +179,7 @@ def up [] {
         timeit { try { brew cleanup } }
         timeit { try { mise self-update -y } }
         timeit { try { mise up -y --bump } }
+        timeit { try { ensure-docker-compose-plugin } }
         timeit { try { mise prune -y } }
         timeit { try { mise x -- colima restart } }
         timeit { try { init } }
