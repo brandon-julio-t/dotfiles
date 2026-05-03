@@ -6,10 +6,20 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "diff_view_style": "split",
+  "colorize_brackets": true,
+  "indent_guides": {
+    "coloring": "indent_aware",
+    "background_coloring": "indent_aware",
+  },
+  "buffer_line_height": "standard",
+  "agent_servers": {
+    "codex-acp": {
+      "type": "registry",
+    },
+  },
   "cli_default_open_behavior": "new_window",
   "agent": {
-    "dock": "right",
+    // "dock": "right",
     "thinking_display": "preview",
     "flexible": false,
     "show_turn_stats": true,
@@ -31,20 +41,19 @@
     },
   },
   "git_panel": {
-    "dock": "left",
+    // "dock": "left",
     "file_icons": true,
     "tree_view": true,
   },
   "tabs": {
     "file_icons": true,
-    "show_diagnostics": "all",
   },
   "project_panel": {
-    "dock": "left",
-    "diagnostic_badges": true,
+    // "dock": "left",
+    "entry_spacing": "standard",
   },
   "terminal": {
-    "dock": "right",
+    // "dock": "right",
     "minimum_contrast": 0,
     "font_family": "GeistMono Nerd Font",
     "cursor_shape": "bar",
