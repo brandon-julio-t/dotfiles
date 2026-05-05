@@ -33,6 +33,13 @@ $env.EDITOR = 'zed --wait'
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
 $env.OPENCODE_EXPERIMENTAL = true
 
+# ```
+# ~/repos/zed
+# there is a problem in my zed editor where if i add/modify files outside of zed editor, like for example files modifications by AI Agent like opencode, zed won't pick it up, git panel shows `(no branch)` and i can't see the file changes. is this a known issue in the codebase / github issues?
+# ```
+# codex://threads/019df627-018c-7092-81f3-c3b71a87d94d
+$env.ZED_FILE_WATCHER_MODE = true
+
 alias b = bun
 alias br = bun run
 alias bx = bunx
