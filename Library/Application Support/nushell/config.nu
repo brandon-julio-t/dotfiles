@@ -104,7 +104,7 @@ alias d = docker
 
 # Register mise's Compose binary as a Docker CLI plugin so `docker compose` works.
 def ensure-docker-compose-plugin [] {
-    let source = (try { mise which docker-cli-plugin-docker-compose | str trim } catch { null })
+    let source = (try { with-mise-github-token { mise which docker-cli-plugin-docker-compose } | str trim } catch { null })
 
     if ($source == null) {
         return
@@ -176,34 +176,34 @@ def init [] {
         mkdir ($nu.data-dir | path join "vendor/autoload")
 
         # Mise
-        mise activate nu | save -f ($nu.data-dir | path join "vendor/autoload/mise.nu")
+        with-mise-github-token { mise activate nu } | save -f ($nu.data-dir | path join "vendor/autoload/mise.nu")
 
         # Starship
-        mise x -- starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+        with-mise-github-token { mise x -- starship init nu } | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 
         # Zoxide
-        mise x -- zoxide init nushell | save -f ($nu.data-dir | path join "vendor/autoload/zoxide.nu")
+        with-mise-github-token { mise x -- zoxide init nushell } | save -f ($nu.data-dir | path join "vendor/autoload/zoxide.nu")
 
         # Atuin
-        mise x -- atuin init nu | save -f ($nu.data-dir | path join "vendor/autoload/atuin.nu")
+        with-mise-github-token { mise x -- atuin init nu } | save -f ($nu.data-dir | path join "vendor/autoload/atuin.nu")
 
         # Carapace
-        mise x -- carapace _carapace nushell | save -f ($nu.data-dir | path join "vendor/autoload/carapace.nu")
+        with-mise-github-token { mise x -- carapace _carapace nushell } | save -f ($nu.data-dir | path join "vendor/autoload/carapace.nu")
 
         # OpenCode
         opencode completion | save -f (brew --prefix | path join "share/zsh/site-functions/_opencode")
 
         # Mise
-        mise completion zsh | save -f (brew --prefix | path join "share/zsh/site-functions/_mise")
+        with-mise-github-token { mise completion zsh } | save -f (brew --prefix | path join "share/zsh/site-functions/_mise")
 
         # Caddy
-        mise x -- caddy completion zsh | save -f (brew --prefix | path join "share/zsh/site-functions/_caddy")
+        with-mise-github-token { mise x -- caddy completion zsh } | save -f (brew --prefix | path join "share/zsh/site-functions/_caddy")
 
         # Colima
-        mise x -- colima completion zsh | save -f (brew --prefix | path join "share/zsh/site-functions/_colima")
+        with-mise-github-token { mise x -- colima completion zsh } | save -f (brew --prefix | path join "share/zsh/site-functions/_colima")
 
         # Limactl
-        mise x -- limactl completion zsh | save -f (brew --prefix | path join "share/zsh/site-functions/_limactl")
+        with-mise-github-token { mise x -- limactl completion zsh } | save -f (brew --prefix | path join "share/zsh/site-functions/_limactl")
     }
 }
 
@@ -239,11 +239,11 @@ def up [] {
         timeit { try { brew up } }
         timeit { try { brew upgrade } }
         timeit { try { brew cleanup } }
-        timeit { try { mise self-update -y } }
-        timeit { try { mise up -y --bump } }
+        timeit { try { with-mise-github-token { mise self-update -y } } }
+        timeit { try { with-mise-github-token { mise up -y --bump } } }
         timeit { try { ensure-docker-compose-plugin } }
-        timeit { try { mise prune -y } }
-        timeit { try { mise x -- colima restart } }
+        timeit { try { with-mise-github-token { mise prune -y } } }
+        timeit { try { with-mise-github-token { mise x -- colima restart } } }
         timeit { try { init } }
     }
 }
