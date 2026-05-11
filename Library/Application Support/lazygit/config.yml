@@ -1,55 +1,57 @@
 git:
   pagers:
-    - pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}" --syntax-theme="vague"
+    # - pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}" --syntax-theme="vague"
+    - pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}" --syntax-theme="Catppuccin Mocha"
 
 gui:
   sidePanelWidth: 0.2 # gives you more space to show things side-by-side
 
+  # vague
+  # authorColors:
+  #   "*": "#f3be7c"
+  # theme:
+  #   activeBorderColor:
+  #     - "#aeaed1"
+  #     - "bold"
+  #   inactiveBorderColor:
+  #     - "#606079"
+  #   optionsTextColor:
+  #     - "#606079"
+  #   selectedLineBgColor:
+  #     - "#252530"
+  #   cherryPickedCommitFgColor:
+  #     - "#d8647e"
+  #   cherryPickedCommitBgColor:
+  #     - "bg"
+  #   markedBaseCommitFgColor:
+  #     - "#f3be7c"
+  #   markedBaseCommitBgColor:
+  #     - "bg"
+  #   unstagedChangesColor:
+  #     - "#d8647e"
+  #   defaultFgColor:
+  #     - "#cdcdcd"
+
+  # catppuccin mocha
   authorColors:
-    "*": "#f3be7c"
+    "*": "#b4befe"
   theme:
     activeBorderColor:
-      - "#aeaed1"
+      - "#89b4fa"
       - "bold"
     inactiveBorderColor:
-      - "#606079"
+      - "#a6adc8"
     optionsTextColor:
-      - "#606079"
+      - "#89b4fa"
     selectedLineBgColor:
-      - "#252530"
-    cherryPickedCommitFgColor:
-      - "#d8647e"
+      - "#313244"
     cherryPickedCommitBgColor:
-      - "bg"
-    markedBaseCommitFgColor:
-      - "#f3be7c"
-    markedBaseCommitBgColor:
-      - "bg"
+      - "#45475a"
+    cherryPickedCommitFgColor:
+      - "#89b4fa"
     unstagedChangesColor:
-      - "#d8647e"
+      - "#f38ba8"
     defaultFgColor:
-      - "#cdcdcd"
-
-# catppuccin mocha
-#   authorColors:
-#     "*": "#b4befe"
-#   theme:
-#     activeBorderColor:
-#       - "#89b4fa"
-#       - bold
-#     inactiveBorderColor:
-#       - "#a6adc8"
-#     optionsTextColor:
-#       - "#89b4fa"
-#     selectedLineBgColor:
-#       - "#313244"
-#     cherryPickedCommitBgColor:
-#       - "#45475a"
-#     cherryPickedCommitFgColor:
-#       - "#89b4fa"
-#     unstagedChangesColor:
-#       - "#f38ba8"
-#     defaultFgColor:
-#       - "#cdd6f4"
-#     searchingActiveBorderColor:
-#       - "#f9e2af"
+      - "#cdd6f4"
+    searchingActiveBorderColor:
+      - "#f9e2af"

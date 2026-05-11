@@ -28,7 +28,7 @@
   "format_on_save": "on",
   "autosave": "on_window_change",
   "icon_theme": "Material Icon Theme",
-  "theme": "Vague",
+  "theme": "Catppuccin Mocha",
   "ui_font_family": "SF Mono",
   "buffer_font_family": "SF Mono",
   "ui_font_size": 12.0,

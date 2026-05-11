@@ -44,7 +44,7 @@ alias b = bun
 alias br = bun run
 alias bx = bunx
 alias c = cursor
-alias cat = bat --theme "vague"
+alias cat = bat --theme "Catppuccin Mocha"
 alias d = docker
 
 # Register mise's Compose binary as a Docker CLI plugin so `docker compose` works.
