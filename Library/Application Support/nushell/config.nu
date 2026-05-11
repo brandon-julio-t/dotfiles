@@ -31,7 +31,7 @@ $env.config.show_banner = false
 $env.SHELL = "nu"
 $env.EDITOR = 'zed --wait'
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
-$env.OPENCODE_EXPERIMENTAL = true
+# $env.OPENCODE_EXPERIMENTAL = true
 
 # ```
 # ~/repos/zed
