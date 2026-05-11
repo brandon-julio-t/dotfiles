@@ -38,7 +38,62 @@ $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
 # there is a problem in my zed editor where if i add/modify files outside of zed editor, like for example files modifications by AI Agent like opencode, zed won't pick it up, git panel shows `(no branch)` and i can't see the file changes. is this a known issue in the codebase / github issues?
 # ```
 # codex://threads/019df627-018c-7092-81f3-c3b71a87d94d
-$env.ZED_FILE_WATCHER_MODE = true
+#
+# This looks like a known Zed bug, and your env var is currently not doing what you intended.
+#
+# **Findings**
+# - `ZED_FILE_WATCHER_MODE=true` is not recognized by Zed. Code only accepts `native`, `poll`, or `auto` in `crates/fs/src/fs.rs:79-90`.
+# - On macOS, unrecognized values fall back to native watching, so `true` effectively means native watcher, not polling.
+# - Your logs confirm this: there are no `Using poll watcher...` lines, but there are watcher failures:
+#   - `Zed.log:50-51`: `WatchNotFound`
+#   - `Zed.log.old:1+`: repeated `filesystem watcher lost sync ... scheduling rescan`
+# - The `(no branch)` label is a fallback rendered when Zed has neither `branch` nor `head_commit` loaded: `crates/git_ui/src/git_panel.rs:6328-6341`.
+# - The repo is valid. `/opt/homebrew/bin/git` sees branch `staging` and current changes, so this is not an actual detached/no-branch repo.
+# - This is tracked upstream:
+#   - https://github.com/zed-industries/zed/issues/13176 `Git information can get out of sync`
+#   - https://github.com/zed-industries/zed/issues/49799 `Git panel always shows Project Name (no branch)`
+#   - https://github.com/zed-industries/zed/issues/55590 external changes stale, closed as duplicate-ish
+#   - https://github.com/zed-industries/zed/pull/54481 added poll watcher support
+#
+# **Immediate Fix To Try**
+# Change your Nushell config from:
+#
+# ```nu
+# $env.ZED_FILE_WATCHER_MODE = true
+# ```
+#
+# to:
+#
+# ```nu
+# $env.ZED_FILE_WATCHER_MODE = "poll"
+# ```
+#
+# Then fully quit and restart Zed. Optional lower latency:
+#
+# ```nu
+# $env.ZED_FILE_WATCHER_POLL_MS = "1000"
+# ```
+#
+# This should force Zed’s polling watcher instead of macOS native watcher and is the most likely workaround for external-agent file changes not being picked up.
+$env.ZED_FILE_WATCHER_MODE = "poll"
+
+def with-mise-github-token [body: closure] {
+    let existing_token = (try { $env.MISE_GITHUB_TOKEN } catch { null })
+
+    if ($existing_token != null) and (($existing_token | str trim) != '') {
+        do $body
+    } else {
+        let token = (try { gh auth token | str trim } catch { null })
+
+        if ($token == null) or ($token == '') {
+            do $body
+        } else {
+            with-env { MISE_GITHUB_TOKEN: $token } {
+                do $body
+            }
+        }
+    }
+}
 
 alias b = bun
 alias br = bun run
