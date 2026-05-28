@@ -1,11 +1,14 @@
-// Zed settings
 //
-// For information on how to configure Zed, see the Zed https://zed.dev/docs/configuring-zed
 //
-// To see all of Zed's default settings without changing your
-// custom settings, run the `open default settings` command
-// from the command palette or from `Zed` application menu.
 {
+  "agent_servers": {
+    "pi-acp": {
+      "type": "registry",
+    },
+  },
+  "edit_predictions": {
+    "disabled_globs": [],
+  },
   "diff_view_style": "split",
   "buffer_line_height": "standard",
   "colorize_brackets": true,
@@ -13,14 +16,11 @@
     "coloring": "indent_aware",
     "background_coloring": "indent_aware",
   },
-  "agent_servers": {
-    "codex-acp": {
-      "type": "registry",
-    },
-  },
   "cli_default_open_behavior": "new_window",
   "agent": {
-    // "dock": "right",
+    "tool_permissions": {
+      "default": "allow",
+    },
     "thinking_display": "preview",
     "flexible": false,
     "show_turn_stats": true,
@@ -32,17 +32,20 @@
   "theme": "Catppuccin Mocha",
   "ui_font_family": "SF Mono",
   "buffer_font_family": "SF Mono",
-  "ui_font_size": 12.0,
+  "ui_font_size": 13.0,
   "buffer_font_size": 12.0,
   "agent_buffer_font_size": 12.0,
-  "agent_ui_font_size": 12.0,
+  "agent_ui_font_size": 13.0,
   "git": {
     "inline_blame": {
       "show_commit_summary": true,
     },
   },
   "git_panel": {
-    // "dock": "left",
+    "show_count_badge": false,
+    "sort_by_path": false,
+    "collapse_untracked_diff": false,
+    "status_style": "label_color",
     "file_icons": true,
     "tree_view": true,
   },
@@ -50,13 +53,12 @@
     "file_icons": true,
   },
   "project_panel": {
-    // "dock": "left",
+    "git_status_indicator": false,
     "entry_spacing": "standard",
   },
   "terminal": {
-    // "dock": "right",
+    "font_size": 12.0,
     "minimum_contrast": 0,
-    "font_family": "GeistMono Nerd Font",
     "cursor_shape": "bar",
     "shell": {
       "with_arguments": {

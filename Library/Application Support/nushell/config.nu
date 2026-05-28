@@ -31,7 +31,12 @@ $env.config.show_banner = false
 $env.SHELL = "nu"
 $env.EDITOR = 'zed --wait'
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
-# $env.OPENCODE_EXPERIMENTAL = true
+$env.OPENCODE_EXPERIMENTAL = true
+
+# https://github.com/anomalyco/opencode/releases/tag/v1.15.6
+# "Zed editor context now only activates inside Zed terminals."
+# workaround of using zed and opencode in ghostty (2 separate apps)
+$env.ZED_TERM = true
 
 # ```
 # ~/repos/zed
