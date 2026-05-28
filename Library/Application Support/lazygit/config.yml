@@ -1,6 +1,6 @@
 git:
   pagers:
-    - pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}" --syntax-theme="tomorrow-night"
+    - pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}" --syntax-theme="Catppuccin Mocha"
 
 gui:
   sidePanelWidth: 0.2 # gives you more space to show things side-by-side
@@ -31,26 +31,26 @@ gui:
   #   defaultFgColor:
   #     - "#cdcdcd"
 
-  # tomorrow night
+  # catppuccin mocha
   authorColors:
-    "*": "#81a2be"
+    "*": "#b4befe"
   theme:
     activeBorderColor:
-      - "#81a2be"
+      - "#89b4fa"
       - "bold"
     inactiveBorderColor:
-      - "#969896"
+      - "#a6adc8"
     optionsTextColor:
-      - "#81a2be"
+      - "#89b4fa"
     selectedLineBgColor:
-      - "#282a2e"
+      - "#313244"
     cherryPickedCommitBgColor:
-      - "#373b41"
+      - "#45475a"
     cherryPickedCommitFgColor:
-      - "#81a2be"
+      - "#89b4fa"
     unstagedChangesColor:
-      - "#cc6666"
+      - "#f38ba8"
     defaultFgColor:
-      - "#c5c8c6"
+      - "#cdd6f4"
     searchingActiveBorderColor:
-      - "#f0c674"
+      - "#f9e2af"
