@@ -1,9 +1,9 @@
-theme = catppuccin mocha
+theme = tomorrow night
 font-family = SF Mono
 font-size = 12
 
 command = /opt/homebrew/bin/nu
-shell-integration-features = ssh-terminfo,ssh-env,sudo
+#shell-integration-features = ssh-terminfo,ssh-env,sudo
 cursor-style = bar
 cursor-style-blink = false
 adjust-cursor-thickness = 3

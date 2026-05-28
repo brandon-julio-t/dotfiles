@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/tui.json",
-  "theme": "catppuccin",
+  "theme": "tomorrow-night",
   "attention": {
     "enabled": true,
     "notifications": true,

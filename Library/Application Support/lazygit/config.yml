@@ -1,7 +1,6 @@
 git:
   pagers:
-    # - pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}" --syntax-theme="vague"
-    - pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}" --syntax-theme="Catppuccin Mocha"
+    - pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}" --syntax-theme="tomorrow-night"
 
 gui:
   sidePanelWidth: 0.2 # gives you more space to show things side-by-side
@@ -32,26 +31,26 @@ gui:
   #   defaultFgColor:
   #     - "#cdcdcd"
 
-  # catppuccin mocha
+  # tomorrow night
   authorColors:
-    "*": "#b4befe"
+    "*": "#81a2be"
   theme:
     activeBorderColor:
-      - "#89b4fa"
+      - "#81a2be"
       - "bold"
     inactiveBorderColor:
-      - "#a6adc8"
+      - "#969896"
     optionsTextColor:
-      - "#89b4fa"
+      - "#81a2be"
     selectedLineBgColor:
-      - "#313244"
+      - "#282a2e"
     cherryPickedCommitBgColor:
-      - "#45475a"
+      - "#373b41"
     cherryPickedCommitFgColor:
-      - "#89b4fa"
+      - "#81a2be"
     unstagedChangesColor:
-      - "#f38ba8"
+      - "#cc6666"
     defaultFgColor:
-      - "#cdd6f4"
+      - "#c5c8c6"
     searchingActiveBorderColor:
-      - "#f9e2af"
+      - "#f0c674"
