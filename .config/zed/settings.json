@@ -1,9 +1,7 @@
-//
-//
 {
   "icon_theme": "Catppuccin Mocha",
   "agent_servers": {
-    "pi-acp": {
+    "codex-acp": {
       "type": "registry",
     },
   },
@@ -26,6 +24,7 @@
     "flexible": false,
     "show_turn_stats": true,
     "play_sound_when_agent_done": "always",
+    "expand_edit_card": false,
   },
   "format_on_save": "on",
   "autosave": "on_window_change",
