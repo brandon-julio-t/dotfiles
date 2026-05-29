@@ -62,6 +62,25 @@ alias bx = bunx
 alias c = cursor
 alias cat = bat --theme "Catppuccin Mocha"
 alias d = docker
+alias dc = docker compose
+alias docker-compose = docker compose
+alias g = git
+alias gcl = git clone --depth 1 --single-branch
+alias gco = git checkout
+alias ggl = git pull
+alias gp = git push
+alias grv = git remote -v
+alias gst = git status
+alias gw = git worktree
+alias gwa = git worktree add
+alias gwl = git worktree list
+alias gwr = git worktree remove
+alias l = ls -a
+alias ld = lazydocker
+alias lg = lazygit
+alias lss = lazyssh
+alias oc = opencode
+alias p = pnpm
 
 # Register mise's Compose binary as a Docker CLI plugin so `docker compose` works.
 def ensure-docker-compose-plugin [] {
@@ -86,36 +105,6 @@ def ensure-docker-compose-plugin [] {
         ^ln -s $source $plugin_path
     } else if not ($plugin_path | path exists) {
         ^ln -s $source $plugin_path
-    }
-}
-
-alias dc = docker compose
-alias docker-compose = docker compose
-alias g = git
-alias gcl = git clone --depth 1 --single-branch
-alias gco = git checkout
-alias ggl = git pull
-alias gp = git push
-alias grv = git remote -v
-alias gst = git status
-alias gw = git worktree
-alias gwa = git worktree add
-alias gwl = git worktree list
-alias gwr = git worktree remove
-alias l = ls -a
-alias ld = lazydocker
-alias lg = lazygit
-alias lss = lazyssh
-alias oc = opencode
-alias p = pnpm
-
-def oca [] {
-    opencode attach http://localhost:4096 --dir (pwd)
-}
-
-def ocs [] {
-    job spawn {
-        opencode serve --mdns
     }
 }
 
