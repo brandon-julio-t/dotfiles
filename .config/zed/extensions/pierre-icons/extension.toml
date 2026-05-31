@@ -1,0 +1,23 @@
+id = "pierre-icons"
+name = "Pierre Icons"
+description = "Pierre file icon theme for Zed, converted from pierrecomputer/vscode-icons."
+version = "0.0.9"
+schema_version = 1
+authors = ["pierrecomputer"]
+repository = "https://github.com/pierrecomputer/vscode-icons"
+icon_themes = ["icon_themes/pierre-icons.json"]
+themes = []
+languages = []
+capabilities = []
+
+[lib]
+
+[grammars]
+
+[language_servers]
+
+[context_servers]
+
+[agent_servers]
+
+[slash_commands]
