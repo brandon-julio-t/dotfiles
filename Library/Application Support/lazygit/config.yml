@@ -1,56 +1,29 @@
 git:
   pagers:
-    - pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}" --syntax-theme="Catppuccin Mocha"
+    - pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}" --syntax-theme="Pierre Dark Soft"
 
 gui:
   sidePanelWidth: 0.2 # gives you more space to show things side-by-side
 
-  # vague
-  # authorColors:
-  #   "*": "#f3be7c"
-  # theme:
-  #   activeBorderColor:
-  #     - "#aeaed1"
-  #     - "bold"
-  #   inactiveBorderColor:
-  #     - "#606079"
-  #   optionsTextColor:
-  #     - "#606079"
-  #   selectedLineBgColor:
-  #     - "#252530"
-  #   cherryPickedCommitFgColor:
-  #     - "#d8647e"
-  #   cherryPickedCommitBgColor:
-  #     - "bg"
-  #   markedBaseCommitFgColor:
-  #     - "#f3be7c"
-  #   markedBaseCommitBgColor:
-  #     - "bg"
-  #   unstagedChangesColor:
-  #     - "#d8647e"
-  #   defaultFgColor:
-  #     - "#cdcdcd"
-
-  # catppuccin mocha
   authorColors:
-    "*": "#b4befe"
+    "*": "#69b1ff"
   theme:
     activeBorderColor:
-      - "#89b4fa"
+      - "#69b1ff"
       - "bold"
     inactiveBorderColor:
-      - "#a6adc8"
+      - "#636363"
     optionsTextColor:
-      - "#89b4fa"
+      - "#69b1ff"
     selectedLineBgColor:
-      - "#313244"
+      - "#1f3e5e"
     cherryPickedCommitBgColor:
-      - "#45475a"
+      - "#2c2c2c"
     cherryPickedCommitFgColor:
-      - "#89b4fa"
+      - "#69b1ff"
     unstagedChangesColor:
-      - "#f38ba8"
+      - "#ff6762"
     defaultFgColor:
-      - "#cdd6f4"
+      - "#d4d4d4"
     searchingActiveBorderColor:
-      - "#f9e2af"
+      - "#ffd452"
