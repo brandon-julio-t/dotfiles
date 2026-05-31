@@ -9,7 +9,6 @@
     "disabled_globs": [],
   },
   "diff_view_style": "split",
-  "buffer_line_height": "standard",
   "colorize_brackets": true,
   "indent_guides": {
     "coloring": "indent_aware",
@@ -53,7 +52,6 @@
   },
   "project_panel": {
     "git_status_indicator": false,
-    "entry_spacing": "standard",
   },
   "terminal": {
     "font_size": 12.0,
