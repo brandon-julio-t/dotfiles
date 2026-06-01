@@ -1,0 +1,4 @@
+- when making changes, keep them lean and minimal to both save token and time. by doing this, code review and maintenance improves because of readability and clarity, which is the most valuable and important thing, even more than smart code.
+- be fucking ruthless against dead code. when encountering or cleaning up code, actively identify dead code in the path and purge the hell out of them too. tolerate no slop.
+- when writing commit messages, describe both what changed and why the change was made.
+- check and use mise over other managers like brew.
