@@ -1,0 +1,96 @@
+"attribute" = "green"
+"comment" = "muted"
+"constant" = "yellow"
+"constant.builtin" = "cyan"
+"constant.numeric" = "cyan"
+"constructor" = "magenta"
+"debug" = "red"
+"diagnostic" = { underline = { color = "muted", style = "curl" } }
+"diagnostic.deprecated" = { modifiers = ["crossed_out"] }
+"diagnostic.error" = { underline = { color = "red", style = "curl" } }
+"diagnostic.hint" = { underline = { color = "blue", style = "curl" } }
+"diagnostic.info" = { underline = { color = "cyan", style = "curl" } }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+"diagnostic.warning" = { underline = { color = "yellow", style = "curl" } }
+"diff.delta" = "blue"
+"diff.minus" = "red"
+"diff.plus" = "green"
+"error" = "red"
+"function" = "purple"
+"hint" = "blue"
+"info" = "cyan"
+"keyword" = "pink"
+"label" = "blue"
+"markup.bold" = { modifiers = ["bold"] }
+"markup.heading" = "purple"
+"markup.italic" = { modifiers = ["italic"] }
+"markup.link.label" = "yellow"
+"markup.link.text" = "green"
+"markup.link.url" = "orange"
+"markup.list" = "orange"
+"markup.raw" = "green"
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+"operator" = "cyan"
+"special" = "orange"
+"string" = "green"
+"string.escape" = "pink"
+"string.regex" = "pink"
+"string.special" = "pink"
+"string.special.url" = "orange"
+"tag" = "orange"
+"type" = "magenta"
+"ui.background" = { fg = "text", bg = "background" }
+"ui.bufferline" = { fg = "muted", bg = "surface" }
+"ui.bufferline.active" = { fg = "text", bg = "background" }
+"ui.cursor" = { bg = "blue", fg = "background" }
+"ui.cursor.match" = { bg = "surface_high" }
+"ui.cursorline" = { bg = "selection" }
+"ui.cursorline.secondary" = { bg = "surface" }
+"ui.debug" = "red"
+"ui.help" = { fg = "text", bg = "surface" }
+"ui.linenr" = "muted"
+"ui.linenr.selected" = "text_muted"
+"ui.menu" = { fg = "text", bg = "surface" }
+"ui.menu.scroll" = { fg = "muted", bg = "surface" }
+"ui.menu.selected" = { fg = "text", bg = "selection" }
+"ui.popup" = { fg = "text", bg = "surface" }
+"ui.selection" = { bg = "selection" }
+"ui.selection.primary" = { bg = "selection" }
+"ui.statusline" = { fg = "text_muted", bg = "background" }
+"ui.statusline.inactive" = { fg = "muted", bg = "background" }
+"ui.statusline.insert" = { fg = "background", bg = "green" }
+"ui.statusline.normal" = { fg = "background", bg = "blue" }
+"ui.statusline.select" = { fg = "background", bg = "yellow" }
+"ui.text" = "text"
+"ui.text.directory" = "blue"
+"ui.text.focus" = { fg = "text", bg = "selection" }
+"ui.virtual" = "placeholder"
+"ui.virtual.ruler" = { bg = "surface" }
+"ui.window" = "border"
+"variable" = "orange"
+"variable.builtin" = "yellow"
+"variable.member" = "orange"
+"variable.other" = "orange"
+"variable.parameter" = "text_muted"
+"warning" = "yellow"
+
+[palette]
+background = "#101010"
+editor = "#171717"
+surface = "#1d1d1d"
+surface_high = "#262626"
+border = "#2c2c2c"
+selection = "#1f3e5e"
+text = "#d4d4d4"
+text_muted = "#8a8a8a"
+muted = "#636363"
+placeholder = "#525252"
+red = "#ff6762"
+pink = "#ff91a8"
+orange = "#ffba82"
+yellow = "#ffde80"
+green = "#8cda94"
+blue = "#69b1ff"
+cyan = "#68cdf2"
+purple = "#ba8ffd"
+magenta = "#e290f0"

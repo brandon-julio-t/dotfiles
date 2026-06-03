@@ -19,6 +19,7 @@ Current custom theme: **Pierre Dark Soft**. When refreshing or replacing a theme
 ### Local Files
 
 - Zed: `.config/zed/settings.json`, `.config/zed/themes/pierre.json`, `.config/zed/extensions/pierre-icons/`
+- Helix: `.config/helix/config.toml`, `.config/helix/themes/pierre_dark_soft.toml`
 - Ghostty: `Library/Application Support/com.mitchellh.ghostty/config`, `.config/ghostty/themes/Pierre Dark Soft`
 - Bat/delta: `.config/bat/themes/Pierre Dark Soft.tmTheme`
 - LazyGit: `Library/Application Support/lazygit/config.yml`
@@ -28,6 +29,7 @@ Current custom theme: **Pierre Dark Soft**. When refreshing or replacing a theme
 ### Update Notes
 
 - Replace the Zed theme from the upstream theme file.
+- Update Helix from the same upstream TextMate/VS Code theme colors.
 - Convert the upstream TextMate/VS Code theme for bat/delta.
 - Rebuild icons from the upstream icon pack and refresh the local Zed icon extension.
 - Keep Ghostty, LazyGit, and btop on the same palette as the active editor theme.
@@ -38,6 +40,7 @@ mise exec -- bat cache --build
 mise exec -- bat --list-themes | rg -x 'Pierre Dark Soft'
 mise exec -- delta --list-syntax-themes | rg 'Pierre Dark Soft'
 mise exec -- nu -c 'source "Library/Application Support/nushell/config.nu"'
+mise exec -- hx --health
 ruby -ryaml -e 'YAML.load_file("Library/Application Support/lazygit/config.yml")'
 /Applications/Ghostty.app/Contents/MacOS/ghostty +validate-config
 ```
