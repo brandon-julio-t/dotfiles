@@ -1,4 +1,11 @@
 {
+  "buffer_font_weight": 100.0,
+  "outline_panel": {
+    "dock": "right",
+  },
+  "collaboration_panel": {
+    "dock": "right",
+  },
   "icon_theme": "Pierre Icons (Complete)",
   "agent_servers": {
     "codex-acp": {
@@ -8,7 +15,6 @@
   "edit_predictions": {
     "disabled_globs": [],
   },
-  "diff_view_style": "split",
   "colorize_brackets": true,
   "indent_guides": {
     "coloring": "indent_aware",
@@ -16,6 +22,7 @@
   },
   "cli_default_open_behavior": "new_window",
   "agent": {
+    "dock": "left",
     "tool_permissions": {
       "default": "allow",
     },
@@ -40,6 +47,7 @@
     },
   },
   "git_panel": {
+    "dock": "right",
     "show_count_badge": false,
     "sort_by_path": false,
     "collapse_untracked_diff": false,
@@ -51,6 +59,7 @@
     "file_icons": true,
   },
   "project_panel": {
+    "dock": "right",
     "git_status_indicator": false,
   },
   "terminal": {
