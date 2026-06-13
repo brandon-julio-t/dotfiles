@@ -2,5 +2,6 @@
 - remember Knuth's warning: "premature optimization is the root of all evil." treat premature abstraction as the same failure mode unless the code proves it needs one.
 - follow uncle bob martin's boy scout rule from Clean Code: leave touched code cleaner than you found it, while keeping cleanup scoped and relevant.
 - be extremely ruthless against dead code. when encountering or cleaning up code, actively identify dead code in the path and purge the hell out of them too. tolerate no slop.
+- after making changes, always run the `/review` subagent before final/commit/ship. treat findings as advisory: verify each against the real code path, fix accepted actionable findings, rerun relevant tests after review-triggered changes, and repeat `/review` until no accepted/actionable findings remain.
 - when writing commit messages, describe both what changed and why the change was made.
 - never commit changes unless explicitly told to commit in the current request. a prior commit instruction does not authorize future auto-commits; every commit must be requested separately.
