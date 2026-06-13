@@ -1,4 +1,5 @@
 {
+  "diff_view_style": "split",
   "buffer_font_weight": 100.0,
   "outline_panel": {
     "dock": "right",
@@ -8,10 +9,7 @@
   },
   "icon_theme": "Pierre Icons (Complete)",
   "agent_servers": {
-    "codex-acp": {
-      "type": "registry",
     },
-  },
   "edit_predictions": {
     "disabled_globs": [],
   },
@@ -63,6 +61,7 @@
     "git_status_indicator": false,
   },
   "terminal": {
+    "font_weight": 100.0,
     "font_size": 12.0,
     "minimum_contrast": 0,
     "cursor_shape": "bar",
