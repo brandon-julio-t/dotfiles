@@ -7,12 +7,12 @@
 
 ## Code Review
 
-- after making code changes, always run `/review` by spawning a review subagent before final/commit/ship; do not substitute a local Codex CLI review.
-- try `gpt-5.3-codex-spark` as the `/review` model override first, using a self-contained prompt because model overrides cannot use a full-history fork.
-- if Spark is rate limited or stalls, omit the model override and use a full-history fork. choose enough reasoning effort for the review risk in either path.
-- keep each `/review` prompt atomic and small. review the smallest coherent diff slice; for broader work, spawn as many focused `/review` subagents as useful across disjoint files/areas.
-- include code style in `/review`: prefer stupid-simple, obvious code over clever code that is harder to read or maintain.
-- treat findings as advisory: verify each against the real code path, fix accepted actionable findings, rerun relevant tests after review-triggered changes, and repeat `/review` until no accepted/actionable findings remain.
+- after making code changes, always run spawn a review subagent before final/commit/ship.
+- default the review subagent model to `gpt-5.3-codex-spark`; if rate limited, omit the model override.
+- adjust the review subagent reasoning effort wisely for the review risk
+- keep each review subagent prompt atomic and small. review the smallest coherent diff slice; for broader work, spawn as many focused review subagents as possible across disjoint files/areas.
+- Include code style in review: prefer stupid-simple, obvious code over clever code that is harder to read or maintain.
+- Treat findings as advisory: verify each against the real code path, fix accepted actionable findings, rerun relevant tests after review-triggered changes, and repeat the review subagent process until no accepted/actionable findings remain.
 
 ## Git Commits
 
