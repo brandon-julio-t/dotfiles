@@ -1,10 +1,5 @@
 export PATH=/opt/homebrew/bin:$PATH
 
-if [[ "${CODEX_SHELL:-}" == "1" ]]; then
-  unset CODEX_SHELL
-  exec nu
-fi
-
 # mise
 eval "$(~/.local/bin/mise activate zsh)"
 
