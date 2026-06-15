@@ -11,8 +11,8 @@
 - default the review subagent model to `gpt-5.3-codex-spark`; if rate limited, omit the model override.
 - adjust the review subagent reasoning effort wisely for the review risk
 - keep each review subagent prompt atomic and small. review the smallest coherent diff slice; for broader work, spawn as many focused review subagents as possible across disjoint files/areas.
-- Include code style in review: prefer stupid-simple, obvious code over clever code that is harder to read or maintain.
-- Treat findings as advisory: verify each against the real code path, fix accepted actionable findings, rerun relevant tests after review-triggered changes, and repeat the review subagent process until no accepted/actionable findings remain.
+- include code style in review: prefer stupid-simple, obvious code over clever code that is harder to read or maintain.
+- treat findings as advisory: verify each against the real code path, fix accepted actionable findings, rerun relevant tests after review-triggered changes, and repeat the review subagent process until no accepted/actionable findings remain.
 
 ## Git Commits
 
