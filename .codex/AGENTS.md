@@ -9,6 +9,7 @@
 
 - After making code changes, always spawn review subagents before finalizing, committing, or shipping.
 - Default the review subagent model override to `gpt-5.3-codex-spark`; when rate-limited, rerun without the model override.
+- Default review subagents to `fork_context: false` to conserve quota. Use `fork_context: true` only when the review depends on prior conversation context that cannot be summarized compactly, and keep each review prompt self-contained with the relevant files, diff, constraints, and verification notes.
 - Adjust each review subagent's reasoning effort to the review risk and diff size. Use higher effort for risky, cross-cutting, security-sensitive, or behavior-changing work.
 - Do not treat review as limited to bug and regression checks. Always include separate security review and code-style review subagents; add correctness and regression review subagents when behavior changed or regression risk exists.
 - Treat the following focus areas as prompts, not exhaustive checklists; each subagent should adapt its review to the actual diff.
