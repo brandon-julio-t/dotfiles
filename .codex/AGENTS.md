@@ -5,10 +5,22 @@
 - Follow the Boy Scout Rule from Clean Code by Uncle Bob, Robert C. Martin: leave touched code cleaner than you found it, while keeping cleanup scoped and relevant.
 - Tolerate no slop and no dead code. When editing code, trace affected code paths to their leaves, identify unused or unreachable code, and purge confirmed dead code.
 
+## Subagent Operating Mode
+
+- Use subagents aggressively when they can shorten feedback loops, reduce uncertainty, or improve review quality. Treat them as a first-class engineering tool, not a last resort.
+- Default every subagent model override to `gpt-5.3-codex-spark`; when rate-limited, close the failed subagent and rerun without the model override.
+- Be aggressive with parallelism, but wise about purpose. Every subagent must have a crisp job, bounded scope, and a self-contained prompt with the files, diff, constraints, and expected output it needs.
+- Prefer spawning focused exploration subagents early for unfamiliar code paths, risky dependencies, cross-file ownership questions, or searches that can run independently while implementation proceeds.
+- Prefer worker subagents only when the work can be split cleanly by file, component, feature slice, or verification target. Do not assign overlapping implementation ownership unless explicitly coordinating the handoff.
+- Split broad work into small, independent subagent prompts instead of one vague delegation. Ask each subagent to return concrete findings, proposed edits, test results, or a concise "no issue found" result.
+- Keep subagent usage lean when the task is tiny or the answer is already obvious. Aggressive does not mean wasteful, duplicative, or performative.
+- Do not spawn subagents for vague brainstorming, rubber-stamping, or duplicated searches. If two agents would inspect the same facts in the same way, combine or redirect the work.
+- Close every subagent after its result has been consumed. Verify actionable claims against the real code before editing, shipping, or reporting them.
+
 ## Review Subagents
 
 - After making code changes, always spawn review subagents before finalizing, committing, or shipping.
-- Default the review subagent model override to `gpt-5.3-codex-spark`; when rate-limited, rerun without the model override.
+- Review subagents follow the general subagent model default.
 - Default review subagents to `fork_context: false` to conserve quota. Use `fork_context: true` only when the review depends on prior conversation context that cannot be summarized compactly, and keep each review prompt self-contained with the relevant files, diff, constraints, and verification notes.
 - Adjust each review subagent's reasoning effort to the review risk and diff size. Use higher effort for risky, cross-cutting, security-sensitive, or behavior-changing work.
 - Do not treat review as limited to bug and regression checks. Always include separate security review and code-style review subagents; add correctness and regression review subagents when behavior changed or regression risk exists.
@@ -16,6 +28,8 @@
 - Security review subagents should look for security-relevant risks such as trust boundary mistakes, secrets exposure, injection, unsafe external access, dependency risk, and CI/deployment exposure.
 - Code-style review subagents should look for maintainability issues such as repo convention drift, unclear naming, avoidable complexity, dead code, duplication, or unnecessary churn.
 - Correctness and regression review subagents should look for behavior risks such as broken flows, edge cases, compatibility breaks, inadequate tests, or missing verification.
+- Add targeted review subagents when the diff warrants them. Treat domains such as tests/CI, API/backward compatibility, data/schema migrations, performance/scalability, frontend UX/accessibility, agent-instruction behavior, and platform/deployment/config integration as examples, not limits; use any focused review domain that matches a concrete risk in the change.
+- For documentation-only changes, still run the security and code-style reviews; add correctness/regression review when the wording changes future agent behavior in a meaningful way.
 - Keep each review subagent prompt atomic and small. Review the smallest coherent diff slice; for broader work, split the diff aggressively and spawn as many focused review subagents as practical across disjoint files, concerns, or risk areas.
 - Treat findings as advisory: verify each against the real code path and adjacent files. Reject unrealistic edge cases, speculative risks, broad rewrites, and fixes that over-complicate the codebase.
 - Fix accepted actionable findings, rerun relevant tests after review-triggered changes, and repeat review until no accepted actionable findings remain. When an accepted finding exposes a repeated bug class, inspect the current scope for sibling instances and fix the scoped pattern at once when practical.
