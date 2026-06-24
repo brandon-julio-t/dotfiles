@@ -10,7 +10,7 @@ adjust-cursor-thickness = 3
 
 maximize = true
 
-macos-window-buttons = hidden
+# macos-window-buttons = hidden
 macos-titlebar-proxy-icon = hidden
 
 window-save-state = always

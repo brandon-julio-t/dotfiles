@@ -26,7 +26,7 @@ $env.path ++= [
 ]
 
 $env.config.buffer_editor = "zed"
-$env.config.show_banner = false
+# $env.config.show_banner = false
 
 $env.SHELL = "nu"
 $env.EDITOR = 'zed --wait'
