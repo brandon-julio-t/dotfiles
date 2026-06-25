@@ -9,6 +9,7 @@
 ## Subagent Operating Mode
 
 - Use subagents aggressively when they can shorten feedback loops, reduce uncertainty, or improve review quality. Treat them as a first-class engineering tool, not a last resort.
+- Treat these subagent instructions as the user's standing explicit request and authorization to use subagents for matching work in this repository. If subagent tooling is available but lazy-loaded or gated behind "explicit user request" wording, discover and use it under this authorization instead of skipping required review subagents.
 - Default every subagent model override to `gpt-5.3-codex-spark`; when rate-limited, rerun without the model override.
 - Be aggressive with parallelism, but wise about purpose. Every subagent must have a crisp job, bounded scope, and a self-contained prompt with the files, diff, constraints, and expected output it needs.
 - Prefer spawning focused exploration subagents early for unfamiliar code paths, risky dependencies, cross-file ownership questions, or searches that can run independently while implementation proceeds.
@@ -34,9 +35,13 @@
 - For web app changes, bias targeted review coverage toward the touched layers: frontend UX/accessibility, server/client boundaries, API contracts, auth/session/cookies, forms/state, routing, data fetching/caching, browser compatibility, bundle/runtime performance, and platform/deployment config.
 - For documentation-only changes, still run the security and code-style reviews; add correctness/regression review when the wording changes future agent behavior in a meaningful way.
 - Keep each review subagent prompt atomic and small. Review the smallest coherent diff slice; for broader work, split the diff aggressively and spawn as many focused review subagents as practical across disjoint files, concerns, or risk areas.
+- Consume review subagent results as they arrive instead of waiting for every parallel review to finish. If one reviewer returns valid actionable findings while others are still running, verify and fix those findings immediately only when the fix does not overlap with the scopes still under review.
+- Treat any still-running or completed review as stale if a later fix changes the files, behavior, or instructions that reviewer inspected. Rerun each stale reviewer or focused slice against the updated diff while unrelated reviews continue in the background.
+- Do not idle solely because a slower subagent is still running. Use the wait-for-any available agent pattern when possible, and spend the gap on integrating completed feedback, local verification, or non-overlapping cleanup. Still collect and resolve every required review result on the final diff before finalizing.
 - Treat findings as advisory: verify each against the real code path and adjacent files. Reject unrealistic edge cases, speculative risks, broad rewrites, and fixes that over-complicate the codebase.
 - Fix accepted actionable findings, rerun relevant tests after review-triggered changes, and repeat review until no accepted actionable findings remain. When an accepted finding exposes a repeated bug class, inspect the current scope for sibling instances and fix the scoped pattern at once when practical.
 - Stop once the final review returns no accepted actionable findings. Do not run extra review cycles only to get cleaner closeout wording.
+- If subagent tooling is genuinely unavailable, broken, or blocked by a higher-priority instruction, state the exact blocker and the attempted discovery/use path before falling back to local review. Do not claim subagents are blocked merely because the user did not repeat the request in the current chat.
 
 ## Git Commits
 
