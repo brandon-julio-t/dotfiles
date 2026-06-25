@@ -4,6 +4,7 @@
 - Remember Knuth's warning: "Premature optimization is the root of all evil." Treat premature abstraction the same way unless the code proves it needs one.
 - Follow the Boy Scout Rule from Clean Code by Uncle Bob, Robert C. Martin: leave touched code cleaner than you found it, while keeping cleanup scoped and relevant.
 - Tolerate no slop and no dead code. When editing code, trace affected code paths to their leaves, identify unused or unreachable code, and purge confirmed dead code.
+- When moving or renaming files, preserve the move in the patch. Use `apply_patch` with `*** Move to:` for manual moves instead of add/delete, unless the change is genuinely not a move or cannot be represented cleanly.
 
 ## Subagent Operating Mode
 
@@ -26,7 +27,8 @@
 - Do not treat review as limited to bug and regression checks. Always include separate security review and code-style review subagents; add correctness and regression review subagents when behavior changed or regression risk exists.
 - Treat the following focus areas as prompts, not exhaustive checklists; each subagent should adapt its review to the actual diff.
 - Security review subagents should look for security-relevant risks such as trust boundary mistakes, secrets exposure, injection, unsafe external access, dependency risk, and CI/deployment exposure.
-- Code-style review subagents should look for maintainability issues such as repo convention drift, unclear naming, avoidable complexity, dead code, duplication, or unnecessary churn.
+- Code-style review subagents should prioritize structural maintainability over cosmetic nits. Focus on repo convention drift, unclear naming, avoidable complexity, dead code, duplication, ad-hoc branching, misplaced ownership, thin abstractions, interface and configuration surface churn, large-file growth, and repeated logic that belongs in an existing canonical layer/helper.
+- Prefer high-confidence code-style findings and focused suggestions; do not report speculative nitpicks. Favor behavior-preserving fixes that make code smaller, simpler, and easier to reason about; reject broad rewrites or abstraction-heavy fixes that violate this repo's small, lean change discipline.
 - Correctness and regression review subagents should look for behavior risks such as broken flows, edge cases, compatibility breaks, inadequate tests, or missing verification.
 - Add targeted review subagents when the diff warrants them. Treat domains such as tests/CI, API/backward compatibility, data/schema migrations, performance/scalability, frontend UX/accessibility, agent-instruction behavior, and platform/deployment/config integration as examples, not limits; use any focused review domain that matches a concrete risk in the change.
 - For web app changes, bias targeted review coverage toward the touched layers: frontend UX/accessibility, server/client boundaries, API contracts, auth/session/cookies, forms/state, routing, data fetching/caching, browser compatibility, bundle/runtime performance, and platform/deployment config.
