@@ -6,6 +6,17 @@
 - Tolerate no slop and no dead code. When editing code, trace affected code paths to their leaves, identify unused or unreachable code, and purge confirmed dead code.
 - When moving or renaming files, preserve the move in the patch. Use `apply_patch` with `*** Move to:` for manual moves instead of add/delete, unless the change is genuinely not a move or cannot be represented cleanly.
 
+## Cognitive Load Discipline
+
+- Write code for human working memory. Prefer local, linear, obvious code that lets a reader hold only a few facts in mind at once.
+- Make conditionals easy to scan. Extract dense boolean expressions into well-named intermediate values, and prefer guard clauses or early returns over nested branches when they clarify the happy path.
+- Write comments for why something exists, why a non-obvious choice was made, or to give a higher-level overview. Remove comments that merely restate what the next line of code does.
+- Avoid shallow wrappers, pass-through modules, and layers that only move code around. Prefer keeping related behavior together behind a clear interface when it reduces call-chasing. Add an abstraction only when it hides real complexity, simplifies debugging, or creates a justified extension point.
+- Treat dependencies as code you must understand and maintain. Do not add a dependency for a small helper unless it clearly reduces total cognitive load.
+- Prefer composition over inheritance when inheritance would force readers to chase behavior across multiple parent classes or hidden overrides.
+- Prefer boring, idiomatic language and framework features. Avoid clever syntax, project-specific numeric codes, and values whose meanings must be memorized; use self-describing names and values instead.
+- Before shipping, ask whether a new contributor could trace the happy path, reproduce failures, and debug the change without learning a private mental model first.
+
 ## Subagent Operating Mode
 
 - Use subagents aggressively when they can shorten feedback loops, reduce uncertainty, or improve review quality. Treat them as a first-class engineering tool, not a last resort.
