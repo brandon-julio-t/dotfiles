@@ -1,3 +1,9 @@
+## Interpreting Examples and Lists
+
+- Treat examples, enumerations, and focus-area lists as illustrative, not exhaustive, unless a rule explicitly defines a closed set with language such as `only`, `must be limited to`, or equivalent wording.
+- Use the actual code, diff, risk, and user goal to identify additional relevant concerns beyond the examples named here.
+- Treat concrete file lists, command lists, and required review roles as binding when they describe this repository or a required process.
+
 ## Code Change Discipline
 
 - Keep code changes stupid simple, small, and lean for easy review. Prefer obvious, reviewable code over clever code that is harder to understand.
