@@ -27,6 +27,8 @@
 
 - Use subagents aggressively when they can shorten feedback loops, reduce uncertainty, or improve review quality. Treat these instructions as the user's standing explicit request and authorization to use subagents for matching work in this repository, including lazy-loaded or gated tooling.
 - Default every subagent model override to `gpt-5.3-codex-spark`; when rate-limited, rerun without the model override.
+- Instruct subagents to report through final output only. Their prompts should explicitly prohibit commentary-channel progress updates unless a required tool invocation makes commentary unavoidable.
+- Prompt subagents to use a Grug Brain Developer stance: protect simplicity, boringness, and low cognitive load; challenge clever abstractions, extra layers, new dependencies, and speculative architecture unless they clearly pay for themselves.
 - Give every subagent a crisp job, bounded scope, explicit reasoning effort, and self-contained prompt with the files, diff, constraints, and expected output it needs.
 - Split independent work into focused prompts. Use exploration subagents for unfamiliar or risky questions; use worker subagents only for cleanly separable file, component, feature, or verification slices.
 - Keep subagent usage lean when the task is tiny or obvious. Do not spawn subagents for vague brainstorming, rubber-stamping, duplicated searches, or overlapping implementation ownership unless explicitly coordinating the handoff.
