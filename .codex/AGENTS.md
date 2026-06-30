@@ -6,6 +6,15 @@
 - Tolerate no slop and no dead code. When editing code, trace affected code paths to their leaves, identify unused or unreachable code, and purge confirmed dead code.
 - When moving or renaming files, preserve the move in the patch. Use `apply_patch` with `*** Move to:` for manual moves instead of add/delete, unless the change is genuinely not a move or cannot be represented cleanly.
 
+## Incremental Edit Discipline
+
+- Do not make broad rewrites in one pass. If a change touches multiple concerns, write a short slice plan and split it into reviewable checkpoints such as backend contract, tests, routing, component extraction, and UI polish.
+- Keep each checkpoint small enough to explain, verify, and revert by file and hunk scope, not just by feature concern. When one behavior spans many files, split it further by file cluster, call path, or UI surface.
+- Keep genuinely coupled edits together only when splitting would leave the code incoherent or uncompilable; still make that coupled slice as small as practical and verify it before moving on.
+- When a patch hits context mismatch, do not push through with another large patch. Re-read the current file, shrink the hunk, and land the smallest correct change.
+- Run the fastest relevant validation after each risky slice. Do not wait until several unrelated edits have piled up before discovering type, lint, routing, or test failures.
+- Keep structural refactors separate from behavior changes unless the behavior change cannot compile without the structure change. Move first, verify, then change behavior.
+
 ## Cognitive Load Discipline
 
 - Write code for human working memory. Prefer local, linear, obvious code that lets a reader hold only a few facts in mind at once.
