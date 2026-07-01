@@ -32,6 +32,7 @@
 - Give every subagent a crisp job, bounded scope, explicit model override/reasoning-effort choice, and self-contained prompt with the files, diff, constraints, and expected output it needs.
 - Split independent work into focused prompts. Use exploration subagents for unfamiliar or risky questions; use worker subagents only for cleanly separable file, component, feature, or verification slices.
 - Keep subagent usage lean when the task is tiny or obvious. Do not spawn subagents for vague brainstorming, rubber-stamping, duplicated searches, or overlapping implementation ownership unless explicitly coordinating the handoff.
+- Before spawning a new subagent wave, close completed or no-longer-needed subagent threads when lifecycle tooling is available. Treat a subagent thread-limit error as a recoverable capacity issue: close stale subagents and retry the required reviewer instead of replacing required subagent review with local checks.
 - Verify actionable claims against the real code before editing, shipping, or reporting them.
 
 ## Review Subagents
@@ -46,7 +47,8 @@
 - For documentation-only changes, run security and code-style reviews when the file gives agent instructions or when wording affects secrets, trust boundaries, external access, credentials, CI, deployment, or operational processes. Low-risk docs-only edits outside those areas do not require review subagents.
 - Keep each review prompt atomic and small. Include the exact focus area, smallest coherent diff or file scope, relevant constraints, verification already run, and expected output shape. Require either prioritized findings with file/line references or a concise "no issue found" result.
 - Consume review results as they arrive. Verify findings against real code, fix accepted issues, rerun relevant tests and stale reviews when inspected files or behavior changed, and reject speculative or over-complicated fixes.
-- Stop once the final required reviews return no accepted actionable findings. If subagent tooling is unavailable, broken, or blocked by higher-priority instruction, state the exact blocker, the attempted discovery/use path, and the fallback.
+- After each review wave, close completed review subagents before starting follow-up reviews. If a required follow-up review hits the subagent thread limit, first close completed agents and retry the review. If lifecycle tooling cannot recover enough capacity, report the required review as blocked and unfulfilled; local checks are never a substitute for required subagent review.
+- Stop once the final required reviews return no accepted actionable findings. If subagent tooling is unavailable, broken, or blocked by higher-priority instruction, state the exact blocker and attempted discovery/use path; do not claim required subagent reviews ran or passed.
 
 ## Git Commits
 
