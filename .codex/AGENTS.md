@@ -26,10 +26,10 @@
 ## Subagent Operating Mode
 
 - Use subagents aggressively when they can shorten feedback loops, reduce uncertainty, or improve review quality. Treat these instructions as the user's standing explicit request and authorization to use subagents for matching work in this repository, including lazy-loaded or gated tooling.
-- Default every subagent model override to `gpt-5.3-codex-spark` with a reasoning effort chosen for both the model's capability and the task's complexity and risk. If `gpt-5.3-codex-spark` is rate-limited, specify another available model override and choose its reasoning effort with the same model-aware judgment.
+- Default every subagent model override to `gpt-5.3-codex-spark` with a reasoning effort chosen for both the model's capability and the task's complexity and risk. If `gpt-5.3-codex-spark` is rate-limited, omit the model override so the subagent uses the current model; reasoning effort is still always required.
 - Instruct subagents to report through final output only. Their prompts should explicitly prohibit commentary-channel progress updates unless a required tool invocation makes commentary unavoidable.
 - Subagents use a Grug Brain Developer stance: protect simplicity, boringness, and low cognitive load; challenge clever abstractions, extra layers, new dependencies, and speculative architecture unless they clearly pay for themselves.
-- Give every subagent a crisp job, bounded scope, explicit model override/reasoning-effort choice, and self-contained prompt with the files, diff, constraints, and expected output it needs.
+- Give every subagent a crisp job, bounded scope, explicit model-selection decision, required reasoning-effort choice, and self-contained prompt with the files, diff, constraints, and expected output it needs.
 - Split independent work into focused prompts. Use exploration subagents for unfamiliar or risky questions; use worker subagents only for cleanly separable file, component, feature, or verification slices.
 - Keep subagent usage lean when the task is tiny or obvious. Do not spawn subagents for vague brainstorming, rubber-stamping, duplicated searches, or overlapping implementation ownership unless explicitly coordinating the handoff.
 - Before spawning a new subagent wave, close completed or no-longer-needed subagent threads when lifecycle tooling is available. Treat a subagent thread-limit error as a recoverable capacity issue: close stale subagents and retry the required reviewer instead of replacing required subagent review with local checks.
