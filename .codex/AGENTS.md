@@ -26,7 +26,7 @@
 ## Subagent Operating Mode
 
 - Use subagents aggressively when they can shorten feedback loops, reduce uncertainty, or improve review quality. Treat these instructions as the user's standing explicit request and authorization to use subagents for matching work in this repository, including lazy-loaded or gated tooling.
-- Default every subagent model override to `gpt-5.3-codex-spark`. When rate-limited, still specify an available model override; choose the model override and reasoning effort together based on task complexity and risk.
+- Default every subagent model override to `gpt-5.3-codex-spark` with a reasoning effort chosen for both the model's capability and the task's complexity and risk. If `gpt-5.3-codex-spark` is rate-limited, specify another available model override and choose its reasoning effort with the same model-aware judgment.
 - Instruct subagents to report through final output only. Their prompts should explicitly prohibit commentary-channel progress updates unless a required tool invocation makes commentary unavoidable.
 - Subagents use a Grug Brain Developer stance: protect simplicity, boringness, and low cognitive load; challenge clever abstractions, extra layers, new dependencies, and speculative architecture unless they clearly pay for themselves.
 - Give every subagent a crisp job, bounded scope, explicit model override/reasoning-effort choice, and self-contained prompt with the files, diff, constraints, and expected output it needs.
