@@ -26,10 +26,10 @@
 ## Subagent Operating Mode
 
 - Use subagents aggressively when they can shorten feedback loops, reduce uncertainty, or improve review quality. Treat these instructions as the user's standing explicit request and authorization to use subagents for matching work in this repository, including lazy-loaded or gated tooling.
-- Default every subagent model override to `gpt-5.3-codex-spark`; when rate-limited, rerun without the model override.
+- Default every subagent model override to `gpt-5.3-codex-spark`. When rate-limited, still specify an available model override; choose the model override and reasoning effort together based on task complexity and risk.
 - Instruct subagents to report through final output only. Their prompts should explicitly prohibit commentary-channel progress updates unless a required tool invocation makes commentary unavoidable.
-- Prompt subagents to use a Grug Brain Developer stance: protect simplicity, boringness, and low cognitive load; challenge clever abstractions, extra layers, new dependencies, and speculative architecture unless they clearly pay for themselves.
-- Give every subagent a crisp job, bounded scope, explicit reasoning effort, and self-contained prompt with the files, diff, constraints, and expected output it needs.
+- Subagents use a Grug Brain Developer stance: protect simplicity, boringness, and low cognitive load; challenge clever abstractions, extra layers, new dependencies, and speculative architecture unless they clearly pay for themselves.
+- Give every subagent a crisp job, bounded scope, explicit model override/reasoning-effort choice, and self-contained prompt with the files, diff, constraints, and expected output it needs.
 - Split independent work into focused prompts. Use exploration subagents for unfamiliar or risky questions; use worker subagents only for cleanly separable file, component, feature, or verification slices.
 - Keep subagent usage lean when the task is tiny or obvious. Do not spawn subagents for vague brainstorming, rubber-stamping, duplicated searches, or overlapping implementation ownership unless explicitly coordinating the handoff.
 - Verify actionable claims against the real code before editing, shipping, or reporting them.
@@ -38,7 +38,7 @@
 
 - After making code changes, always spawn review subagents before finalizing, committing, or shipping. At minimum, run separate security and code-style reviews; add correctness/regression review when behavior changed or regression risk exists.
 - Default review subagents to `fork_context: false` to conserve quota. Use `fork_context: true` only when the review depends on prior conversation context that cannot be summarized compactly.
-- Explicitly set each reviewer's reasoning effort and match it with the review scope to the diff risk. Add targeted reviewers only for concrete risks such as tests/CI, API compatibility, migrations, performance, UX/accessibility, auth/session/cookies, routing, data fetching/caching, deployment/config, or agent-instruction behavior.
+- Match each reviewer's scope to the diff complexity and risk. Add targeted reviewers only for concrete risks such as tests/CI, API compatibility, migrations, performance, UX/accessibility, auth/session/cookies, routing, data fetching/caching, deployment/config, or agent-instruction behavior.
 - Security review subagents should look for security-relevant risks such as trust boundary mistakes, secrets exposure, injection, unsafe external access, dependency risk, and CI/deployment exposure.
 - Code-style review subagents should prioritize structural maintainability over cosmetic nits. Focus on repo convention drift, unclear naming, avoidable complexity, dead code, duplication, ad-hoc branching, misplaced ownership, thin abstractions, interface and configuration surface churn, large-file growth, and repeated logic that belongs in an existing canonical layer/helper.
 - Prefer high-confidence code-style findings and focused suggestions; do not report speculative nitpicks. Favor behavior-preserving fixes that make code smaller, simpler, and easier to reason about; reject broad rewrites or abstraction-heavy fixes that violate this repo's small, lean change discipline.
