@@ -45,6 +45,7 @@
     },
   },
   "git_panel": {
+    "group_by": "none",
     "dock": "right",
     "show_count_badge": false,
     "sort_by_path": false,
