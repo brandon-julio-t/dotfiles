@@ -16,6 +16,12 @@ Current custom theme: **Pierre Dark Soft**. When refreshing or replacing a theme
 - Icons: `https://github.com/pierrecomputer/vscode-icons`
 - Base icon project: `https://github.com/pierrecomputer/icons`
 
+Last refreshed upstream commits on 2026-07-03:
+
+- Themes: `afbdd447d005a783c2ab97d0c5e0131fb61a4379`
+- Icons: `04a9028f0b227aaf820e9e73da2992af86ba0f26`
+- Base icon project: `67f6c095220b4f9c77bf997f812aebe3b53e24f5`
+
 ### Local Files
 
 - Zed: `.config/zed/settings.json`, `.config/zed/themes/pierre.json`, `.config/zed/extensions/pierre-icons/`
@@ -36,6 +42,7 @@ Current custom theme: **Pierre Dark Soft**. When refreshing or replacing a theme
 - Use `mise` when running Node/npm-based icon tooling.
 
 ```bash
+ruby -rjson -e 'JSON.parse(File.read(".config/zed/themes/pierre.json")); JSON.parse(File.read(".config/zed/extensions/pierre-icons/icon_themes/pierre-icons.json"))'
 mise exec -- bat cache --build
 mise exec -- bat --list-themes | rg -x 'Pierre Dark Soft'
 mise exec -- delta --list-syntax-themes | rg 'Pierre Dark Soft'
