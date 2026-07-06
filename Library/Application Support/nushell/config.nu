@@ -139,21 +139,6 @@ def init [] {
 
         # Carapace
         with-mise-github-token { mise x -- carapace _carapace nushell } | save -f ($nu.data-dir | path join "vendor/autoload/carapace.nu")
-
-        # OpenCode
-        opencode completion | save -f (brew --prefix | path join "share/zsh/site-functions/_opencode")
-
-        # Mise
-        with-mise-github-token { mise completion zsh } | save -f (brew --prefix | path join "share/zsh/site-functions/_mise")
-
-        # Caddy
-        with-mise-github-token { mise x -- caddy completion zsh } | save -f (brew --prefix | path join "share/zsh/site-functions/_caddy")
-
-        # Colima
-        with-mise-github-token { mise x -- colima completion zsh } | save -f (brew --prefix | path join "share/zsh/site-functions/_colima")
-
-        # Limactl
-        with-mise-github-token { mise x -- limactl completion zsh } | save -f (brew --prefix | path join "share/zsh/site-functions/_limactl")
     }
 }
 
