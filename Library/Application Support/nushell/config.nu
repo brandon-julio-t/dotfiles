@@ -170,9 +170,8 @@ def up-repos [] {
 
 def up [] {
     timeit {
-        timeit { try { opencode upgrade --print-logs } }
         timeit { try { brew up } }
-        timeit { try { brew upgrade } }
+        timeit { try { brew upgrade -y } }
         timeit { try { brew cleanup } }
         timeit { try { with-mise-github-token { mise self-update -y } } }
         timeit { try { with-mise-github-token { mise up -y --bump } } }
