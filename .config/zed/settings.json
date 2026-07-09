@@ -16,7 +16,7 @@
   "colorize_brackets": true,
   "indent_guides": {
     "coloring": "indent_aware",
-    "background_coloring": "indent_aware",
+    "background_coloring": "indent_aware"
   },
   "cli_default_open_behavior": "new_window",
   "agent": {
