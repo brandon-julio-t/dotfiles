@@ -1,7 +1,4 @@
-# config.nu
-#
-# Installed by:
-# version = "0.109.1"
+# config.nu — managed by ~/repos/dotfiles and mise
 #
 # This file is used to override default Nushell settings, define
 # (or import) custom commands, or run any other startup tasks.
@@ -18,11 +15,12 @@
 #     config nu --doc | nu-highlight | less -R
 
 $env.path ++= [
+    # mise's native brew backend uses the canonical bottle prefix without
+    # requiring the Homebrew CLI. libpq is keg-only, so it needs its opt path.
     "/opt/homebrew/bin",
     "/opt/homebrew/opt/libpq/bin",
-    "/usr/local/bin"
-    "~/.local/bin",
-    "~/.opencode/bin",
+    "/usr/local/bin",
+    ($nu.home-dir | path join ".local" "bin"),
 ]
 
 $env.config.buffer_editor = "zed"
@@ -38,20 +36,29 @@ $env.OPENCODE_EXPERIMENTAL = true
 # workaround of using zed and opencode in ghostty (2 separate apps)
 $env.ZED_TERM = true
 
-def with-mise-github-token [body: closure] {
-    let existing_token = (try { $env.MISE_GITHUB_TOKEN } catch { null })
+# Fail before an update if GitHub cannot answer every version lookup. Mise can
+# otherwise warn on HTTP 403 responses and still exit successfully.
+const GITHUB_UPDATE_MIN_REQUESTS = 40 # Current lookups plus ~10 requests of headroom.
 
-    if ($existing_token != null) and (($existing_token | str trim) != '') {
-        do $body
+def ensure-github-update-budget [] {
+    let token = (try { $env.MISE_GITHUB_TOKEN | str trim } catch { '' })
+    let base_headers = {
+        Accept: "application/vnd.github+json"
+        "X-GitHub-Api-Version": "2022-11-28"
+    }
+    let headers = if $token == '' {
+        $base_headers
     } else {
-        let token = (try { gh auth token | str trim } catch { null })
+        $base_headers | merge { Authorization: $'Bearer ($token)' }
+    }
+    let remaining = (
+        http get --max-time 10sec --headers $headers https://api.github.com/rate_limit
+        | get resources.core.remaining
+    )
 
-        if ($token == null) or ($token == '') {
-            do $body
-        } else {
-            with-env { MISE_GITHUB_TOKEN: $token } {
-                do $body
-            }
+    if $remaining < $GITHUB_UPDATE_MIN_REQUESTS {
+        error make {
+            msg: $'GitHub API budget is too low for a complete mise update: ($remaining) requests remain; ($GITHUB_UPDATE_MIN_REQUESTS) required. Wait for the reset or provide a dedicated MISE_GITHUB_TOKEN.'
         }
     }
 }
@@ -84,14 +91,10 @@ alias p = pnpm
 
 # Register mise's Compose binary as a Docker CLI plugin so `docker compose` works.
 def ensure-docker-compose-plugin [] {
-    let source = (try { with-mise-github-token { mise which docker-cli-plugin-docker-compose } | str trim } catch { null })
+    let source = (mise which docker-cli-plugin-docker-compose | str trim)
 
-    if ($source == null) {
-        return
-    }
-
-    if (not ($source | path exists)) {
-        return
+    if ($source == '') or (not ($source | path exists)) {
+        error make { msg: $'Docker Compose plugin source is unavailable: ($source)' }
     }
 
     let plugin_dir = ($nu.home-dir | path join ".docker" "cli-plugins")
@@ -103,7 +106,9 @@ def ensure-docker-compose-plugin [] {
     if $plugin_is_symlink {
         rm $plugin_path
         ^ln -s $source $plugin_path
-    } else if not ($plugin_path | path exists) {
+    } else if ($plugin_path | path exists) {
+        error make { msg: $'Refusing to replace non-symlink Docker Compose plugin: ($plugin_path)' }
+    } else {
         ^ln -s $source $plugin_path
     }
 }
@@ -126,19 +131,19 @@ def init [] {
         mkdir ($nu.data-dir | path join "vendor/autoload")
 
         # Mise
-        with-mise-github-token { mise activate nu } | save -f ($nu.data-dir | path join "vendor/autoload/mise.nu")
+        mise activate nu | save -f ($nu.data-dir | path join "vendor/autoload/mise.nu")
 
         # Starship
-        with-mise-github-token { mise x -- starship init nu } | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+        mise x -- starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 
         # Zoxide
-        with-mise-github-token { mise x -- zoxide init nushell } | save -f ($nu.data-dir | path join "vendor/autoload/zoxide.nu")
+        mise x -- zoxide init nushell | save -f ($nu.data-dir | path join "vendor/autoload/zoxide.nu")
 
         # Atuin
-        with-mise-github-token { mise x -- atuin init nu } | save -f ($nu.data-dir | path join "vendor/autoload/atuin.nu")
+        mise x -- atuin init nu | save -f ($nu.data-dir | path join "vendor/autoload/atuin.nu")
 
         # Carapace
-        with-mise-github-token { mise x -- carapace _carapace nushell } | save -f ($nu.data-dir | path join "vendor/autoload/carapace.nu")
+        mise x -- carapace _carapace nushell | save -f ($nu.data-dir | path join "vendor/autoload/carapace.nu")
     }
 }
 
@@ -170,14 +175,13 @@ def up-repos [] {
 
 def up [] {
     timeit {
-        timeit { try { brew up } }
-        timeit { try { brew upgrade -y } }
-        timeit { try { brew cleanup } }
-        timeit { try { with-mise-github-token { mise self-update -y } } }
-        timeit { try { with-mise-github-token { mise up -y --bump } } }
-        timeit { try { ensure-docker-compose-plugin } }
-        timeit { try { with-mise-github-token { mise prune -y } } }
-        timeit { try { with-mise-github-token { mise x -- colima restart } } }
-        timeit { try { init } }
+        ensure-github-update-budget
+        timeit { mise self-update -y }
+        timeit { mise upgrade -y --bump }
+        timeit { mise bootstrap packages upgrade -y }
+        timeit { ensure-docker-compose-plugin }
+        timeit { mise prune -y }
+        timeit { mise x -- colima restart }
+        timeit { init }
     }
 }

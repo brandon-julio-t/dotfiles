@@ -68,7 +68,7 @@
     "cursor_shape": "bar",
     "shell": {
       "with_arguments": {
-        "program": "/opt/homebrew/bin/nu",
+        "program": "nu",
         "args": ["-l"],
       },
     },

@@ -2,7 +2,7 @@ theme = Pierre Dark Soft
 font-family = SF Mono
 font-size = 12
 
-command = /opt/homebrew/bin/nu
+command = direct:/Users/bjt/.local/share/mise/shims/nu
 #shell-integration-features = ssh-terminfo,ssh-env,sudo
 cursor-style = bar
 cursor-style-blink = false

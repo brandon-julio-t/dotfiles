@@ -1,0 +1,69 @@
+min_version = "2026.7.5"
+
+[settings]
+dotfiles.root = "~/repos/dotfiles"
+dotfiles.default_mode = "symlink"
+lockfile_platforms = ["macos-arm64"]
+
+[tools]
+"aqua:fish-shell/fish-shell" = "latest"
+"aqua:nushell/nushell" = "latest"
+atuin = "latest"
+bat = "latest"
+bun = "latest"
+caddy = "latest"
+carapace = "latest"
+colima = "latest"
+delta = "latest"
+docker-compose = "latest"
+fzf = "latest"
+gh = "latest"
+git-lfs = "latest"
+"github:boyter/scc" = "latest"
+helix = "latest"
+lazydocker = "latest"
+lazygit = "latest"
+lazyssh = "latest"
+lima = "latest"
+node = "latest"
+"github:kitlangton/ghui" = "latest"
+opencode = "latest"
+pnpm = "latest"
+ripgrep = "latest"
+ripgrep-all = "latest"
+starship = "latest"
+usage = "latest"
+zoxide = "latest"
+
+[bootstrap.packages]
+"brew:btop" = "latest"
+"brew:docker" = "latest"
+"brew:git" = "latest"
+"brew:libpq" = "latest"
+"brew-cask:font-geist-mono-nerd-font" = "latest"
+
+[dotfiles]
+"~/.zprofile" = {}
+"~/.zshrc" = {}
+"~/.gitconfig" = {}
+"~/.gitignore" = {}
+"~/.codex/AGENTS.md" = {}
+"~/.config/bat" = {}
+"~/.config/btop/themes" = { mode = "symlink-each" }
+"~/.config/ghostty/themes" = { mode = "symlink-each" }
+"~/.config/helix" = { mode = "symlink-each" }
+"~/.config/mise" = { mode = "symlink-each" }
+"~/.config/opencode" = { mode = "symlink-each" }
+"~/.config/opencode/AGENTS.md" = { source = "~/repos/dotfiles/.codex/AGENTS.md", mode = "symlink" }
+"~/.config/zed" = { mode = "symlink-each" }
+"~/Library/Application Support/carapace" = {}
+"~/Library/Application Support/com.mitchellh.ghostty/config" = {}
+"~/Library/Application Support/lazygit/config.yml" = {}
+"~/Library/Application Support/nushell/config.nu" = {}
+
+[tasks.bootstrap]
+description = "Generate Nushell integrations and register Docker Compose"
+dir = "~/repos/dotfiles"
+run = """
+nu -c 'source "Library/Application Support/nushell/config.nu"; ensure-docker-compose-plugin; init'
+"""

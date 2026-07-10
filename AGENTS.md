@@ -6,6 +6,35 @@ Example mappings:
 - `.config/opencode/` → `~/.config/opencode/`
 - `Library/Application Support/` → `~/Library/Application Support/`
 
+## Bootstrap
+
+This repository uses mise as the primary entry point for tools, system packages,
+and dotfile symlinks. Mise installs macOS bottles and supported casks into
+`/opt/homebrew`; the declared bootstrap does not require the Homebrew CLI.
+Clone the repo at `~/repos/dotfiles`, then run:
+
+```bash
+cd ~/repos/dotfiles
+mise trust .config/mise/config.toml
+mise bootstrap --dry-run --locked
+mise bootstrap --locked --yes
+mise bootstrap status --missing
+```
+
+If the dry run reports pre-existing dotfiles that should be replaced with
+managed symlinks, add `--force-dotfiles` to the apply command after reviewing
+the conflicts. The committed mise lockfile pins tool versions and download
+checksums; macOS formulae and casks intentionally follow their current package
+releases. The `up` command refreshes the lockfile when upgrading tools.
+
+The Nushell `up` command is the explicit maintenance workflow: it updates mise,
+upgrades configured tools and bootstrap packages, prunes unused mise versions,
+refreshes the Docker Compose plugin link, restarts Colima, and regenerates shell
+integrations. It uses unauthenticated GitHub access by default; if rate limited,
+provide a dedicated, minimally scoped `MISE_GITHUB_TOKEN` rather than reusing
+the token from `gh auth`. A preflight stops `up` before making changes when the
+remaining API budget is too small for a complete version check.
+
 ## Theming
 
 Current custom theme: **Pierre Dark Soft**. When refreshing or replacing a theme, use upstream files as the source of truth instead of hand-editing colors without a source.
