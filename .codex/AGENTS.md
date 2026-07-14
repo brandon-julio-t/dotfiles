@@ -9,6 +9,7 @@ after code changes, do code review using the the following subagents:
    inhuman cognitive load / unrealistic overengineering,
    violation of KISS/YAGNI,
    premature optimization,
+   deprecated APIs,
    and developer experience (DX)
 2. security. study Codex Security skill but do not invoke it because it needs my input and i want the reviews to be hands-free
 3. correctness, bugs, and regressions
