@@ -20,3 +20,8 @@ after code changes, do code review using the the following subagents:
 - loop until no more issues or findings
 - if you reject subagent suggestions, let me know why
 - the subagent list mentioned is not a complete list of subagents. so if the task requires additional reviewer subagent that is not within the existing subagent list, feel free to do so
+
+## git commit
+
+when i say commit, you commit your changes only
+use git stage hunk, so don't manually edit files as much as possible, to prevent clashing work with other concurrent agents
