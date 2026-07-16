@@ -15,6 +15,8 @@ after code changes, do code review using the the following subagents:
 2. security. study Codex Security skill but do not invoke it because it needs my input and i want the reviews to be hands-free
 3. correctness, bugs, regressions, etc.
 4. OLTP database performance
+   pay close attention to the project's database transaction isolation level so that review is factually correct
+   is it postgres default? serializable? convex serializable? etc.
 
 - all the subagents mentioned are situational, so spawn the review subagents wisely as needed
 - loop until no more issues or findings
