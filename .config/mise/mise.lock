@@ -19,13 +19,13 @@ url = "https://github.com/nushell/nushell/releases/download/0.114.1/nu-0.114.1-a
 url_api = "https://api.github.com/repos/nushell/nushell/releases/assets/473629724"
 
 [[tools.atuin]]
-version = "18.17.0"
+version = "18.17.1"
 backend = "aqua:atuinsh/atuin"
 
 [tools.atuin."platforms.macos-arm64"]
-checksum = "sha256:ae8a6f84557ee14f60ee50ad9430c78110acfa5c53dacad493b809c574a094b7"
-url = "https://github.com/atuinsh/atuin/releases/download/v18.17.0/atuin-aarch64-apple-darwin.tar.gz"
-url_api = "https://api.github.com/repos/atuinsh/atuin/releases/assets/470835425"
+checksum = "sha256:f4f6ff23452d42d1e981c0878ade4f3edaee4bd5ce83c39b0d134d926ca04377"
+url = "https://github.com/atuinsh/atuin/releases/download/v18.17.1/atuin-aarch64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/atuinsh/atuin/releases/assets/477075557"
 provenance = "github-attestations"
 
 [[tools.bat]]
@@ -191,13 +191,13 @@ checksum = "sha256:ee920559aaa2391569cff4d737e3b83963430e3a14dedd91bfe0ff53171b5
 url = "https://nodejs.org/dist/v26.5.0/node-v26.5.0-darwin-arm64.tar.gz"
 
 [[tools.opencode]]
-version = "1.17.20"
+version = "1.18.1"
 backend = "aqua:anomalyco/opencode"
 
 [tools.opencode."platforms.macos-arm64"]
-checksum = "sha256:dc42114bb7a312e0c61c71456fed00d1e6d8b7647d279233125090804dc0218b"
-url = "https://github.com/anomalyco/opencode/releases/download/v1.17.20/opencode-darwin-arm64.zip"
-url_api = "https://api.github.com/repos/anomalyco/opencode/releases/assets/475880212"
+checksum = "sha256:fd2e1abc18a446591314f83821779bbb1a4840b1762ddef22a4b637ea63acdf6"
+url = "https://github.com/anomalyco/opencode/releases/download/v1.18.1/opencode-darwin-arm64.zip"
+url_api = "https://api.github.com/repos/anomalyco/opencode/releases/assets/477162547"
 
 [[tools.pnpm]]
 version = "11.13.0"
@@ -237,13 +237,13 @@ url = "https://github.com/starship/starship/releases/download/v1.26.0/starship-a
 url_api = "https://api.github.com/repos/starship/starship/releases/assets/460374577"
 
 [[tools.usage]]
-version = "3.5.4"
+version = "3.5.5"
 backend = "aqua:jdx/usage"
 
 [tools.usage."platforms.macos-arm64"]
-checksum = "sha256:25b0fff15f030f3c08caa960174b3fb9f85be601824744424a7409dcdf1ee37a"
-url = "https://github.com/jdx/usage/releases/download/v3.5.4/usage-universal-apple-darwin.tar.gz"
-url_api = "https://api.github.com/repos/jdx/usage/releases/assets/468433769"
+checksum = "sha256:eeccdad9008024f227fa3dd2f40e094e439c2bd8802cfeea58ed911973f3266c"
+url = "https://github.com/jdx/usage/releases/download/v3.5.5/usage-universal-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/jdx/usage/releases/assets/476575330"
 
 [[tools.zoxide]]
 version = "0.10.0"
