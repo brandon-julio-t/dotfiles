@@ -1,27 +1,34 @@
 ## code review loop
 
-after code changes, do code review using the the following subagents:
+after code changes, spawn ONE and ONLY ONE review subagent to do code review
 
-1. code-style/aesthetics,
-   maintainability,
-   readability,
-   dead code,
-   inhuman cognitive load / unrealistic overengineering,
-   violation of KISS/YAGNI,
-   premature optimization,
-   deprecated APIs,
-   developer experience (DX),
-   etc.
-2. security. study Codex Security skill but do not invoke it because it needs my input and i want the reviews to be hands-free
-3. correctness, bugs, regressions, etc.
-4. OLTP database performance
-   pay close attention to the project's database transaction isolation level so that review is factually correct
-   is it postgres default? serializable? convex serializable? etc.
+review starting points based on topics i care very much about:
 
-- all the subagents mentioned are situational, so spawn the review subagents wisely as needed
+- maintainability
+  - code-style/aesthetics
+  - readability
+  - dead code
+  - inhuman cognitive load / unrealistic overengineering
+  - violation of KISS/YAGNI
+  - premature optimization
+  - deprecated APIs
+  - developer experience (DX)
+- security
+  - study Codex Security skill but do not invoke it because it needs my input and i want the reviews to be hands-free
+- verification
+  - correctness
+  - bugs
+  - regressions
+- OLTP database performance
+  - pay close attention to the project's database transaction isolation level so that review is factually correct
+  - is it postgres default? serializable? convex serializable? etc.
+
+notes:
+
+- focus on high signal low noise
+- all the topics mentioned are situational, so add or remove review topics wisely as needed
+- if you reject any review, let me know why
 - loop until no more issues or findings
-- if you reject subagent suggestions, let me know why
-- the subagent list mentioned is not a complete list of subagents. so if the task requires additional reviewer subagent that is not within the existing subagent list, feel free to do so
 
 ## git commit
 
