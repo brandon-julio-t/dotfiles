@@ -27,7 +27,6 @@ lazyssh = "latest"
 lima = "latest"
 node = "latest"
 "github:kitlangton/ghui" = "latest"
-opencode = "latest"
 pnpm = "latest"
 ripgrep = "latest"
 ripgrep-all = "latest"
@@ -53,8 +52,6 @@ zoxide = "latest"
 "~/.config/ghostty/themes" = { mode = "symlink-each" }
 "~/.config/helix" = { mode = "symlink-each" }
 "~/.config/mise" = { mode = "symlink-each" }
-"~/.config/opencode" = { mode = "symlink-each" }
-"~/.config/opencode/AGENTS.md" = { source = "~/repos/dotfiles/.codex/AGENTS.md", mode = "symlink" }
 "~/.config/zed" = { mode = "symlink-each" }
 "~/Library/Application Support/carapace" = {}
 "~/Library/Application Support/com.mitchellh.ghostty/config" = {}

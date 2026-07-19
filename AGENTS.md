@@ -3,7 +3,6 @@ Personal dotfiles repository for machine configuration files. All files are syml
 Example mappings:
 
 - `.zshrc` → `~/.zshrc`
-- `.config/opencode/` → `~/.config/opencode/`
 - `Library/Application Support/` → `~/Library/Application Support/`
 
 ## Bootstrap

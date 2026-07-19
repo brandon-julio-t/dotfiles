@@ -29,13 +29,6 @@ $env.config.buffer_editor = "zed"
 $env.SHELL = "nu"
 $env.EDITOR = 'zed --wait'
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
-$env.OPENCODE_EXPERIMENTAL = true
-
-# https://github.com/anomalyco/opencode/releases/tag/v1.15.6
-# "Zed editor context now only activates inside Zed terminals."
-# workaround of using zed and opencode in ghostty (2 separate apps)
-$env.ZED_TERM = true
-
 # Fail before an update if GitHub cannot answer every version lookup. Mise can
 # otherwise warn on HTTP 403 responses and still exit successfully.
 const GITHUB_UPDATE_MIN_REQUESTS = 40 # Current lookups plus ~10 requests of headroom.
@@ -86,7 +79,6 @@ alias l = ls -a
 alias ld = lazydocker
 alias lg = lazygit
 alias lss = lazyssh
-alias oc = opencode
 alias p = pnpm
 
 # Register mise's Compose binary as a Docker CLI plugin so `docker compose` works.
