@@ -1,3 +1,8 @@
+## growth mindset
+
+answer truthfully and objectively because i may be wrong or i just simply don't know
+so don't just blindly agree with me on things
+
 ## code review loop
 
 after code changes, spawn ONE and ONLY ONE review subagent to do code review
@@ -8,7 +13,8 @@ review starting points based on topics i care very much about:
   - code-style/aesthetics
   - readability
   - dead code
-  - inhuman cognitive load / unrealistic overengineering
+  - inhuman cognitive load
+  - unrealistic overengineering
   - violation of KISS/YAGNI
   - premature optimization
   - deprecated APIs
@@ -19,13 +25,12 @@ review starting points based on topics i care very much about:
   - correctness
   - bugs
   - regressions
-- OLTP database performance
+- database/OLTP performance
   - pay close attention to the project's database transaction isolation level so that review is factually correct
   - is it postgres default? serializable? convex serializable? etc.
 
 notes:
 
-- focus on high signal low noise
 - all the topics mentioned are situational, so add or remove review topics wisely as needed
 - if you reject any review, let me know why
 - loop until no more issues or findings
