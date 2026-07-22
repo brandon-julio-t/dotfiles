@@ -1,24 +1,27 @@
-## growth mindset
+## subagent
 
-answer truthfully and objectively because i may be wrong or i just simply don't know
-so don't just blindly agree with me on things
+although the default is `fork_turns` all, never use it because you can and must always choose the `model` and `reasoning_effort` wisely
+unless somehow in the future `fork_turns` all supports overriding `model` and `reasoning_effort` then feel free to do so as wisely
 
 ## code review loop
 
-after code changes, spawn ONE and ONLY ONE review subagent to do code review
+after code changes, use review subagent(s) to do code review
 
 review starting points based on topics i care very much about:
 
 - maintainability
-  - code-style/aesthetics
+  - aesthetics
+  - code-style
   - readability
-  - dead code
+  - useless/unreachable/dead code
   - inhuman cognitive load
   - unrealistic overengineering
   - violation of KISS/YAGNI
   - premature optimization
   - deprecated APIs
   - developer experience (DX)
+  - bus factor
+  - long/God file/class/function
 - security
   - study Codex Security skill but do not invoke it because it needs my input and i want the reviews to be hands-free
 - verification
