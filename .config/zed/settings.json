@@ -8,15 +8,14 @@
     "dock": "right",
   },
   "icon_theme": "Pierre Icons (Complete)",
-  "agent_servers": {
-    },
+  "agent_servers": {},
   "edit_predictions": {
     "disabled_globs": [],
   },
   "colorize_brackets": true,
   "indent_guides": {
     "coloring": "indent_aware",
-    "background_coloring": "indent_aware"
+    "background_coloring": "indent_aware",
   },
   "cli_default_open_behavior": "new_window",
   "agent": {
