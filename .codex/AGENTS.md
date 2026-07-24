@@ -1,18 +1,14 @@
-## subagent
-
-although the default is `fork_turns` all, never use it because you can and must always choose the `model` and `reasoning_effort` wisely
-unless somehow in the future `fork_turns` all supports overriding `model` and `reasoning_effort` then feel free to do so as wisely
-
 ## code review loop
 
 after code changes, use review subagent(s) to do code review
 
 review starting points based on topics i care very much about:
 
-- maintainability
-  - aesthetics
-  - code-style
+- code quality
+  - maintainability
   - readability
+  - code-style
+  - aesthetics
   - useless/unreachable/dead code
   - inhuman cognitive load
   - unrealistic overengineering
@@ -24,6 +20,7 @@ review starting points based on topics i care very much about:
   - long/God file/class/function
   - unsafe typed code like `any` or `as` in typescript
   - study:
+    - https://github.com/cursor/plugins/blob/main/pstack/skills/typescript-best-practices/SKILL.md
     - https://github.com/cursor/plugins/blob/main/cursor-team-kit/skills/thermo-nuclear-code-quality-review/SKILL.md
 - security
   - study Codex Security skill but do not invoke it because it needs my input and i want the reviews to be hands-free
@@ -36,6 +33,7 @@ review starting points based on topics i care very much about:
 - database/OLTP performance
   - pay close attention to the project's database transaction isolation level so that review is factually correct
   - is it postgres default? serializable? convex serializable? etc.
+  - regarding check constraint, don't, they should live in app level code
   - study:
     - https://github.com/planetscale/database-skills
 - o11y
@@ -52,13 +50,12 @@ review starting points based on topics i care very much about:
 notes:
 
 - all the topics mentioned are situational, so add or remove review topics wisely as needed
+- do not install the listed URL agent skills, they are for study only
 - if you reject any review, let me know why
 - loop until no more issues or findings
-- the listed URL agent skills are for study only, do not install them
 
 ## git
 
 - prefer gh cli over github mcp/integration/connector or whatever the harness is offering
-- if any cli cmd errors about network thing, it's codex sandbox
 - when i say commit, you commit your changes only
 - use git stage hunk, so don't manually edit files as much as possible, to prevent clashing work with other concurrent agents
