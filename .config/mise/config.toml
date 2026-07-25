@@ -34,6 +34,7 @@ ripgrep-all = "latest"
 starship = "latest"
 usage = "latest"
 zoxide = "latest"
+java = "latest"
 
 [bootstrap.packages]
 "brew:btop" = "latest"
