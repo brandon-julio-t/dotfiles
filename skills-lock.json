@@ -7,12 +7,6 @@
       "skillPath": "skills/effect-ts/SKILL.md",
       "computedHash": "301521e167410dd42d834dd0e7cedbe9cfffa519f630a12241dbea7b1d932324"
     },
-    "logging-best-practices": {
-      "source": "boristane/agent-skills",
-      "sourceType": "github",
-      "skillPath": "skills/logging-best-practices/SKILL.md",
-      "computedHash": "b4810947c33b5356bf385c84cfe387afa9c54af652baaedb7d642a083cceaa4c"
-    },
     "postgres": {
       "source": "planetscale/database-skills",
       "sourceType": "github",
