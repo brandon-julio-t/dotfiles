@@ -165,18 +165,12 @@ def up-repos [] {
     | ignore
 }
 
-def up-skills [] {
-    cd ~/repos/dotfiles
-    mise x -- skills update --project --yes
-}
-
 def up [] {
     timeit {
         ensure-github-update-budget
         timeit { mise self-update -y }
         timeit { mise upgrade -y --bump }
         timeit { mise bootstrap packages upgrade -y }
-        timeit { up-skills }
         timeit { ensure-docker-compose-plugin }
         timeit { mise prune -y }
         timeit { mise x -- colima restart }

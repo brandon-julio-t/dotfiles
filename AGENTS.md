@@ -27,15 +27,12 @@ checksums; macOS formulae and casks intentionally follow their current package
 releases. The `up` command refreshes the lockfile when upgrading tools.
 
 The Nushell `up` command is the explicit maintenance workflow: it updates mise,
-upgrades configured tools, bootstrap packages, and agent skills, prunes unused
+upgrades configured tools and bootstrap packages, prunes unused
 mise versions, refreshes the Docker Compose plugin link, restarts Colima, and
 regenerates shell integrations. It uses unauthenticated GitHub access by default;
 if rate limited, provide a dedicated, minimally scoped `MISE_GITHUB_TOKEN` rather
 than reusing the token from `gh auth`. A preflight stops `up` before making
 changes when the remaining API budget is too small for a complete version check.
-Skills.sh 1.5.20 updates installed skill content but cannot check for skills
-deleted upstream when a lock entry uses GitHub shorthand. If `up` reports that
-deletion checking failed, reconcile removed upstream skills manually.
 
 ## Theming
 

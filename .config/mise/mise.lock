@@ -202,10 +202,6 @@ backend = "core:node"
 checksum = "sha256:ee920559aaa2391569cff4d737e3b83963430e3a14dedd91bfe0ff53171b5af9"
 url = "https://nodejs.org/dist/v26.5.0/node-v26.5.0-darwin-arm64.tar.gz"
 
-[[tools."npm:skills"]]
-version = "1.5.20"
-backend = "npm:skills"
-
 [[tools.pnpm]]
 version = "11.17.0"
 backend = "aqua:pnpm/pnpm"

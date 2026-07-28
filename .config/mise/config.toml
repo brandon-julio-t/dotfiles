@@ -26,7 +26,6 @@ lazygit = "latest"
 lazyssh = "latest"
 lima = "latest"
 node = "latest"
-"npm:skills" = "latest"
 "github:kitlangton/ghui" = "latest"
 pnpm = "latest"
 ripgrep = "latest"
@@ -44,8 +43,6 @@ java = "latest"
 "brew-cask:font-geist-mono-nerd-font" = "latest"
 
 [dotfiles]
-"~/.agents/.skill-lock.json" = {}
-"~/.agents/skills" = {}
 "~/.zprofile" = {}
 "~/.zshrc" = {}
 "~/.gitconfig" = {}
