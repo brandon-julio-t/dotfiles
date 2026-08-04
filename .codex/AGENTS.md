@@ -1,9 +1,7 @@
 - prefer gh cli over github mcp/integration/connector or whatever the harness is offering
 - when doing git commit, commit your changes only using git hunk staging to prevent clashing work with other concurrent agents
 
-- after code changes, spawn review agent, cherry pick wisely, fix, and loop until no findings
-
-- when you want to inspect dev server error, try tmux
+- after code changes, use review agent and loop until no findings
 
 - when writing for AI agents, it is mandatory to study https://developers.openai.com/api/docs/guides/latest-model first and adjust the writings
 - when developing AI agents, it is mandatory to study https://developers.openai.com/api/docs/guides/prompt-caching to minimize cost
