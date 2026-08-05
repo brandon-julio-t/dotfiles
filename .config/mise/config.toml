@@ -43,7 +43,9 @@ java = "latest"
 "brew:docker" = "latest"
 "brew:git" = "latest"
 "brew:libpq" = "latest"
+"brew-cask:font-ioskeley-mono" = "latest"
 "brew-cask:t3-code@nightly" = "latest"
+"brew-cask:opencode-desktop" = "latest"
 
 [dotfiles]
 "~/.zprofile" = {}

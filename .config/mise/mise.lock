@@ -120,13 +120,13 @@ url = "https://github.com/git-lfs/git-lfs/releases/download/v3.7.1/git-lfs-darwi
 url_api = "https://api.github.com/repos/git-lfs/git-lfs/releases/assets/305262593"
 
 [[tools."github:anomalyco/opencode"]]
-version = "1.18.12"
+version = "1.18.13"
 backend = "github:anomalyco/opencode"
 
 [tools."github:anomalyco/opencode"."platforms.macos-arm64"]
-checksum = "sha256:aa19412dd20fc49416742440077fab60944096650072b0ce08e87a16183978e1"
-url = "https://github.com/anomalyco/opencode/releases/download/v1.18.12/opencode-darwin-arm64.zip"
-url_api = "https://api.github.com/repos/anomalyco/opencode/releases/assets/500691350"
+checksum = "sha256:6a85ae6de1aeb8e39ae4d977337b03f49168c2a827ee37b6f82c39471d711c63"
+url = "https://github.com/anomalyco/opencode/releases/download/v1.18.13/opencode-darwin-arm64.zip"
+url_api = "https://api.github.com/repos/anomalyco/opencode/releases/assets/501284947"
 provenance = "github-attestations"
 provenance_verified = true
 
@@ -178,13 +178,13 @@ url = "https://github.com/jesseduffield/lazydocker/releases/download/v0.25.2/laz
 url_api = "https://api.github.com/repos/jesseduffield/lazydocker/releases/assets/399711580"
 
 [[tools.lazygit]]
-version = "0.63.1"
+version = "0.64.0"
 backend = "aqua:jesseduffield/lazygit"
 
 [tools.lazygit."platforms.macos-arm64"]
-checksum = "sha256:b963e9d0a1f4649708c594ac6c999cdcd435f8e679e220e78e87c4642badedd6"
-url = "https://github.com/jesseduffield/lazygit/releases/download/v0.63.1/lazygit_0.63.1_darwin_arm64.tar.gz"
-url_api = "https://api.github.com/repos/jesseduffield/lazygit/releases/assets/477867701"
+checksum = "sha256:df8d2dd27cdc1075785f1abb85b74fe393fcdc1f3fdf6cb2b587feb3ce72ba33"
+url = "https://github.com/jesseduffield/lazygit/releases/download/v0.64.0/lazygit_0.64.0_darwin_arm64.tar.gz"
+url_api = "https://api.github.com/repos/jesseduffield/lazygit/releases/assets/501040495"
 
 [[tools.lazyssh]]
 version = "0.3.0"
