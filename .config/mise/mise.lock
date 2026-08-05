@@ -19,13 +19,13 @@ url = "https://github.com/nushell/nushell/releases/download/0.114.1/nu-0.114.1-a
 url_api = "https://api.github.com/repos/nushell/nushell/releases/assets/473629724"
 
 [[tools.atuin]]
-version = "18.18.1"
+version = "18.19.0"
 backend = "aqua:atuinsh/atuin"
 
 [tools.atuin."platforms.macos-arm64"]
-checksum = "sha256:2c2bd7a4fb5a093cb222c5befb199bd09700f9b13b830c80a05dd5b2e7950457"
-url = "https://github.com/atuinsh/atuin/releases/download/v18.18.1/atuin-aarch64-apple-darwin.tar.gz"
-url_api = "https://api.github.com/repos/atuinsh/atuin/releases/assets/492109389"
+checksum = "sha256:40c8eb1fc12c0f5174fd4f20bc791310f19e58a31791f20d14d72f15661f19f1"
+url = "https://github.com/atuinsh/atuin/releases/download/v18.19.0/atuin-aarch64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/atuinsh/atuin/releases/assets/500652047"
 provenance = "github-attestations"
 
 [[tools.bat]]
@@ -82,13 +82,13 @@ url = "https://github.com/dandavison/delta/releases/download/0.19.2/delta-0.19.2
 url_api = "https://api.github.com/repos/dandavison/delta/releases/assets/383662310"
 
 [[tools.docker-compose]]
-version = "5.3.1"
+version = "5.4.0"
 backend = "aqua:docker/compose"
 
 [tools.docker-compose."platforms.macos-arm64"]
-checksum = "sha256:32691ba1196d819fa68cbdc0aad9a5569e730a35ae40c6fdd8458110ecd69488"
-url = "https://github.com/docker/compose/releases/download/v5.3.1/docker-compose-darwin-aarch64"
-url_api = "https://api.github.com/repos/docker/compose/releases/assets/469146961"
+checksum = "sha256:bc3d1fd4c01e3af9b481fc5ea153ea7c006c77eb39be78e9af3e2e8ebecc0d61"
+url = "https://github.com/docker/compose/releases/download/v5.4.0/docker-compose-darwin-aarch64"
+url_api = "https://api.github.com/repos/docker/compose/releases/assets/500141105"
 provenance = "cosign"
 
 [[tools.fzf]]
@@ -120,13 +120,13 @@ url = "https://github.com/git-lfs/git-lfs/releases/download/v3.7.1/git-lfs-darwi
 url_api = "https://api.github.com/repos/git-lfs/git-lfs/releases/assets/305262593"
 
 [[tools."github:anomalyco/opencode"]]
-version = "1.18.11"
+version = "1.18.12"
 backend = "github:anomalyco/opencode"
 
 [tools."github:anomalyco/opencode"."platforms.macos-arm64"]
-checksum = "sha256:188ff6a716bcd40e33ac62f17f4aec9bd760164fa6a2cde66f779a5db4abc7ce"
-url = "https://github.com/anomalyco/opencode/releases/download/v1.18.11/opencode-darwin-arm64.zip"
-url_api = "https://api.github.com/repos/anomalyco/opencode/releases/assets/497843327"
+checksum = "sha256:aa19412dd20fc49416742440077fab60944096650072b0ce08e87a16183978e1"
+url = "https://github.com/anomalyco/opencode/releases/download/v1.18.12/opencode-darwin-arm64.zip"
+url_api = "https://api.github.com/repos/anomalyco/opencode/releases/assets/500691350"
 provenance = "github-attestations"
 provenance_verified = true
 
@@ -206,25 +206,25 @@ url_api = "https://api.github.com/repos/lima-vm/lima/releases/assets/484813994"
 provenance = "github-attestations"
 
 [[tools.node]]
-version = "26.5.1"
+version = "26.6.0"
 backend = "core:node"
 
 [tools.node."platforms.macos-arm64"]
-checksum = "sha256:f4387df0b46556516d19abf2f2d6806481ac8368aa7f9d96bafed422a56a1d01"
-url = "https://nodejs.org/dist/v26.5.1/node-v26.5.1-darwin-arm64.tar.gz"
+checksum = "sha256:75480cd43b6fcb35d8e772dd18983fbd9f691b2f03b1c94393206098e9944b5e"
+url = "https://nodejs.org/dist/v26.6.0/node-v26.6.0-darwin-arm64.tar.gz"
 
 [[tools."npm:chrome-devtools-mcp"]]
 version = "1.6.0"
 backend = "npm:chrome-devtools-mcp"
 
 [[tools.pnpm]]
-version = "11.18.0"
+version = "11.20.0"
 backend = "aqua:pnpm/pnpm"
 
 [tools.pnpm."platforms.macos-arm64"]
-checksum = "sha256:c3ace80f45e3550503310c2669616602f2c514f46a2f475f481088887a55abc1"
-url = "https://github.com/pnpm/pnpm/releases/download/v11.18.0/pnpm-darwin-arm64.tar.gz"
-url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/493764741"
+checksum = "sha256:4bc97fea72e5c92eec1fefc8d410c35d01e0d0d52f3160c59f38c32db58b5cd2"
+url = "https://github.com/pnpm/pnpm/releases/download/v11.20.0/pnpm-darwin-arm64.tar.gz"
+url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/500142373"
 provenance = "github-attestations"
 
 [[tools.ripgrep]]
