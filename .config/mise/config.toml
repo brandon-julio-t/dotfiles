@@ -5,6 +5,9 @@ dotfiles.root = "~/repos/dotfiles"
 dotfiles.default_mode = "symlink"
 lockfile_platforms = ["macos-arm64"]
 
+[env]
+OPENCODE_EXPERIMENTAL_BACKGROUND_SUBAGENTS = "true"
+
 [tools]
 "aqua:fish-shell/fish-shell" = "latest"
 "aqua:nushell/nushell" = "latest"
@@ -27,6 +30,8 @@ lazyssh = "latest"
 lima = "latest"
 node = "latest"
 "github:kitlangton/ghui" = "latest"
+"npm:chrome-devtools-mcp" = "latest"
+"github:anomalyco/opencode" = "latest"
 pnpm = "latest"
 ripgrep = "latest"
 ripgrep-all = "latest"
@@ -41,7 +46,7 @@ java = "latest"
 "brew:docker" = "latest"
 "brew:git" = "latest"
 "brew:libpq" = "latest"
-"brew-cask:font-geist-mono-nerd-font" = "latest"
+"brew-cask:t3-code@nightly" = "latest"
 
 [dotfiles]
 "~/.zprofile" = {}
@@ -54,6 +59,8 @@ java = "latest"
 "~/.config/ghostty/themes" = { mode = "symlink-each" }
 "~/.config/helix" = { mode = "symlink-each" }
 "~/.config/mise" = { mode = "symlink-each" }
+"~/.config/opencode" = { mode = "symlink-each" }
+"~/.config/opencode/AGENTS.md" = { source = "~/repos/dotfiles/.codex/AGENTS.md", mode = "symlink" }
 "~/.config/zed" = { mode = "symlink-each" }
 "~/Library/Application Support/carapace" = {}
 "~/Library/Application Support/com.mitchellh.ghostty/config" = {}

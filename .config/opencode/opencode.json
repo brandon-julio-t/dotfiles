@@ -1,0 +1,33 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "share": "disabled",
+  "autoupdate": false,
+  "lsp": false,
+  "formatter": false,
+  "snapshot": false,
+  "permission": {
+    "*": "allow"
+  },
+  "mcp": {
+    "chrome-devtools": {
+      "type": "local",
+      "command": [
+        "mise", "x", "--", "chrome-devtools-mcp",
+        "--autoConnect",
+        "--userDataDir=/Users/bjt/Library/Application Support/net.imput.helium"
+      ],
+      "enabled": true
+    },
+    "slack": {
+      "type": "remote",
+      "url": "https://mcp.slack.com/mcp",
+      "enabled": true,
+      "oauth": {
+        "clientId": "{file:/Users/bjt/.config/opencode/secrets/slack-mcp-client-id}",
+        "clientSecret": "{file:/Users/bjt/.config/opencode/secrets/slack-mcp-client-secret}",
+        "scope": "search:read.public,search:read.private,search:read.im,search:read.mpim,search:read.users,search:read.files,channels:history,groups:history,im:history,mpim:history,chat:write,users:read,channels:read,groups:read,files:read,reactions:read,reactions:write,emoji:read",
+        "redirectUri": "http://localhost:19876/mcp/oauth/callback"
+      }
+    }
+  }
+}

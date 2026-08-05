@@ -29,6 +29,12 @@ $env.config.buffer_editor = "zed"
 $env.SHELL = (mise which nu | str trim)
 $env.EDITOR = 'zed --wait'
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
+
+# opencode experimental features.
+# Master switch: enables CODE_MODE (MCP tools deferred behind execute/search),
+# BACKGROUND_SUBAGENTS, PLAN_MODE, REFERENCES, LSP_TOOL, OXFMT, EVENT_SYSTEM,
+# WORKSPACES, ICON_DISCOVERY, and Exa web search.
+$env.OPENCODE_EXPERIMENTAL = "true"
 # Keep Bun watch output visible for people and agents inspecting tmux scrollback.
 if ('TMUX' in $env) {
     $env.BUN_CONFIG_NO_CLEAR_TERMINAL_ON_RELOAD = "1"
@@ -83,6 +89,7 @@ alias l = ls -a
 alias ld = lazydocker
 alias lg = lazygit
 alias lss = lazyssh
+alias oc = opencode
 alias p = pnpm
 
 # Create a named tmux session, or attach to it when it already exists.
@@ -188,6 +195,7 @@ def up [] {
         timeit { mise self-update -y }
         timeit { mise upgrade -y --bump }
         timeit { mise bootstrap packages upgrade -y }
+        timeit { mise bootstrap packages prune -y }
         timeit { ensure-docker-compose-plugin }
         timeit { mise prune -y }
         timeit { mise x -- colima restart }
