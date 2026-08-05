@@ -5,9 +5,6 @@ dotfiles.root = "~/repos/dotfiles"
 dotfiles.default_mode = "symlink"
 lockfile_platforms = ["macos-arm64"]
 
-[env]
-OPENCODE_EXPERIMENTAL_BACKGROUND_SUBAGENTS = "true"
-
 [tools]
 "aqua:fish-shell/fish-shell" = "latest"
 "aqua:nushell/nushell" = "latest"
