@@ -5,14 +5,14 @@
   "lsp": false,
   "formatter": false,
   "snapshot": false,
-  "permission": {
-    "*": "allow"
-  },
   "mcp": {
     "chrome-devtools": {
       "type": "local",
       "command": [
-        "mise", "x", "--", "chrome-devtools-mcp",
+        "mise",
+        "x",
+        "--",
+        "chrome-devtools-mcp",
         "--autoConnect",
         "--userDataDir={env:HOME}/Library/Application Support/net.imput.helium"
       ],
