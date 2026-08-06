@@ -1,10 +1,8 @@
 git:
-  pagers:
-    - pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}" --syntax-theme="Pierre Dark Soft"
-
+  diffRenderers:
+    - command: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}" --syntax-theme="Pierre Dark Soft"
 gui:
   sidePanelWidth: 0.2 # gives you more space to show things side-by-side
-
   authorColors:
     "*": "#69b1ff"
   theme:
