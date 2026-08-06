@@ -217,6 +217,10 @@ url = "https://nodejs.org/dist/v26.7.0/node-v26.7.0-darwin-arm64.tar.gz"
 version = "1.6.0"
 backend = "npm:chrome-devtools-mcp"
 
+[[tools."npm:convex"]]
+version = "1.43.0"
+backend = "npm:convex"
+
 [[tools."npm:skills"]]
 version = "1.5.21"
 backend = "npm:skills"

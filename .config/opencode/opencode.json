@@ -21,6 +21,16 @@
     }
   },
   "mcp": {
+    "convex": {
+      "type": "local",
+      "command": ["mise", "x", "--", "convex", "mcp", "start"],
+      "enabled": true
+    },
+    "vercel": {
+      "type": "remote",
+      "url": "https://mcp.vercel.com",
+      "enabled": true
+    },
     "chrome-devtools": {
       "type": "local",
       "command": [
