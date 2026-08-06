@@ -8,16 +8,10 @@ lockfile_platforms = ["macos-arm64"]
 [env]
 OPENCODE_EXPERIMENTAL = "true"
 OPENCODE_EXPERIMENTAL_PLAN_MODE = "false"
-OPENCODE_EXPERIMENTAL_BACKGROUND_SUB = "false"
 
 [bootstrap.macos.launchd.agents.gui-env]
 program = "/bin/launchctl"
-args = [
-  "setenv",
-  "OPENCODE_EXPERIMENTAL", "true",
-  "OPENCODE_EXPERIMENTAL_PLAN_MODE", "false",
-  "OPENCODE_EXPERIMENTAL_BACKGROUND_SUB", "false",
-]
+args = ["setenv", "OPENCODE_EXPERIMENTAL", "true", "OPENCODE_EXPERIMENTAL_PLAN_MODE", "false"]
 run_at_load = true
 kickstart = true
 
