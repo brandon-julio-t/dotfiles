@@ -21,6 +21,11 @@
     }
   },
   "mcp": {
+    "cloudflare": {
+      "type": "remote",
+      "url": "https://mcp.cloudflare.com/mcp",
+      "enabled": true
+    },
     "convex": {
       "type": "local",
       "command": ["mise", "x", "--", "convex", "mcp", "start"],
