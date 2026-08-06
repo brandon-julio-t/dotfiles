@@ -5,6 +5,9 @@
   "lsp": false,
   "formatter": false,
   "snapshot": false,
+  "permission": {
+    "*": "allow"
+  },
   "provider": {
     "anthropic": {
       "models": {
