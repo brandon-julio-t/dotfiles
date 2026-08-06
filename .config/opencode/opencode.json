@@ -5,6 +5,18 @@
   "lsp": false,
   "formatter": false,
   "snapshot": false,
+  "provider": {
+    "anthropic": {
+      "models": {
+        "claude-fable-5": {
+          "limit": {
+            "context": 290400,
+            "output": 128000
+          }
+        }
+      }
+    }
+  },
   "mcp": {
     "chrome-devtools": {
       "type": "local",
