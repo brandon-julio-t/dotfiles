@@ -5,6 +5,22 @@ dotfiles.root = "~/repos/dotfiles"
 dotfiles.default_mode = "symlink"
 lockfile_platforms = ["macos-arm64"]
 
+[env]
+OPENCODE_EXPERIMENTAL = "true"
+OPENCODE_EXPERIMENTAL_PLAN_MODE = "false"
+OPENCODE_EXPERIMENTAL_BACKGROUND_SUB = "false"
+
+[bootstrap.macos.launchd.agents.gui-env]
+program = "/bin/launchctl"
+args = [
+  "setenv",
+  "OPENCODE_EXPERIMENTAL", "true",
+  "OPENCODE_EXPERIMENTAL_PLAN_MODE", "false",
+  "OPENCODE_EXPERIMENTAL_BACKGROUND_SUB", "false",
+]
+run_at_load = true
+kickstart = true
+
 [tools]
 "aqua:fish-shell/fish-shell" = "latest"
 "aqua:nushell/nushell" = "latest"
@@ -29,6 +45,7 @@ lima = "latest"
 "github:kitlangton/ghui" = "latest"
 node = "latest"
 "npm:chrome-devtools-mcp" = "latest"
+"npm:skills" = "latest"
 pnpm = "latest"
 ripgrep = "latest"
 ripgrep-all = "latest"
@@ -48,6 +65,8 @@ java = "latest"
 "brew-cask:opencode-desktop" = "latest"
 
 [dotfiles]
+"~/.agents/.skill-lock.json" = {}
+"~/.agents/skills" = { mode = "symlink-each" }
 "~/.zprofile" = {}
 "~/.zshrc" = {}
 "~/.gitconfig" = {}
