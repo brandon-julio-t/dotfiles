@@ -43,6 +43,11 @@
       ],
       "enabled": true
     },
+    "notion": {
+      "type": "remote",
+      "url": "https://mcp.notion.com/mcp",
+      "enabled": true
+    },
     "slack": {
       "type": "remote",
       "url": "https://mcp.slack.com/mcp",
