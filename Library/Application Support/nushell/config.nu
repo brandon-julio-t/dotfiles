@@ -21,6 +21,8 @@ $env.path ++= [
     "/opt/homebrew/opt/libpq/bin",
     "/usr/local/bin",
     ($nu.home-dir | path join ".local" "bin"),
+    # opencode CLI installed and self-updated by T3 Code (not mise-managed).
+    ($nu.home-dir | path join ".opencode" "bin"),
 ]
 
 $env.config.buffer_editor = "zed"
