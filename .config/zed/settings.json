@@ -61,7 +61,7 @@
     "git_status_indicator": false,
   },
   "terminal": {
-    "font_weight": 100.0,
+    "font_weight": 300.0,
     "font_size": 12.0,
     "minimum_contrast": 0,
     "cursor_shape": "bar",
