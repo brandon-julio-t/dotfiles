@@ -48,6 +48,11 @@
       ],
       "enabled": true
     },
+    "posthog": {
+      "type": "remote",
+      "url": "https://mcp.posthog.com/mcp?mode=cli",
+      "enabled": true
+    },
     "notion": {
       "type": "remote",
       "url": "https://mcp.notion.com/mcp",
