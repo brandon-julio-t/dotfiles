@@ -28,7 +28,6 @@ $env.path ++= [
 $env.config.buffer_editor = "zed"
 # $env.config.show_banner = false
 
-$env.SHELL = (mise which nu | str trim)
 $env.EDITOR = 'zed --wait'
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
 
