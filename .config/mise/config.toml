@@ -48,8 +48,6 @@ tmux = "latest"
 usage = "latest"
 zoxide = "latest"
 java = "latest"
-"npm:@opencode-ai/cli" = { version = "next", postinstall = "cd \"$MISE_TOOL_INSTALL_PATH/node_modules/@opencode-ai/cli\" && node postinstall.mjs" }
-opencode = "latest"
 
 [bootstrap.packages]
 "brew:btop" = "latest"
