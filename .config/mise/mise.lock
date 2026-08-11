@@ -202,6 +202,10 @@ backend = "core:node"
 checksum = "sha256:7ee659a7768e641bbfd5360940660b8e8fd0052f77488f365562bac522fc15d4"
 url = "https://nodejs.org/dist/v26.7.0/node-v26.7.0-darwin-arm64.tar.gz"
 
+[[tools."npm:@opencode-ai/cli"]]
+version = "next"
+backend = "npm:@opencode-ai/cli"
+
 [[tools."npm:chrome-devtools-mcp"]]
 version = "1.7.0"
 backend = "npm:chrome-devtools-mcp"
@@ -213,6 +217,15 @@ backend = "npm:convex"
 [[tools."npm:skills"]]
 version = "1.5.22"
 backend = "npm:skills"
+
+[[tools.opencode]]
+version = "1.18.16"
+backend = "aqua:anomalyco/opencode"
+
+[tools.opencode."platforms.macos-arm64"]
+checksum = "sha256:1e670c94341a374824dc6700b6f38b2cb6634baf3ca20e645084c33ce6639320"
+url = "https://github.com/anomalyco/opencode/releases/download/v1.18.16/opencode-darwin-arm64.zip"
+url_api = "https://api.github.com/repos/anomalyco/opencode/releases/assets/507983834"
 
 [[tools.pnpm]]
 version = "11.21.0"
