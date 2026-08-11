@@ -33,7 +33,7 @@
   "theme": "Pierre Dark Soft",
   "ui_font_family": ".SystemUIFont",
   "ui_font_size": 14.0,
-  "buffer_font_weight": 50.0,
+  "buffer_font_weight": 100.0,
   "buffer_font_family": "SF Mono",
   "buffer_font_size": 12.0,
   "agent_buffer_font_size": 12.0,
