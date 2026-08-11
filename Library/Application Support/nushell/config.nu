@@ -91,7 +91,7 @@ alias l = ls -a
 alias ld = lazydocker
 alias lg = lazygit
 alias lss = lazyssh
-alias oc = opencode
+alias oc = opencode2
 alias p = pnpm
 
 # Create a named tmux session, or attach to it when it already exists.
