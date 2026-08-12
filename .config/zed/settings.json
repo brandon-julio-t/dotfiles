@@ -47,7 +47,6 @@
     "group_by": "staging",
     "dock": "right",
     "show_count_badge": false,
-    "sort_by_path": false,
     "collapse_untracked_diff": false,
     "status_style": "label_color",
     "file_icons": true,
