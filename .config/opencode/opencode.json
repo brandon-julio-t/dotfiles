@@ -13,7 +13,7 @@
       "models": {
         "claude-fable-5": {
           "limit": {
-            "context": 290400,
+            "context": 258000,
             "output": 128000
           }
         }
