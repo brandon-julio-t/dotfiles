@@ -207,7 +207,7 @@ version = "1.7.0"
 backend = "npm:chrome-devtools-mcp"
 
 [[tools."npm:convex"]]
-version = "1.43.0"
+version = "1.44.0"
 backend = "npm:convex"
 
 [[tools."npm:skills"]]
