@@ -64,6 +64,8 @@ java = "latest"
 "~/Applications/OpenCode Reduced Motion.app" = {}
 "~/.gitconfig" = {}
 "~/.gitignore" = {}
+"~/.claude/CLAUDE.md" = { source = "~/repos/dotfiles/.codex/AGENTS.md", mode = "symlink" }
+"~/.claude/skills" = { source = "~/repos/dotfiles/.agents/skills", mode = "symlink-each" }
 "~/.codex/AGENTS.md" = {}
 "~/.config/bat" = {}
 "~/.config/btop/themes" = { mode = "symlink-each" }
