@@ -4,11 +4,12 @@
   "autoupdate": false,
   "lsp": false,
   "formatter": false,
-  "snapshot": false,
-  "permission": {
-    "*": "allow"
-  },
-  "provider": {
+  "snapshots": false,
+  "websearch": { "provider": "exa" },
+  "permissions": [
+    { "action": "*", "resource": "*", "effect": "allow" }
+  ],
+  "providers": {
     "anthropic": {
       "models": {
         "claude-fable-5": {
@@ -18,55 +19,60 @@
           }
         }
       }
+    },
+    "openai": {
+      "models": {
+        "gpt-5.6-sol": {
+          "limit": {
+            "context": 272000,
+            "output": 128000
+          }
+        }
+      }
     }
   },
   "mcp": {
-    "cloudflare": {
-      "type": "remote",
-      "url": "https://mcp.cloudflare.com/mcp",
-      "enabled": true
-    },
-    "convex": {
-      "type": "local",
-      "command": ["mise", "x", "--", "convex", "mcp", "start"],
-      "enabled": true
-    },
-    "vercel": {
-      "type": "remote",
-      "url": "https://mcp.vercel.com",
-      "enabled": true
-    },
-    "chrome-devtools": {
-      "type": "local",
-      "command": [
-        "mise",
-        "x",
-        "--",
-        "chrome-devtools-mcp",
-        "--autoConnect",
-        "--userDataDir={env:HOME}/Library/Application Support/net.imput.helium"
-      ],
-      "enabled": true
-    },
-    "posthog": {
-      "type": "remote",
-      "url": "https://mcp.posthog.com/mcp?mode=cli",
-      "enabled": true
-    },
-    "notion": {
-      "type": "remote",
-      "url": "https://mcp.notion.com/mcp",
-      "enabled": true
-    },
-    "slack": {
-      "type": "remote",
-      "url": "https://mcp.slack.com/mcp",
-      "enabled": true,
-      "oauth": {
-        "clientId": "{file:~/.config/opencode/secrets/slack-mcp-client-id}",
-        "clientSecret": "{file:~/.config/opencode/secrets/slack-mcp-client-secret}",
-        "scope": "search:read.public,search:read.private,search:read.im,search:read.mpim,search:read.users,search:read.files,channels:history,groups:history,im:history,mpim:history,chat:write,users:read,channels:read,groups:read,files:read,reactions:read,reactions:write,emoji:read",
-        "redirectUri": "http://localhost:19876/mcp/oauth/callback"
+    "servers": {
+      "cloudflare": {
+        "type": "remote",
+        "url": "https://mcp.cloudflare.com/mcp"
+      },
+      "convex": {
+        "type": "local",
+        "command": ["mise", "x", "--", "convex", "mcp", "start"]
+      },
+      "vercel": {
+        "type": "remote",
+        "url": "https://mcp.vercel.com"
+      },
+      "chrome-devtools": {
+        "type": "local",
+        "command": [
+          "mise",
+          "x",
+          "--",
+          "chrome-devtools-mcp",
+          "--autoConnect",
+          "--userDataDir={env:HOME}/Library/Application Support/net.imput.helium"
+        ]
+      },
+      "posthog": {
+        "type": "remote",
+        "url": "https://mcp.posthog.com/mcp?mode=cli"
+      },
+      "notion": {
+        "type": "remote",
+        "url": "https://mcp.notion.com/mcp"
+      },
+      "slack": {
+        "type": "remote",
+        "url": "https://mcp.slack.com/mcp",
+        "oauth": {
+          "client_id": "{file:~/.config/opencode/secrets/slack-mcp-client-id}",
+          "client_secret": "{file:~/.config/opencode/secrets/slack-mcp-client-secret}",
+          "scope": "search:read.public,search:read.private,search:read.im,search:read.mpim,search:read.users,search:read.files,channels:history,groups:history,im:history,mpim:history,chat:write,users:read,channels:read,groups:read,files:read,reactions:read,reactions:write,emoji:read",
+          "redirect_uri": "http://localhost:19876/mcp/oauth/callback"
+        }
       }
     }
   }
