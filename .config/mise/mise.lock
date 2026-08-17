@@ -10,13 +10,13 @@ url = "https://github.com/fish-shell/fish-shell/releases/download/4.8.1/fish-4.8
 url_api = "https://api.github.com/repos/fish-shell/fish-shell/releases/assets/476044372"
 
 [[tools."aqua:nushell/nushell"]]
-version = "0.114.1"
+version = "0.115.0"
 backend = "aqua:nushell/nushell"
 
 [tools."aqua:nushell/nushell"."platforms.macos-arm64"]
-checksum = "sha256:cb0ac9b97b985cd217a952f44438a14d2df2a95504d9bd8bc01ec73e1351b179"
-url = "https://github.com/nushell/nushell/releases/download/0.114.1/nu-0.114.1-aarch64-apple-darwin.tar.gz"
-url_api = "https://api.github.com/repos/nushell/nushell/releases/assets/473629724"
+checksum = "sha256:91f3c77e4f634b54029b07e3dc4e99ffec5fc0f98537f9b630bda32b4d06da5e"
+url = "https://github.com/nushell/nushell/releases/download/0.115.0/nu-0.115.0-aarch64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/nushell/nushell/releases/assets/516037608"
 
 [[tools.atuin]]
 version = "18.19.0"
@@ -215,13 +215,13 @@ version = "1.5.22"
 backend = "npm:skills"
 
 [[tools.pnpm]]
-version = "11.21.0"
+version = "11.22.0"
 backend = "aqua:pnpm/pnpm"
 
 [tools.pnpm."platforms.macos-arm64"]
-checksum = "sha256:860a96978a79ca5132bdc247375f94150a3c98edbecbee36e9f8e0c9e2f7f056"
-url = "https://github.com/pnpm/pnpm/releases/download/v11.21.0/pnpm-darwin-arm64.tar.gz"
-url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/507585526"
+checksum = "sha256:2000dcc8f0718852c2806ba4dca1edaedf18a4a39264474d5a1c8fcee250adfd"
+url = "https://github.com/pnpm/pnpm/releases/download/v11.22.0/pnpm-darwin-arm64.tar.gz"
+url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/515895947"
 provenance = "github-attestations"
 
 [[tools.ripgrep]]
