@@ -85,8 +85,20 @@ alias l = ls -a
 alias ld = lazydocker
 alias lg = lazygit
 alias lss = lazyssh
-alias oc = opencode
+# alias oc = opencode
 alias p = pnpm
+
+def --wrapped oc [...args] {
+  let bin = (
+    ls ("~/Library/Application Support/ai.opencode.desktop.beta/cli" | path expand)
+    | where type == dir
+    | sort-by { |r| $r.name | path basename | split row - | last | into int }
+    | last
+    | get name
+    | path join opencode-cli
+  )
+  run-external $bin ...$args
+}
 
 # Create a named tmux session, or attach to it when it already exists.
 def tdev [name: string = "dev"] {
