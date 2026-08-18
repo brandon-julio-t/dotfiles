@@ -31,11 +31,6 @@ $env.config.buffer_editor = "zed"
 $env.EDITOR = 'zed --wait'
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
 
-# opencode experimental features.
-# Master switch: enables CODE_MODE (MCP tools deferred behind execute/search),
-# BACKGROUND_SUBAGENTS, PLAN_MODE, REFERENCES, LSP_TOOL, OXFMT, EVENT_SYSTEM,
-# WORKSPACES, ICON_DISCOVERY, and Exa web search.
-$env.OPENCODE_EXPERIMENTAL = "true"
 # Keep Bun watch output visible for people and agents inspecting tmux scrollback.
 if ('TMUX' in $env) {
     $env.BUN_CONFIG_NO_CLEAR_TERMINAL_ON_RELOAD = "1"

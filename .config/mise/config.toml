@@ -5,16 +5,6 @@ dotfiles.root = "~/repos/dotfiles"
 dotfiles.default_mode = "symlink"
 lockfile_platforms = ["macos-arm64"]
 
-[env]
-OPENCODE_EXPERIMENTAL = "true"
-OPENCODE_EXPERIMENTAL_PLAN_MODE = "false"
-
-[bootstrap.macos.launchd.agents.gui-env]
-program = "/bin/launchctl"
-args = ["setenv", "OPENCODE_EXPERIMENTAL", "true", "OPENCODE_EXPERIMENTAL_PLAN_MODE", "false"]
-run_at_load = true
-kickstart = true
-
 [tools]
 "aqua:fish-shell/fish-shell" = "latest"
 "aqua:nushell/nushell" = "latest"
