@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if /usr/bin/pgrep -x "OpenCode Beta" >/dev/null 2>&1; then
+  /usr/bin/osascript -e 'display notification "Quit OpenCode Beta first, then open this launcher again." with title "OpenCode Beta Reduced Motion"'
+  exit 0
+fi
+
+exec /usr/bin/open -a "OpenCode Beta" --args --force-prefers-reduced-motion

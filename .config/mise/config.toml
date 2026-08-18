@@ -51,6 +51,7 @@ java = "latest"
 "~/.agents/skills" = { mode = "symlink-each" }
 "~/.zprofile" = {}
 "~/.zshrc" = {}
+"~/Applications/OpenCode Beta Reduced Motion.app" = {}
 "~/.gitconfig" = {}
 "~/.gitignore" = {}
 "~/.claude/CLAUDE.md" = { source = "~/repos/dotfiles/.codex/AGENTS.md", mode = "symlink" }
