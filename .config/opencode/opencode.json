@@ -23,14 +23,7 @@
       },
       "chrome-devtools": {
         "type": "local",
-        "command": [
-          "mise",
-          "x",
-          "--",
-          "chrome-devtools-mcp",
-          "--autoConnect",
-          "--userDataDir={env:HOME}/Library/Application Support/net.imput.helium"
-        ]
+        "command": ["mise", "x", "--", "chrome-devtools-mcp"]
       },
       "posthog": {
         "type": "remote",
