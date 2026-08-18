@@ -6,10 +6,8 @@
   "formatter": false,
   "snapshots": false,
   "websearch": { "provider": "exa" },
-  "experimental": { "subagent_depth": 2 },
-  "permissions": [
-    { "action": "*", "resource": "*", "effect": "allow" }
-  ],
+  "experimental": { "subagent_depth": 5 },
+  "permissions": [{ "action": "*", "resource": "*", "effect": "allow" }],
   "providers": {
     "anthropic": {
       "models": {
