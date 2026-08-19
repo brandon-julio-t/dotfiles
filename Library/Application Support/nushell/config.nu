@@ -31,10 +31,6 @@ $env.config.buffer_editor = "zed"
 $env.EDITOR = 'zed --wait'
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
 
-# Keep Bun watch output visible for people and agents inspecting tmux scrollback.
-if ('TMUX' in $env) {
-    $env.BUN_CONFIG_NO_CLEAR_TERMINAL_ON_RELOAD = "1"
-}
 # Fail before an update if GitHub cannot answer every version lookup. Mise can
 # otherwise warn on HTTP 403 responses and still exit successfully.
 const GITHUB_UPDATE_MIN_REQUESTS = 40 # Current lookups plus ~10 requests of headroom.
@@ -98,19 +94,6 @@ def --wrapped oc [...args] {
     | path join opencode-cli
   )
   run-external $bin ...$args
-}
-
-# Create a named tmux session, or attach to it when it already exists.
-def tdev [name: string = "dev"] {
-    let session_exists = ((^tmux has-session -t $name | complete).exit_code == 0)
-
-    if not $session_exists {
-        ^tmux new-session -d -s $name $env.SHELL
-    }
-
-    # Keep new windows on Nushell even when the tmux server predates this session.
-    ^tmux set-option -g default-shell $env.SHELL
-    ^tmux attach-session -t $name
 }
 
 # Register mise's Compose binary as a Docker CLI plugin so `docker compose` works.

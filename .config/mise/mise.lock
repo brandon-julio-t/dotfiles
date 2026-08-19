@@ -251,15 +251,6 @@ checksum = "sha256:c40b27b11f580411e068f2fa6c1be7830a387c0bc47a94d1d37f32b054c53
 url = "https://github.com/starship/starship/releases/download/v1.26.0/starship-aarch64-apple-darwin.tar.gz"
 url_api = "https://api.github.com/repos/starship/starship/releases/assets/460374577"
 
-[[tools.tmux]]
-version = "3.7b"
-backend = "aqua:tmux/tmux-builds"
-
-[tools.tmux."platforms.macos-arm64"]
-checksum = "sha256:ee66dbcd49613eb41dc6b2f3abc5cd39d9135d67b7dfef1fdb180a3dbdc01f1e"
-url = "https://github.com/tmux/tmux-builds/releases/download/v3.7b/tmux-3.7b-macos-arm64.tar.gz"
-url_api = "https://api.github.com/repos/tmux/tmux-builds/releases/assets/465072864"
-
 [[tools.usage]]
 version = "5.1.0"
 backend = "aqua:jdx/usage"
