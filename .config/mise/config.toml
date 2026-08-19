@@ -73,6 +73,17 @@ environment = { PATH = "/Users/bjt/.local/share/mise/shims:/opt/homebrew/bin:/Us
 stdout_path = "~/Library/Logs/opencode-scheduled-weekly-work-evidence-notion.log"
 stderr_path = "~/Library/Logs/opencode-scheduled-weekly-work-evidence-notion.err.log"
 
+# Daily machine maintenance: runs the Nushell `up` command (tool upgrades,
+# package prune, cache cleanup, colima restart, shell integrations).
+[bootstrap.macos.launchd.agents.up-daily]
+program = "/Users/bjt/.local/share/mise/shims/nu"
+args = ["-l", "-c", "up"]
+working_directory = "~"
+start_calendar_interval = { hour = 7, minute = 0 }
+environment = { PATH = "/Users/bjt/.local/bin:/Users/bjt/.local/share/mise/shims:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin" }
+stdout_path = "~/Library/Logs/up-daily.log"
+stderr_path = "~/Library/Logs/up-daily.err.log"
+
 [dotfiles]
 "~/.agents/.skill-lock.json" = {}
 "~/.agents/skills" = { mode = "symlink-each" }

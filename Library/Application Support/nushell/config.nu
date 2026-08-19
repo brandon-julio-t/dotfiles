@@ -96,6 +96,8 @@ def --wrapped oc [...args] {
   run-external $bin ...$args
 }
 
+alias opencode2 = oc
+
 # Register mise's Compose binary as a Docker CLI plugin so `docker compose` works.
 def ensure-docker-compose-plugin [] {
     let source = (mise which docker-cli-plugin-docker-compose | str trim)
@@ -154,30 +156,15 @@ def init [] {
     }
 }
 
-def up-repos [] {
-    # Pull git repos under ~/repos concurrently without creating merge commits.
-    let pulls = (
-        glob ~/repos/**/.git
-        | sort
-        | par-each --threads 8 --keep-order { |gitdir|
-            let repo = ($gitdir | path dirname)
-            {
-                repo: $repo
-                result: (^git -C $repo pull --ff-only | complete)
-            }
-        }
-    )
-
-    $pulls
-    | each { |pull|
-        print $'==> ($pull.repo)'
-        if (($pull.result.stdout | str length) > 0) { print $pull.result.stdout }
-        if (($pull.result.stderr | str length) > 0) { print $pull.result.stderr }
-        if $pull.result.exit_code != 0 {
-            print $'pull failed with exit code ($pull.result.exit_code)'
-        }
-    }
-    | ignore
+def clean-caches [] {
+    # Prune package-manager caches (brew, npm, pnpm, bun, mise).
+    # Each step tolerates failure (tool stderr still shows) so unattended `up` runs continue.
+    try { brew cleanup --prune=all }
+    try { mise x -- npm cache clean --force }
+    try { mise x -- pnpm store prune }
+    # `bun pm cache rm` needs a package.json in cwd; clear the global cache directly.
+    rm --recursive --force ~/.bun/install/cache
+    try { mise cache clear }
 }
 
 def up [] {
@@ -189,7 +176,9 @@ def up [] {
         timeit { mise bootstrap packages prune -y }
         timeit { ensure-docker-compose-plugin }
         timeit { mise prune -y }
-        timeit { mise x -- colima restart }
+        timeit { clean-caches }
+        # Tolerate colima failures (e.g. not running after a reboot) so `init` still runs.
+        timeit { try { mise x -- colima restart } }
         timeit { init }
     }
 }
