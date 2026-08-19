@@ -87,7 +87,11 @@ stderr_path = "~/Library/Logs/up-daily.err.log"
 [dotfiles]
 "~/.agents/.skill-lock.json" = {}
 "~/.agents/skills" = { mode = "symlink-each" }
+"~/.local/bin/oc" = { source = "~/repos/dotfiles/.local/bin/opencode" }
+"~/.local/bin/opencode" = {}
+"~/.local/bin/opencode2" = { source = "~/repos/dotfiles/.local/bin/opencode" }
 "~/.zprofile" = {}
+"~/.zshenv" = {}
 "~/.zshrc" = {}
 "~/Applications/OpenCode Beta Reduced Motion.app" = {}
 "~/.gitconfig" = {}

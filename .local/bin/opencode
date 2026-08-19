@@ -1,0 +1,10 @@
+#!/bin/sh
+
+bin="/Applications/OpenCode Beta.app/Contents/Resources/opencode-cli"
+
+if [ ! -x "$bin" ]; then
+  printf 'OpenCode Desktop beta CLI not found at %s\n' "$bin" >&2
+  exit 127
+fi
+
+exec "$bin" "$@"
