@@ -5,7 +5,6 @@
   "formatter": false,
   "snapshots": false,
   "websearch": { "provider": "random" },
-  "experimental": { "subagent_depth": 1 },
   "permissions": [{ "action": "*", "resource": "*", "effect": "allow" }],
   "mcp": {
     "servers": {
