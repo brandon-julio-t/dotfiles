@@ -9,26 +9,17 @@ compinit
 # Preferred editor
 export EDITOR='nano'
 
-# Use the newest OpenCode v2 CLI embedded in the Desktop beta app.
-function opencode2 {
-  local cli_root="$HOME/Library/Application Support/ai.opencode.desktop.beta/cli"
-  local version build newest
-  local newest_build=-1
+# Use the OpenCode v2 CLI embedded in the Desktop beta app.
+function opencode {
+  local bin="/Applications/OpenCode Beta.app/Contents/Resources/opencode-cli"
 
-  for version in "$cli_root"/*(/N); do
-    build=${version##*-}
-    if [[ $build == <-> ]] && (( build > newest_build )); then
-      newest=$version
-      newest_build=$build
-    fi
-  done
-
-  if [[ -z $newest ]]; then
-    print -u2 "OpenCode Desktop beta CLI not found in $cli_root"
+  if [[ ! -x $bin ]]; then
+    print -u2 "OpenCode Desktop beta CLI not found at $bin"
     return 127
   fi
 
-  "$newest/opencode-cli" "$@"
+  "$bin" "$@"
 }
 
-alias oc=opencode2
+alias oc=opencode
+alias opencode2=opencode

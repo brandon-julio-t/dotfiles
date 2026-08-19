@@ -57,7 +57,7 @@ args = [
 ]
 working_directory = "~/repos/farmio-service"
 start_calendar_interval = { weekday = 1, hour = 8, minute = 45 }
-environment = { PATH = "/Users/bjt/.local/share/mise/shims:/opt/homebrew/bin:/Users/bjt/.opencode/bin:/usr/bin:/bin:/usr/sbin:/sbin" }
+environment = { PATH = "/Users/bjt/.local/share/mise/shims:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin" }
 stdout_path = "~/Library/Logs/opencode-scheduled-weekly-product-log-farmio-service.log"
 stderr_path = "~/Library/Logs/opencode-scheduled-weekly-product-log-farmio-service.err.log"
 
@@ -69,7 +69,7 @@ args = [
 ]
 working_directory = "~/repos/farmio-service"
 start_calendar_interval = { weekday = 1, hour = 9, minute = 0 }
-environment = { PATH = "/Users/bjt/.local/share/mise/shims:/opt/homebrew/bin:/Users/bjt/.opencode/bin:/usr/bin:/bin:/usr/sbin:/sbin" }
+environment = { PATH = "/Users/bjt/.local/share/mise/shims:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin" }
 stdout_path = "~/Library/Logs/opencode-scheduled-weekly-work-evidence-notion.log"
 stderr_path = "~/Library/Logs/opencode-scheduled-weekly-work-evidence-notion.err.log"
 
