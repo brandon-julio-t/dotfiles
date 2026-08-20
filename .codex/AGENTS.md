@@ -3,6 +3,8 @@
 - subagent depth is 1: root -> children only; children cannot spawn, so split work wisely into self-contained scopes
 
 - after code changes, use review agent and loop until no findings
+  - same scope: reuse/continue subagent
+  - diff scope: spawn fresh subagent
 
 - prefer gh cli over github mcp
 - when doing git commit, prevent clashing work with other concurrent tasks by using git staging, hunk staging, etc.
