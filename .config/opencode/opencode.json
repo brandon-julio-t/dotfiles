@@ -6,6 +6,9 @@
   "snapshots": false,
   "websearch": { "provider": "random" },
   "permissions": [{ "action": "*", "resource": "*", "effect": "allow" }],
+  "agents": {
+    "explore": { "disabled": true }
+  },
   "mcp": {
     "servers": {
       "cloudflare": {
