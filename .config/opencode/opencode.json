@@ -19,6 +19,14 @@
         "type": "local",
         "command": ["mise", "x", "--", "convex", "mcp", "start"]
       },
+      "farmio-local-dev": {
+        "type": "remote",
+        "url": "http://127.0.0.1:3001/mcp",
+        "oauth": false,
+        "headers": {
+          "Authorization": "Bearer {file:~/.config/opencode/secrets/farmio-mcp-api-key-local-dev}"
+        }
+      },
       "farmio-prod": {
         "type": "remote",
         "url": "https://api.farmio.io/api/elysia/mcp",
