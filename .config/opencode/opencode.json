@@ -31,7 +31,6 @@
           "--",
           "chrome-devtools-mcp",
           "--autoConnect",
-          "--userDataDir={env:HOME}/Library/Application Support/net.imput.helium",
           "--experimentalPageIdRouting"
         ]
       },
