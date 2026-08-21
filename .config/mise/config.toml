@@ -53,7 +53,7 @@ java = "latest"
 program = "/bin/zsh"
 args = [
   "-c",
-  'p=$(cat "$HOME/.config/opencode/scheduled/weekly-product-log-farmio-service.md") && [ -n "$p" ] || exit 78; exec "/Applications/OpenCode Beta.app/Contents/Resources/opencode-cli" run --auto --title "Weekly Product Log: Farmio Service" --model "openai/gpt-5.6-sol#low" "$p"',
+  'p=$(cat "$HOME/.config/opencode/scheduled/weekly-product-log-farmio-service.md") && [ -n "$p" ] || exit 78; exec "/Applications/OpenCode Beta.app/Contents/Resources/opencode-cli" run --auto --title "Weekly Product Log: Farmio Service" --model "openai/gpt-5.6-sol#high" "$p"',
 ]
 working_directory = "~/repos/farmio-service"
 start_calendar_interval = { weekday = 1, hour = 8, minute = 45 }
@@ -65,7 +65,7 @@ stderr_path = "~/Library/Logs/opencode-scheduled-weekly-product-log-farmio-servi
 program = "/bin/zsh"
 args = [
   "-c",
-  'p=$(cat "$HOME/.config/opencode/scheduled/weekly-work-evidence-notion.md") && [ -n "$p" ] || exit 78; exec "/Applications/OpenCode Beta.app/Contents/Resources/opencode-cli" run --auto --title "Weekly Work Evidence: Notion" --model "openai/gpt-5.6-sol#xhigh" "$p"',
+  'p=$(cat "$HOME/.config/opencode/scheduled/weekly-work-evidence-notion.md") && [ -n "$p" ] || exit 78; exec "/Applications/OpenCode Beta.app/Contents/Resources/opencode-cli" run --auto --title "Weekly Work Evidence: Notion" --model "openai/gpt-5.6-sol#max" "$p"',
 ]
 working_directory = "~/repos/farmio-service"
 start_calendar_interval = { weekday = 1, hour = 9, minute = 0 }
