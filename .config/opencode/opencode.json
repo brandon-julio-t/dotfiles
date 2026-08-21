@@ -19,6 +19,14 @@
         "type": "local",
         "command": ["mise", "x", "--", "convex", "mcp", "start"]
       },
+      "farmio-prod": {
+        "type": "remote",
+        "url": "https://api.farmio.io/api/elysia/mcp",
+        "oauth": false,
+        "headers": {
+          "Authorization": "Bearer {file:~/.config/opencode/secrets/farmio-mcp-api-key}"
+        }
+      },
       "vercel": {
         "type": "remote",
         "url": "https://mcp.vercel.com"
