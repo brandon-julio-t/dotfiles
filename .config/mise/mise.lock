@@ -210,10 +210,6 @@ backend = "npm:chrome-devtools-mcp"
 version = "1.44.0"
 backend = "npm:convex"
 
-[[tools."npm:skills"]]
-version = "1.5.23"
-backend = "npm:skills"
-
 [[tools.pnpm]]
 version = "11.22.0"
 backend = "aqua:pnpm/pnpm"
