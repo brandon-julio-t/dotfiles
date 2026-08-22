@@ -14,6 +14,6 @@
   - minimize cost: https://developers.openai.com/api/docs/guides/prompt-caching
 
 - aggressively minimize token usage by (including but not limited to):
-  - minimize tool loops/calls by running them in parallel or concurrently in one function execution
+  - minimize tool loops/calls by batching, running them in parallel, concurrently in one function execution, etc.
   - minimize tool outputs by truncating, filtering, etc.
-  - speak & write in plain & simple & concise
+  - speak & write plain & simple & concise
