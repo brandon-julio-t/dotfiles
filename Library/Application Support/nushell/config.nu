@@ -166,7 +166,6 @@ def clean-caches [] {
 def up [] {
     timeit {
         ensure-github-update-budget
-        timeit { mise self-update -y }
         timeit { mise upgrade -y --bump }
         timeit { mise bootstrap packages upgrade -y }
         timeit { mise bootstrap packages prune -y }

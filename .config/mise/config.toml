@@ -1,6 +1,8 @@
-min_version = "2026.7.5"
+min_version = "2026.8.11"
 
 [settings]
+auto_update = true
+auto_update_check_duration = "1d"
 dotfiles.root = "~/repos/dotfiles"
 dotfiles.default_mode = "symlink"
 lockfile_platforms = ["macos-arm64"]
