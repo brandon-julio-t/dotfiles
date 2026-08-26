@@ -10,7 +10,9 @@ lockfile_platforms = ["macos-arm64"]
 [tools]
 "aqua:fish-shell/fish-shell" = "latest"
 "aqua:nushell/nushell" = "latest"
+"aqua:aws/session-manager-plugin" = "latest"
 atuin = "latest"
+aws-cli = "latest"
 bat = "latest"
 bun = "latest"
 caddy = "latest"
