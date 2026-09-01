@@ -1,4 +1,22 @@
 {
+  "ssh_connections": [
+    {
+      "host": "farmio-devbox",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/home/ec2-user/repos/dotfiles"
+          ]
+        },
+        {
+          "paths": [
+            "/home/ec2-user/repos/farmio-service"
+          ]
+        }
+      ]
+    }
+  ],
   "diff_view_style": "unified",
   "outline_panel": {
     "dock": "right",
