@@ -17,30 +17,31 @@ url = "https://github.com/fish-shell/fish-shell/releases/download/4.8.1/fish-4.8
 url_api = "https://api.github.com/repos/fish-shell/fish-shell/releases/assets/476044372"
 
 [[tools."aqua:nushell/nushell"]]
-version = "0.115.0"
+version = "0.115.1"
 backend = "aqua:nushell/nushell"
 
 [tools."aqua:nushell/nushell"."platforms.macos-arm64"]
-checksum = "sha256:91f3c77e4f634b54029b07e3dc4e99ffec5fc0f98537f9b630bda32b4d06da5e"
-url = "https://github.com/nushell/nushell/releases/download/0.115.0/nu-0.115.0-aarch64-apple-darwin.tar.gz"
-url_api = "https://api.github.com/repos/nushell/nushell/releases/assets/516037608"
+checksum = "sha256:2e6ed1eb043869ff05b5f2448a8c443e4d3a93557ba4303b21008a0523c96734"
+url = "https://github.com/nushell/nushell/releases/download/0.115.1/nu-0.115.1-aarch64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/nushell/nushell/releases/assets/526010403"
 
 [[tools.atuin]]
-version = "18.19.0"
+version = "18.20.1"
 backend = "aqua:atuinsh/atuin"
 
 [tools.atuin."platforms.macos-arm64"]
-checksum = "sha256:40c8eb1fc12c0f5174fd4f20bc791310f19e58a31791f20d14d72f15661f19f1"
-url = "https://github.com/atuinsh/atuin/releases/download/v18.19.0/atuin-aarch64-apple-darwin.tar.gz"
-url_api = "https://api.github.com/repos/atuinsh/atuin/releases/assets/500652047"
+checksum = "sha256:690281d1b907973856ddc4430461f880530cc3f52398a331c284b2f9371f5025"
+url = "https://github.com/atuinsh/atuin/releases/download/v18.20.1/atuin-aarch64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/atuinsh/atuin/releases/assets/531543786"
 provenance = "github-attestations"
 
 [[tools.aws-cli]]
-version = "2.36.29"
+version = "2.36.36"
 backend = "aqua:aws/aws-cli"
 
 [tools.aws-cli."platforms.macos-arm64"]
-url = "https://awscli.amazonaws.com/AWSCLIV2-2.36.29.pkg"
+checksum = "blake3:69787e283680dc9661951f3c47dd833090b67053ba11c5db7ffd512f09e08abb"
+url = "https://awscli.amazonaws.com/AWSCLIV2-2.36.36.pkg"
 
 [[tools.bat]]
 version = "0.26.1"
@@ -125,22 +126,22 @@ url_api = "https://api.github.com/repos/cli/cli/releases/assets/522857972"
 provenance = "github-attestations"
 
 [[tools.git-lfs]]
-version = "3.7.1"
+version = "3.8.0"
 backend = "aqua:git-lfs/git-lfs"
 
 [tools.git-lfs."platforms.macos-arm64"]
-checksum = "sha256:76260fb34f4ee622ff0a66b857e5954aa49c7e343a92e57a1ec4a760618c94b2"
-url = "https://github.com/git-lfs/git-lfs/releases/download/v3.7.1/git-lfs-darwin-arm64-v3.7.1.zip"
-url_api = "https://api.github.com/repos/git-lfs/git-lfs/releases/assets/305262593"
+checksum = "sha256:caff76a7d070d8160c89bc39b6e85d98f24135b6fed038a3b4de2590d25102d8"
+url = "https://github.com/git-lfs/git-lfs/releases/download/v3.8.0/git-lfs-darwin-arm64-v3.8.0.zip"
+url_api = "https://api.github.com/repos/git-lfs/git-lfs/releases/assets/532993595"
 
 [[tools."github:boyter/scc"]]
-version = "3.7.0"
+version = "4.0.0"
 backend = "github:boyter/scc"
 
 [tools."github:boyter/scc"."platforms.macos-arm64"]
-checksum = "sha256:376cbae670be59ee64f398de20e0694ec434bf8a9b842642952b0ab0be5f3961"
-url = "https://github.com/boyter/scc/releases/download/v3.7.0/scc_Darwin_arm64.tar.gz"
-url_api = "https://api.github.com/repos/boyter/scc/releases/assets/367071904"
+checksum = "sha256:02cfdfcaf5baf7f6595746efdfcc6301fce89cfc6a5bf8b52ed78064937fd933"
+url = "https://github.com/boyter/scc/releases/download/v4.0.0/scc_Darwin_arm64.tar.gz"
+url_api = "https://api.github.com/repos/boyter/scc/releases/assets/526904411"
 
 [[tools."github:kitlangton/ghui"]]
 version = "0.9.0"
@@ -209,29 +210,29 @@ url_api = "https://api.github.com/repos/lima-vm/lima/releases/assets/484813994"
 provenance = "github-attestations"
 
 [[tools.node]]
-version = "26.7.0"
+version = "26.8.1"
 backend = "core:node"
 
 [tools.node."platforms.macos-arm64"]
-checksum = "sha256:7ee659a7768e641bbfd5360940660b8e8fd0052f77488f365562bac522fc15d4"
-url = "https://nodejs.org/dist/v26.7.0/node-v26.7.0-darwin-arm64.tar.gz"
+checksum = "sha256:6e577fd0d9db776db82306629e441a9dace416702622aebdd171c9dfaa41f4d2"
+url = "https://nodejs.org/dist/v26.8.1/node-v26.8.1-darwin-arm64.tar.gz"
 
 [[tools."npm:chrome-devtools-mcp"]]
-version = "1.7.0"
+version = "1.8.0"
 backend = "npm:chrome-devtools-mcp"
 
 [[tools."npm:convex"]]
-version = "1.44.0"
+version = "1.45.0"
 backend = "npm:convex"
 
 [[tools.pnpm]]
-version = "11.22.0"
+version = "12.0.0"
 backend = "aqua:pnpm/pnpm"
 
 [tools.pnpm."platforms.macos-arm64"]
-checksum = "sha256:2000dcc8f0718852c2806ba4dca1edaedf18a4a39264474d5a1c8fcee250adfd"
-url = "https://github.com/pnpm/pnpm/releases/download/v11.22.0/pnpm-darwin-arm64.tar.gz"
-url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/515895947"
+checksum = "sha256:c31f5abe796dfc8489ea980cb438844053ad6b402bb4f3eb9abd71086279d75b"
+url = "https://github.com/pnpm/pnpm/releases/download/v12.0.0/pnpm-darwin-arm64.tar.gz"
+url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/530962213"
 provenance = "github-attestations"
 
 [[tools.ripgrep]]
@@ -262,13 +263,13 @@ url = "https://github.com/starship/starship/releases/download/v1.26.0/starship-a
 url_api = "https://api.github.com/repos/starship/starship/releases/assets/460374577"
 
 [[tools.usage]]
-version = "5.1.0"
+version = "6.6.0"
 backend = "aqua:jdx/usage"
 
 [tools.usage."platforms.macos-arm64"]
-checksum = "sha256:ca35e60afd2895ec0b5be9162dbef155a76384ce43573b1ab8a04fbb46e70cd9"
-url = "https://github.com/jdx/usage/releases/download/v5.1.0/usage-universal-apple-darwin.tar.gz"
-url_api = "https://api.github.com/repos/jdx/usage/releases/assets/507609560"
+checksum = "sha256:ef6f93e61697ed6dc287dc9b28611553a5099b1fabf259a21825f2978e14f3d9"
+url = "https://github.com/jdx/usage/releases/download/v6.6.0/usage-universal-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/jdx/usage/releases/assets/537090611"
 
 [[tools.zoxide]]
 version = "0.10.0"
