@@ -1,6 +1,3 @@
-- review material code changes with review agent
-    - within scope: auto fix
-    - out of scope: advise user
 - when doing git commit, prevent clashing work with other concurrent tasks by using git staging, hunk staging, etc.
 - when writing for AI agents, it is mandatory to study:
     - writings: https://developers.openai.com/api/docs/guides/latest-model
