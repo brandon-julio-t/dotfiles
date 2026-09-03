@@ -62,7 +62,7 @@
     },
   },
   "git_panel": {
-    "group_by": "staging",
+    "group_by": "none",
     "dock": "right",
     "show_count_badge": false,
     "collapse_untracked_diff": false,
