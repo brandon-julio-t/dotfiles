@@ -8,13 +8,13 @@ backend = "aqua:aws/session-manager-plugin"
 url = "https://s3.amazonaws.com/session-manager-downloads/plugin/1.2.835.0/mac_arm64/sessionmanager-bundle.zip"
 
 [[tools."aqua:fish-shell/fish-shell"]]
-version = "4.8.1"
+version = "4.9.0"
 backend = "aqua:fish-shell/fish-shell"
 
 [tools."aqua:fish-shell/fish-shell"."platforms.macos-arm64"]
-checksum = "sha256:b196c2f9635486320ff9179c5c5aae9b0109234513c96b0ab0683e7349a404ac"
-url = "https://github.com/fish-shell/fish-shell/releases/download/4.8.1/fish-4.8.1.pkg"
-url_api = "https://api.github.com/repos/fish-shell/fish-shell/releases/assets/476044372"
+checksum = "sha256:4fdd222659db40e46adca3ea9486b5178fa2f72f20cd8475441f5b39de8810f8"
+url = "https://github.com/fish-shell/fish-shell/releases/download/4.9.0/fish-4.9.0.pkg"
+url_api = "https://api.github.com/repos/fish-shell/fish-shell/releases/assets/543058549"
 
 [[tools."aqua:nushell/nushell"]]
 version = "0.115.1"
@@ -36,12 +36,12 @@ url_api = "https://api.github.com/repos/atuinsh/atuin/releases/assets/538647916"
 provenance = "github-attestations"
 
 [[tools.aws-cli]]
-version = "2.36.38"
+version = "2.36.40"
 backend = "aqua:aws/aws-cli"
 
 [tools.aws-cli."platforms.macos-arm64"]
-checksum = "blake3:8343824717cb3d50ca9a9a89467496afbf176055577a07f6adfe78b2b12892c8"
-url = "https://awscli.amazonaws.com/AWSCLIV2-2.36.38.pkg"
+checksum = "blake3:5db2bdbe1a49c6b544796a62b37aea7452f706f40d8becea3f41088309084812"
+url = "https://awscli.amazonaws.com/AWSCLIV2-2.36.40.pkg"
 
 [[tools.bat]]
 version = "0.26.1"
@@ -97,13 +97,13 @@ url = "https://github.com/dandavison/delta/releases/download/0.19.2/delta-0.19.2
 url_api = "https://api.github.com/repos/dandavison/delta/releases/assets/383662310"
 
 [[tools.docker-compose]]
-version = "5.5.0"
+version = "5.5.1"
 backend = "aqua:docker/compose"
 
 [tools.docker-compose."platforms.macos-arm64"]
-checksum = "sha256:6777710e5a5db5709e5f4b5985844e74b73cc1a6123e3a6690b6ababf2deaf51"
-url = "https://github.com/docker/compose/releases/download/v5.5.0/docker-compose-darwin-aarch64"
-url_api = "https://api.github.com/repos/docker/compose/releases/assets/517869368"
+checksum = "sha256:998735c9b6fe68a4f05895e6ea73d71ad06f9fc7046383ad89e47346781b6af5"
+url = "https://github.com/docker/compose/releases/download/v5.5.1/docker-compose-darwin-aarch64"
+url_api = "https://api.github.com/repos/docker/compose/releases/assets/542966325"
 provenance = "cosign"
 
 [[tools.fzf]]
@@ -116,13 +116,13 @@ url = "https://github.com/junegunn/fzf/releases/download/v0.74.3/fzf-0.74.3-darw
 url_api = "https://api.github.com/repos/junegunn/fzf/releases/assets/517537091"
 
 [[tools.gh]]
-version = "2.99.0"
+version = "2.100.0"
 backend = "aqua:cli/cli"
 
 [tools.gh."platforms.macos-arm64"]
-checksum = "sha256:94d4bd7e88563a9cb414e651e88acc4f1728a87476752460906d824230748d37"
-url = "https://github.com/cli/cli/releases/download/v2.99.0/gh_2.99.0_macOS_arm64.zip"
-url_api = "https://api.github.com/repos/cli/cli/releases/assets/540091462"
+checksum = "sha256:45f9a62da2f6e641a7fad57e2ce39656dfd7ef331372d80a2a2aed65abb01642"
+url = "https://github.com/cli/cli/releases/download/v2.100.0/gh_2.100.0_macOS_arm64.zip"
+url_api = "https://api.github.com/repos/cli/cli/releases/assets/542974295"
 provenance = "github-attestations"
 
 [[tools.git-lfs]]
@@ -144,13 +144,13 @@ url = "https://github.com/boyter/scc/releases/download/v4.0.0/scc_Darwin_arm64.t
 url_api = "https://api.github.com/repos/boyter/scc/releases/assets/526904411"
 
 [[tools."github:kitlangton/ghui"]]
-version = "0.9.0"
+version = "0.9.1"
 backend = "github:kitlangton/ghui"
 
 [tools."github:kitlangton/ghui"."platforms.macos-arm64"]
-checksum = "sha256:0f0597395696f74c66baf6ffd78f7187dcdcebd2272a7ab69c744f2421ca40c8"
-url = "https://github.com/kitlangton/ghui/releases/download/v0.9.0/ghui-darwin-arm64.tar.gz"
-url_api = "https://api.github.com/repos/kitlangton/ghui/releases/assets/460389174"
+checksum = "sha256:8d2d4424b4238069ceec45c610df9f09f40bbf01e40c309257aaae56795424d3"
+url = "https://github.com/kitlangton/ghui/releases/download/v0.9.1/ghui-darwin-arm64.tar.gz"
+url_api = "https://api.github.com/repos/kitlangton/ghui/releases/assets/541361183"
 
 [[tools.helix]]
 version = "25.07.1"
