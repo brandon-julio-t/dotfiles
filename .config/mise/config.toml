@@ -60,9 +60,6 @@ stdout_path = "~/Library/Logs/up-daily.log"
 stderr_path = "~/Library/Logs/up-daily.err.log"
 
 [dotfiles]
-"~/.local/bin/oc" = { source = "~/repos/dotfiles/.local/bin/opencode" }
-"~/.local/bin/opencode" = {}
-"~/.local/bin/opencode2" = { source = "~/repos/dotfiles/.local/bin/opencode" }
 "~/.zprofile" = {}
 "~/.zshenv" = {}
 "~/.zshrc" = {}

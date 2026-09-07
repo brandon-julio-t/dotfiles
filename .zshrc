@@ -8,3 +8,6 @@ compinit
 
 # Preferred editor
 export EDITOR='nano'
+
+# opencode
+export PATH="$HOME/.opencode/bin:$PATH"

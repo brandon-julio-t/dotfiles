@@ -21,6 +21,7 @@ $env.path ++= [
     "/opt/homebrew/opt/libpq/bin",
     "/usr/local/bin",
     ($nu.home-dir | path join ".local" "bin"),
+    ($nu.home-dir | path join ".opencode" "bin"),
 ]
 
 $env.config.buffer_editor = "zed"
@@ -80,19 +81,6 @@ alias ld = lazydocker
 alias lg = lazygit
 alias lss = lazyssh
 alias p = pnpm
-
-def --wrapped opencode [...args] {
-  let bin = "/Applications/OpenCode Beta.app/Contents/Resources/opencode-cli"
-
-  if not ($bin | path exists) {
-    error make { msg: $'OpenCode Desktop beta CLI not found at ($bin)' }
-  }
-
-  run-external $bin ...$args
-}
-
-alias oc = opencode
-alias opencode2 = opencode
 
 # Register mise's Compose binary as a Docker CLI plugin so `docker compose` works.
 def ensure-docker-compose-plugin [] {
