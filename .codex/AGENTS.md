@@ -1,3 +1,3 @@
 - when writing for AI agents, it is mandatory to study:
-  - writings: https://developers.openai.com/api/docs/guides/latest-model
-  - minimize cost: https://developers.openai.com/api/docs/guides/prompt-caching
+    - writings: https://developers.openai.com/api/docs/guides/latest-model
+    - minimize cost: https://developers.openai.com/api/docs/guides/prompt-caching
