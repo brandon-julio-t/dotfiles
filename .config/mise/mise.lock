@@ -8,13 +8,13 @@ backend = "aqua:aws/session-manager-plugin"
 url = "https://s3.amazonaws.com/session-manager-downloads/plugin/1.2.835.0/mac_arm64/sessionmanager-bundle.zip"
 
 [[tools."aqua:fish-shell/fish-shell"]]
-version = "4.9.2"
+version = "4.9.3"
 backend = "aqua:fish-shell/fish-shell"
 
 [tools."aqua:fish-shell/fish-shell"."platforms.macos-arm64"]
-checksum = "sha256:93491525e4e338f7a6b164334b33eee261fb70f71576539c8a08130f84dc3496"
-url = "https://github.com/fish-shell/fish-shell/releases/download/4.9.2/fish-4.9.2.pkg"
-url_api = "https://api.github.com/repos/fish-shell/fish-shell/releases/assets/545717347"
+checksum = "sha256:fb489929e25e66b8c026a1da8935f68f828134e115a1706f360ed73149b843a9"
+url = "https://github.com/fish-shell/fish-shell/releases/download/4.9.3/fish-4.9.3.pkg"
+url_api = "https://api.github.com/repos/fish-shell/fish-shell/releases/assets/551147059"
 
 [[tools."aqua:nushell/nushell"]]
 version = "0.115.1"
@@ -36,12 +36,12 @@ url_api = "https://api.github.com/repos/atuinsh/atuin/releases/assets/538647916"
 provenance = "github-attestations"
 
 [[tools.aws-cli]]
-version = "2.36.40"
+version = "2.36.42"
 backend = "aqua:aws/aws-cli"
 
 [tools.aws-cli."platforms.macos-arm64"]
-checksum = "blake3:5db2bdbe1a49c6b544796a62b37aea7452f706f40d8becea3f41088309084812"
-url = "https://awscli.amazonaws.com/AWSCLIV2-2.36.40.pkg"
+checksum = "blake3:8ae56d50f81aa505ac7157ba8168d74dd5dea78866ce9dd15e2bf35e87dda0e6"
+url = "https://awscli.amazonaws.com/AWSCLIV2-2.36.42.pkg"
 
 [[tools.bat]]
 version = "0.26.1"
@@ -135,13 +135,13 @@ url = "https://github.com/git-lfs/git-lfs/releases/download/v3.8.0/git-lfs-darwi
 url_api = "https://api.github.com/repos/git-lfs/git-lfs/releases/assets/532993595"
 
 [[tools."github:boyter/scc"]]
-version = "4.0.0"
+version = "4.1.0"
 backend = "github:boyter/scc"
 
 [tools."github:boyter/scc"."platforms.macos-arm64"]
-checksum = "sha256:02cfdfcaf5baf7f6595746efdfcc6301fce89cfc6a5bf8b52ed78064937fd933"
-url = "https://github.com/boyter/scc/releases/download/v4.0.0/scc_Darwin_arm64.tar.gz"
-url_api = "https://api.github.com/repos/boyter/scc/releases/assets/526904411"
+checksum = "sha256:7201c7aa4aace058d43308462cba72adb18f6094c08c0741727455976d0a0747"
+url = "https://github.com/boyter/scc/releases/download/v4.1.0/scc_Darwin_arm64.tar.gz"
+url_api = "https://api.github.com/repos/boyter/scc/releases/assets/549478883"
 
 [[tools."github:kitlangton/ghui"]]
 version = "0.9.1"
@@ -210,15 +210,15 @@ url_api = "https://api.github.com/repos/lima-vm/lima/releases/assets/484813994"
 provenance = "github-attestations"
 
 [[tools.node]]
-version = "26.8.1"
+version = "26.8.2"
 backend = "core:node"
 
 [tools.node."platforms.macos-arm64"]
-checksum = "sha256:6e577fd0d9db776db82306629e441a9dace416702622aebdd171c9dfaa41f4d2"
-url = "https://nodejs.org/dist/v26.8.1/node-v26.8.1-darwin-arm64.tar.gz"
+checksum = "sha256:974b6d5fb2fc7c33ff2354db0902b4e91c2de01ec8acc6de48e543c97e18c9e1"
+url = "https://nodejs.org/dist/v26.8.2/node-v26.8.2-darwin-arm64.tar.gz"
 
 [[tools."npm:chrome-devtools-mcp"]]
-version = "1.8.0"
+version = "1.9.0"
 backend = "npm:chrome-devtools-mcp"
 
 [[tools."npm:convex"]]
@@ -263,13 +263,13 @@ url = "https://github.com/starship/starship/releases/download/v1.26.0/starship-a
 url_api = "https://api.github.com/repos/starship/starship/releases/assets/460374577"
 
 [[tools.usage]]
-version = "6.7.1"
+version = "6.8.0"
 backend = "aqua:jdx/usage"
 
 [tools.usage."platforms.macos-arm64"]
-checksum = "sha256:7c9d4a3b575a9b3bed6a211aed8a080a287bf376e01ae3f1edcd4d6af4dc038f"
-url = "https://github.com/jdx/usage/releases/download/v6.7.1/usage-universal-apple-darwin.tar.gz"
-url_api = "https://api.github.com/repos/jdx/usage/releases/assets/546276594"
+checksum = "sha256:f6bfe2e5353e02769d3f6902d06db1cb201f84124df08465fd4826f9ce7ba632"
+url = "https://github.com/jdx/usage/releases/download/v6.8.0/usage-universal-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/jdx/usage/releases/assets/547480261"
 
 [[tools.zoxide]]
 version = "0.10.0"
