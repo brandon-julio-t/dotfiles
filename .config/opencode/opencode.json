@@ -3,71 +3,80 @@
   "share": "disabled",
   "lsp": false,
   "formatter": false,
-  "snapshots": false,
-  "websearch": { "provider": "random" },
-  "permissions": [{ "action": "*", "resource": "*", "effect": "allow" }],
-  "agents": {
-    "explore": { "disabled": true }
-  },
   "mcp": {
-    "servers": {
-      "cloudflare": {
-        "type": "remote",
-        "url": "https://mcp.cloudflare.com/mcp"
-      },
-      "convex": {
-        "type": "local",
-        "command": ["mise", "x", "--", "convex", "mcp", "start"]
-      },
-      "farmio-local-dev": {
-        "type": "remote",
-        "url": "http://127.0.0.1:3001/mcp",
-        "oauth": false,
-        "headers": {
-          "Authorization": "Bearer {file:~/.config/opencode/secrets/farmio-mcp-api-key-local-dev}"
-        }
-      },
-      "farmio-prod": {
-        "type": "remote",
-        "url": "https://api.farmio.io/api/elysia/mcp",
-        "oauth": false,
-        "headers": {
-          "Authorization": "Bearer {file:~/.config/opencode/secrets/farmio-mcp-api-key}"
-        }
-      },
-      "vercel": {
-        "type": "remote",
-        "url": "https://mcp.vercel.com"
-      },
-      "chrome-devtools": {
-        "type": "local",
-        "command": [
-          "mise",
-          "x",
-          "--",
-          "chrome-devtools-mcp",
-          "--autoConnect",
-          "--experimentalPageIdRouting"
-        ]
-      },
-      "posthog": {
-        "type": "remote",
-        "url": "https://mcp.posthog.com/mcp?mode=cli"
-      },
-      "notion": {
-        "type": "remote",
-        "url": "https://mcp.notion.com/mcp"
-      },
-      "slack": {
-        "type": "remote",
-        "url": "https://mcp.slack.com/mcp",
-        "oauth": {
-          "client_id": "{file:~/.config/opencode/secrets/slack-mcp-client-id}",
-          "client_secret": "{file:~/.config/opencode/secrets/slack-mcp-client-secret}",
-          "scope": "search:read.public,search:read.private,search:read.im,search:read.mpim,search:read.users,search:read.files,channels:history,groups:history,im:history,mpim:history,chat:write,users:read,channels:read,groups:read,files:read,reactions:read,reactions:write,emoji:read",
-          "redirect_uri": "http://localhost:19876/mcp/oauth/callback"
-        }
+    "cloudflare": {
+      "type": "remote",
+      "url": "https://mcp.cloudflare.com/mcp"
+    },
+    "convex": {
+      "type": "local",
+      "command": [
+        "mise",
+        "x",
+        "--",
+        "convex",
+        "mcp",
+        "start"
+      ]
+    },
+    "farmio-local-dev": {
+      "type": "remote",
+      "url": "http://127.0.0.1:3001/mcp",
+      "oauth": false,
+      "headers": {
+        "Authorization": "Bearer {file:~/.config/opencode/secrets/farmio-mcp-api-key-local-dev}"
+      }
+    },
+    "farmio-prod": {
+      "type": "remote",
+      "url": "https://api.farmio.io/api/elysia/mcp",
+      "oauth": false,
+      "headers": {
+        "Authorization": "Bearer {file:~/.config/opencode/secrets/farmio-mcp-api-key}"
+      }
+    },
+    "vercel": {
+      "type": "remote",
+      "url": "https://mcp.vercel.com"
+    },
+    "chrome-devtools": {
+      "type": "local",
+      "command": [
+        "mise",
+        "x",
+        "--",
+        "chrome-devtools-mcp",
+        "--autoConnect",
+        "--experimentalPageIdRouting"
+      ]
+    },
+    "posthog": {
+      "type": "remote",
+      "url": "https://mcp.posthog.com/mcp?mode=cli"
+    },
+    "notion": {
+      "type": "remote",
+      "url": "https://mcp.notion.com/mcp"
+    },
+    "slack": {
+      "type": "remote",
+      "url": "https://mcp.slack.com/mcp",
+      "oauth": {
+        "clientId": "{file:~/.config/opencode/secrets/slack-mcp-client-id}",
+        "clientSecret": "{file:~/.config/opencode/secrets/slack-mcp-client-secret}",
+        "scope": "search:read.public,search:read.private,search:read.im,search:read.mpim,search:read.users,search:read.files,channels:history,groups:history,im:history,mpim:history,chat:write,users:read,channels:read,groups:read,files:read,reactions:read,reactions:write,emoji:read",
+        "redirectUri": "http://localhost:19876/mcp/oauth/callback"
       }
     }
+  },
+  "permission": "allow",
+  "snapshot": false,
+  "agent": {
+    "explore": {
+      "disable": true
+    }
+  },
+  "websearch": {
+    "provider": "random"
   }
 }
