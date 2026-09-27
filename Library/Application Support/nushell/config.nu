@@ -22,6 +22,7 @@ $env.path ++= [
     "/usr/local/bin",
     ($nu.home-dir | path join ".local" "bin"),
     ($nu.home-dir | path join ".opencode" "bin"),
+    "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS",
 ]
 
 $env.config.buffer_editor = "zed"
